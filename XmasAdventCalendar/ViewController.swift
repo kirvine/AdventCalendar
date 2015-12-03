@@ -14,17 +14,27 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
         if (PFUser.currentUser() == nil) {
-            let loginViewController = LoginViewController()
-            loginViewController.delegate = self
             
-            // login screen options
-            loginViewController.fields = [.UsernameAndPassword, .LogInButton, .PasswordForgotten, .SignUpButton]
-            loginViewController.signUpController?.delegate = self
-            self.presentViewController(loginViewController, animated: false, completion: nil)
+            // tell app which view controllers to connect to
+            let logInViewController = LogInViewController()
+            logInViewController.delegate = self
+            logInViewController.signUpController = SignUpViewController()
+            logInViewController.signUpController?.delegate = self
+
+            
+            // select elements to toggle
+            logInViewController.fields = [.UsernameAndPassword, .LogInButton, .PasswordForgotten, .SignUpButton]
+            
+            // tell app to present view controller at start
+            self.presentViewController(logInViewController, animated: false, completion: nil)
+            
         } else {
+            
             // show that user is already logged in
             presentLoggedInAlert()
+            
         }
     }
     

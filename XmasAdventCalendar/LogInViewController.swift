@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class LoginViewController : PFLogInViewController {
+class LogInViewController : PFLogInViewController {
     
     var backgroundImage : UIImageView!
     var viewsToAnimate: [UIView!]!
@@ -29,16 +29,13 @@ class LoginViewController : PFLogInViewController {
         customizeLogIn()
         
         // customize forgot password
-        logInView?.passwordForgottenButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        customizeForgotPassword()
 
         // customize sign up button
         customizeSignUp(logInView?.signUpButton!)
         
         // create an array of all the views we want to animate at launch
-        viewsToAnimate = [self.logInView?.usernameField, self.logInView?.passwordField, self.logInView?.logInButton]
-
-        // set signUpViewController
-        self.signUpController = SignUpViewController()
+        viewsToAnimate = [self.logInView?.logo, self.logInView?.usernameField, self.logInView?.passwordField, self.logInView?.logInButton, self.logInView?.passwordForgottenButton, self.logInView?.signUpButton]
 
     }
     
@@ -58,7 +55,7 @@ class LoginViewController : PFLogInViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        // animate views to float up
+        // animate views to float up from bottom
         if viewsFinalYPosition.count == self.viewsToAnimate.count {
             UIView.animateWithDuration(1, delay: 0.0, options: .CurveEaseInOut,  animations: { () -> Void in
                 for viewToAnimate in self.viewsToAnimate {
@@ -67,12 +64,13 @@ class LoginViewController : PFLogInViewController {
                 }
             }, completion: nil)
         }
+        
     }
     
     //  MARK:   Customizations
     
     func customizeBackground() {
-        backgroundImage = UIImageView(image: UIImage(named: "snow3"))
+        backgroundImage = UIImageView(image: UIImage(named: "snow"))
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
         self.logInView!.insertSubview(backgroundImage, atIndex: 0)
     }
@@ -91,6 +89,10 @@ class LoginViewController : PFLogInViewController {
         logInView?.logInButton?.setTitleColor(UIColor.grayColor(), forState: .Normal)
         logInView?.logInButton?.setBackgroundImage(nil, forState: .Normal)
         logInView?.logInButton?.backgroundColor = UIColor.whiteColor()
+    }
+    
+    func customizeForgotPassword() {
+        logInView?.passwordForgottenButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
     }
     
     func customizeSignUp(button: UIButton!) {
