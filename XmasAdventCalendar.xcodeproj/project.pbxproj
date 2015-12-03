@@ -30,10 +30,12 @@
 		4B02648F1C0FF9FA006B2E8A /* XmasAdventCalendar-Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B02648E1C0FF9FA006B2E8A /* XmasAdventCalendar-Bridging-Header.m */; };
 		4B0269DB1C100074006B2E8A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0269D91C100074006B2E8A /* libsqlite3.dylib */; };
 		4B0269DC1C100074006B2E8A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0269DA1C100074006B2E8A /* libz.1.dylib */; };
-		4B0269E71C10112A006B2E8A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0269E61C10112A006B2E8A /* SignUpViewController.swift */; };
 		4B0269FB1C102C70006B2E8A /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0269FA1C102C70006B2E8A /* ViewController2.swift */; };
 		4B0269FD1C102D60006B2E8A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0269FC1C102D60006B2E8A /* LogInViewController.swift */; };
 		4B026A041C103523006B2E8A /* Lights.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B026A031C103523006B2E8A /* Lights.otf */; };
+		4B026A071C1037DD006B2E8A /* budmo jiggler.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B026A051C1037DD006B2E8A /* budmo jiggler.ttf */; };
+		4B0A3A711C10DE5A009A10A4 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B0A3A701C10DE5A009A10A4 /* Pacifico.ttf */; };
+		4B0A3A751C10E84B009A10A4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0A3A741C10E84B009A10A4 /* SignUpViewController.swift */; };
 		87CCAD4449B14435B0249F96 /* Pods_XmasAdventCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1987C92E45974FAFAD7ABCF /* Pods_XmasAdventCalendar.framework */; };
 /* End PBXBuildFile section */
 
@@ -1277,10 +1279,12 @@
 		4B0269C31C0FFFB7006B2E8A /* XmasAdventCalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmasAdventCalendarUITests.swift; sourceTree = "<group>"; };
 		4B0269D91C100074006B2E8A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		4B0269DA1C100074006B2E8A /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
-		4B0269E61C10112A006B2E8A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4B0269FA1C102C70006B2E8A /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		4B0269FC1C102D60006B2E8A /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4B026A031C103523006B2E8A /* Lights.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lights.otf; sourceTree = "<group>"; };
+		4B026A051C1037DD006B2E8A /* budmo jiggler.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "budmo jiggler.ttf"; sourceTree = "<group>"; };
+		4B0A3A701C10DE5A009A10A4 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		4B0A3A741C10E84B009A10A4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5374FD255299422CAFC7E688 /* Pods-XmasAdventCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XmasAdventCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XmasAdventCalendar/Pods-XmasAdventCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		B1987C92E45974FAFAD7ABCF /* Pods_XmasAdventCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XmasAdventCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8211CC595F59FD68423B740 /* Pods-XmasAdventCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XmasAdventCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-XmasAdventCalendar/Pods-XmasAdventCalendar.release.xcconfig"; sourceTree = "<group>"; };
@@ -1356,7 +1360,7 @@
 				4B02643F1C0FF6E4006B2E8A /* AppDelegate.swift */,
 				4B0264411C0FF6E4006B2E8A /* ViewController.swift */,
 				4B0269FC1C102D60006B2E8A /* LogInViewController.swift */,
-				4B0269E61C10112A006B2E8A /* SignUpViewController.swift */,
+				4B0A3A741C10E84B009A10A4 /* SignUpViewController.swift */,
 				4B0264431C0FF6E4006B2E8A /* Main.storyboard */,
 				4B0264461C0FF6E4006B2E8A /* Assets.xcassets */,
 				4B0264481C0FF6E4006B2E8A /* LaunchScreen.storyboard */,
@@ -3838,7 +3842,9 @@
 		4B026A021C1032F4006B2E8A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				4B0A3A701C10DE5A009A10A4 /* Pacifico.ttf */,
 				4B026A031C103523006B2E8A /* Lights.otf */,
+				4B026A051C1037DD006B2E8A /* budmo jiggler.ttf */,
 			);
 			name = Fonts;
 			path = XmasAdventCalendar;
@@ -3996,8 +4002,10 @@
 			files = (
 				4B026A041C103523006B2E8A /* Lights.otf in Resources */,
 				4B02644A1C0FF6E4006B2E8A /* LaunchScreen.storyboard in Resources */,
+				4B0A3A711C10DE5A009A10A4 /* Pacifico.ttf in Resources */,
 				4B0264471C0FF6E4006B2E8A /* Assets.xcassets in Resources */,
 				4B0264451C0FF6E4006B2E8A /* Main.storyboard in Resources */,
+				4B026A071C1037DD006B2E8A /* budmo jiggler.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4070,11 +4078,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B0A3A751C10E84B009A10A4 /* SignUpViewController.swift in Sources */,
 				4B0269FB1C102C70006B2E8A /* ViewController2.swift in Sources */,
 				4B0264421C0FF6E4006B2E8A /* ViewController.swift in Sources */,
 				4B0269FD1C102D60006B2E8A /* LogInViewController.swift in Sources */,
 				4B0264401C0FF6E4006B2E8A /* AppDelegate.swift in Sources */,
-				4B0269E71C10112A006B2E8A /* SignUpViewController.swift in Sources */,
 				4B02648F1C0FF9FA006B2E8A /* XmasAdventCalendar-Bridging-Header.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

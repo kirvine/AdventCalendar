@@ -8,7 +8,6 @@
         <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController title="Welcome View Controller" id="BYZ-38-t0r" customClass="ViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -18,140 +17,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hanging" translatesAutoresizingMaskIntoConstraints="NO" id="pSW-pk-RvW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="snow2" translatesAutoresizingMaskIntoConstraints="NO" id="pSW-pk-RvW">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltq-Jb-Dxg">
-                                <rect key="frame" x="269" y="321" width="98" height="30"/>
+                                <rect key="frame" x="251" y="351" width="98" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7d2-Kb-g6l"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="pSW-pk-RvW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pwt-Do-Pr0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qQv-5O-aK9"/>
                     <connections>
-                        <segue destination="jus-i3-hUb" kind="show" identifier="signUp" id="eVy-iH-L9V"/>
+                        <segue destination="Lzz-JM-1Gi" kind="show" id="RRm-mt-n2k"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="829" y="387"/>
         </scene>
-        <!--Sign Up View Controller-->
-        <scene sceneID="S4y-Wj-Qtm">
+        <!--Table View Controller-->
+        <scene sceneID="0ef-pE-kNV">
             <objects>
-                <viewController id="jus-i3-hUb" customClass="SignUpViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="o0G-dJ-N1e"/>
-                        <viewControllerLayoutGuide type="bottom" id="fiO-5q-SAE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TUQ-Gx-mZR">
+                <tableViewController id="Lzz-JM-1Gi" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="P6e-QP-dK0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M13-zq-LxW">
-                                <rect key="frame" x="79" y="335" width="256" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4O-bw-l7T">
-                                <rect key="frame" x="79" y="287" width="256" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWM-vq-22y">
-                                <rect key="frame" x="79" y="430" width="256" height="34"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpAction:" destination="jus-i3-hUb" eventType="touchUpInside" id="kvh-kc-fnJ"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5bc-5f-bDd">
-                                <rect key="frame" x="79" y="383" width="256" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="emailField" destination="f4O-bw-l7T" id="PXF-kv-FmC"/>
-                        <outlet property="passwordField" destination="5bc-5f-bDd" id="fWW-Ea-hG6"/>
-                        <outlet property="usernameField" destination="M13-zq-LxW" id="3gs-5D-KRl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4xh-Wz-uRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="F7i-kU-59X">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F7i-kU-59X" id="ohv-1y-hWN">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Lzz-JM-1Gi" id="C0N-1c-PDt"/>
+                            <outlet property="delegate" destination="Lzz-JM-1Gi" id="3Sd-Ac-FBO"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iLB-2D-SFK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1601" y="387"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="OmY-1x-7DE">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ncb-ET-OVJ" sceneMemberID="firstResponder"/>
-                <viewController id="4qe-gI-aNS" customClass="ViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VJt-Jr-GrX"/>
-                        <viewControllerLayoutGuide type="bottom" id="jei-8C-MxM"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="S2O-ms-lep">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m9p-U7-yyy">
-                                <rect key="frame" x="79" y="306" width="256" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cto-TD-w4q">
-                                <rect key="frame" x="79" y="353" width="256" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdd-RI-OJL">
-                                <rect key="frame" x="162" y="496" width="91" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpAction:" destination="4qe-gI-aNS" eventType="touchUpInside" id="qQ0-5d-Ji0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oG-sv-mOS">
-                                <rect key="frame" x="79" y="402" width="256" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginAction:" destination="4qe-gI-aNS" eventType="touchUpInside" id="dP5-wc-WNM"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Ooo-zi-BFC"/>
-                    <connections>
-                        <outlet property="passwordField" destination="Cto-TD-w4q" id="cdq-no-dW2"/>
-                        <outlet property="usernameField" destination="m9p-U7-yyy" id="ZxM-sg-eNt"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="677" y="1167"/>
+            <point key="canvasLocation" x="1581" y="387"/>
         </scene>
     </scenes>
     <resources>
-        <image name="hanging" width="750" height="1334"/>
+        <image name="snow2" width="792" height="1224"/>
     </resources>
 </document>
