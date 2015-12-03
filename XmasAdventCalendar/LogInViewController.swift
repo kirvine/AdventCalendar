@@ -17,10 +17,19 @@ class LoginViewController : PFLogInViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set our custom background image
+        // set custom background image
         backgroundImage = UIImageView(image: UIImage(named: "hanging"))
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
         self.logInView!.insertSubview(backgroundImage, atIndex: 0)
+        
+        // remove the parse Logo
+        let logo = UILabel()
+        logo.text = "Christmas Advent Calendar"
+        logo.textColor = UIColor.whiteColor()
+        logo.font = UIFont(name: "Lights", size: 40)
+        logo.shadowColor = UIColor.lightGrayColor()
+        logo.shadowOffset = CGSizeMake(2, 2)
+        logInView?.logo = logo
     }
     
     override func viewDidLayoutSubviews() {

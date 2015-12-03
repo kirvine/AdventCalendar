@@ -33,6 +33,7 @@
 		4B0269E71C10112A006B2E8A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0269E61C10112A006B2E8A /* SignUpViewController.swift */; };
 		4B0269FB1C102C70006B2E8A /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0269FA1C102C70006B2E8A /* ViewController2.swift */; };
 		4B0269FD1C102D60006B2E8A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0269FC1C102D60006B2E8A /* LogInViewController.swift */; };
+		4B026A041C103523006B2E8A /* Lights.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B026A031C103523006B2E8A /* Lights.otf */; };
 		87CCAD4449B14435B0249F96 /* Pods_XmasAdventCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1987C92E45974FAFAD7ABCF /* Pods_XmasAdventCalendar.framework */; };
 /* End PBXBuildFile section */
 
@@ -1279,6 +1280,7 @@
 		4B0269E61C10112A006B2E8A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4B0269FA1C102C70006B2E8A /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		4B0269FC1C102D60006B2E8A /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		4B026A031C103523006B2E8A /* Lights.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lights.otf; sourceTree = "<group>"; };
 		5374FD255299422CAFC7E688 /* Pods-XmasAdventCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XmasAdventCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XmasAdventCalendar/Pods-XmasAdventCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		B1987C92E45974FAFAD7ABCF /* Pods_XmasAdventCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XmasAdventCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8211CC595F59FD68423B740 /* Pods-XmasAdventCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XmasAdventCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-XmasAdventCalendar/Pods-XmasAdventCalendar.release.xcconfig"; sourceTree = "<group>"; };
@@ -1329,6 +1331,7 @@
 			isa = PBXGroup;
 			children = (
 				4B02643E1C0FF6E4006B2E8A /* XmasAdventCalendar */,
+				4B026A021C1032F4006B2E8A /* Fonts */,
 				4B0264531C0FF6E4006B2E8A /* XmasAdventCalendarTests */,
 				4B02645E1C0FF6E4006B2E8A /* XmasAdventCalendarUITests */,
 				4B02643D1C0FF6E4006B2E8A /* Products */,
@@ -3832,6 +3835,15 @@
 			path = XmasAdventCalendarUITests;
 			sourceTree = "<group>";
 		};
+		4B026A021C1032F4006B2E8A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4B026A031C103523006B2E8A /* Lights.otf */,
+			);
+			name = Fonts;
+			path = XmasAdventCalendar;
+			sourceTree = "<group>";
+		};
 		D50C1A334F909BD4C2330341 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3982,6 +3994,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B026A041C103523006B2E8A /* Lights.otf in Resources */,
 				4B02644A1C0FF6E4006B2E8A /* LaunchScreen.storyboard in Resources */,
 				4B0264471C0FF6E4006B2E8A /* Assets.xcassets in Resources */,
 				4B0264451C0FF6E4006B2E8A /* Main.storyboard in Resources */,
