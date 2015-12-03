@@ -31,6 +31,8 @@
 		4B0269DB1C100074006B2E8A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0269D91C100074006B2E8A /* libsqlite3.dylib */; };
 		4B0269DC1C100074006B2E8A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0269DA1C100074006B2E8A /* libz.1.dylib */; };
 		4B0269E71C10112A006B2E8A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0269E61C10112A006B2E8A /* SignUpViewController.swift */; };
+		4B0269FB1C102C70006B2E8A /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0269FA1C102C70006B2E8A /* ViewController2.swift */; };
+		4B0269FD1C102D60006B2E8A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0269FC1C102D60006B2E8A /* LogInViewController.swift */; };
 		87CCAD4449B14435B0249F96 /* Pods_XmasAdventCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1987C92E45974FAFAD7ABCF /* Pods_XmasAdventCalendar.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,40 +58,12 @@
 			remoteGlobalIDString = 50022BAFB6DF70485C223DFAD33488FF;
 			remoteInfo = Bolts;
 		};
-		4B0269CD1C0FFFB7006B2E8A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4B0269761C0FFFB6006B2E8A /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 44DDDBD861E9B2AE0BECC4C27AF65F3E;
-			remoteInfo = "Facebook-iOS-SDK";
-		};
 		4B0269CF1C0FFFB7006B2E8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4B0269761C0FFFB6006B2E8A /* Pods.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2F1EA0CADA4517D69170934A212E079F;
 			remoteInfo = Parse;
-		};
-		4B0269D11C0FFFB7006B2E8A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4B0269761C0FFFB6006B2E8A /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 04CBB2E4CEE3F918071CF5C95D395FC5;
-			remoteInfo = ParseCrashReporting;
-		};
-		4B0269D31C0FFFB7006B2E8A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4B0269761C0FFFB6006B2E8A /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 654B74AE1F61905AAA9D7C8828DF27E0;
-			remoteInfo = ParseFacebookUtils;
-		};
-		4B0269D51C0FFFB7006B2E8A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4B0269761C0FFFB6006B2E8A /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5F20C925D3FAA16C236DAC04EB80B692;
-			remoteInfo = ParseUI;
 		};
 		4B0269D71C0FFFB7006B2E8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1303,6 +1277,8 @@
 		4B0269D91C100074006B2E8A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		4B0269DA1C100074006B2E8A /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		4B0269E61C10112A006B2E8A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4B0269FA1C102C70006B2E8A /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		4B0269FC1C102D60006B2E8A /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5374FD255299422CAFC7E688 /* Pods-XmasAdventCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XmasAdventCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XmasAdventCalendar/Pods-XmasAdventCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		B1987C92E45974FAFAD7ABCF /* Pods_XmasAdventCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XmasAdventCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8211CC595F59FD68423B740 /* Pods-XmasAdventCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XmasAdventCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-XmasAdventCalendar/Pods-XmasAdventCalendar.release.xcconfig"; sourceTree = "<group>"; };
@@ -1376,6 +1352,7 @@
 			children = (
 				4B02643F1C0FF6E4006B2E8A /* AppDelegate.swift */,
 				4B0264411C0FF6E4006B2E8A /* ViewController.swift */,
+				4B0269FC1C102D60006B2E8A /* LogInViewController.swift */,
 				4B0269E61C10112A006B2E8A /* SignUpViewController.swift */,
 				4B0264431C0FF6E4006B2E8A /* Main.storyboard */,
 				4B0264461C0FF6E4006B2E8A /* Assets.xcassets */,
@@ -1383,6 +1360,7 @@
 				4B02644B1C0FF6E4006B2E8A /* Info.plist */,
 				4B02648E1C0FF9FA006B2E8A /* XmasAdventCalendar-Bridging-Header.m */,
 				4B02648D1C0FF9F9006B2E8A /* XmasAdventCalendar-Bridging-Header.h */,
+				4B0269FA1C102C70006B2E8A /* ViewController2.swift */,
 			);
 			path = XmasAdventCalendar;
 			sourceTree = "<group>";
@@ -3701,11 +3679,7 @@
 			isa = PBXGroup;
 			children = (
 				4B0269CC1C0FFFB7006B2E8A /* Bolts.framework */,
-				4B0269CE1C0FFFB7006B2E8A /* FacebookSDK.framework */,
 				4B0269D01C0FFFB7006B2E8A /* Parse.framework */,
-				4B0269D21C0FFFB7006B2E8A /* ParseCrashReporting.framework */,
-				4B0269D41C0FFFB7006B2E8A /* ParseFacebookUtils.framework */,
-				4B0269D61C0FFFB7006B2E8A /* ParseUI.framework */,
 				4B0269D81C0FFFB7006B2E8A /* Pods_XmasAdventCalendar.framework */,
 			);
 			name = Products;
@@ -3987,39 +3961,11 @@
 			remoteRef = 4B0269CB1C0FFFB7006B2E8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4B0269CE1C0FFFB7006B2E8A /* FacebookSDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FacebookSDK.framework;
-			remoteRef = 4B0269CD1C0FFFB7006B2E8A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		4B0269D01C0FFFB7006B2E8A /* Parse.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Parse.framework;
 			remoteRef = 4B0269CF1C0FFFB7006B2E8A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4B0269D21C0FFFB7006B2E8A /* ParseCrashReporting.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ParseCrashReporting.framework;
-			remoteRef = 4B0269D11C0FFFB7006B2E8A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4B0269D41C0FFFB7006B2E8A /* ParseFacebookUtils.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ParseFacebookUtils.framework;
-			remoteRef = 4B0269D31C0FFFB7006B2E8A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4B0269D61C0FFFB7006B2E8A /* ParseUI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ParseUI.framework;
-			remoteRef = 4B0269D51C0FFFB7006B2E8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		4B0269D81C0FFFB7006B2E8A /* Pods_XmasAdventCalendar.framework */ = {
@@ -4111,7 +4057,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B0269FB1C102C70006B2E8A /* ViewController2.swift in Sources */,
 				4B0264421C0FF6E4006B2E8A /* ViewController.swift in Sources */,
+				4B0269FD1C102D60006B2E8A /* LogInViewController.swift in Sources */,
 				4B0264401C0FF6E4006B2E8A /* AppDelegate.swift in Sources */,
 				4B0269E71C10112A006B2E8A /* SignUpViewController.swift in Sources */,
 				4B02648F1C0FF9FA006B2E8A /* XmasAdventCalendar-Bridging-Header.m in Sources */,
