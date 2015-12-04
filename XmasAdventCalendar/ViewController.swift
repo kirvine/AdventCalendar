@@ -32,20 +32,21 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             
         } else {
             
-            // show that user is already logged in
-            presentLoggedInAlert()
+            // seque to CalendarsViewController
+            self.performSegueWithIdentifier("calendars", sender: self)
+            
             
         }
     }
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        presentLoggedInAlert()
+        self.performSegueWithIdentifier("calendars", sender: self)
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        presentLoggedInAlert()
+        self.performSegueWithIdentifier("calendars", sender: self)
     }
     
     func presentLoggedInAlert() {
