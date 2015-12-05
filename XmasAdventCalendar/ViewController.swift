@@ -33,7 +33,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         } else {
             
             // seque to CalendarsViewController
-            self.performSegueWithIdentifier("calendars", sender: self)
+            self.performSegueWithIdentifier("tabs", sender: self)
             
             
         }

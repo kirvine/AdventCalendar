@@ -25,48 +25,107 @@
                     <navigationItem key="navigationItem" id="qQv-5O-aK9"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <segue destination="Mcr-3p-tue" kind="show" identifier="calendars" id="RRm-mt-n2k"/>
+                        <segue destination="xwM-F3-bvN" kind="show" identifier="tabs" id="x28-YX-bXr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1125" y="387"/>
+            <point key="canvasLocation" x="1139" y="405"/>
         </scene>
-        <!--Calendars-->
-        <scene sceneID="0ef-pE-kNV">
+        <!--Tab Bar Controller-->
+        <scene sceneID="Q5c-os-SEJ">
             <objects>
-                <tableViewController id="Lzz-JM-1Gi" customClass="CalendarsTableViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="P6e-QP-dK0">
+                <tabBarController id="xwM-F3-bvN" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="D5W-Gf-bHY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7Fr-1U-uL1" kind="relationship" relationship="viewControllers" id="VO8-ZQ-GFc"/>
+                        <segue destination="RMG-sk-f95" kind="relationship" relationship="viewControllers" id="cRv-vw-UKX"/>
+                        <segue destination="Ci8-j4-yDe" kind="relationship" relationship="viewControllers" id="7bK-LB-HKT"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1E-KL-zXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679" y="405"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="hGA-W1-r02">
+            <objects>
+                <viewController id="Ci8-j4-yDe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="15D-qh-3Jb"/>
+                        <viewControllerLayoutGuide type="bottom" id="KVm-J3-wza"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VQF-rb-PPM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <tabBar key="tableFooterView" contentMode="scaleToFill" id="Knl-sw-jk9">
-                            <rect key="frame" x="0.0" y="292" width="414" height="49"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <items>
-                                <tabBarItem systemItem="favorites" id="5wj-yb-UgZ"/>
-                                <tabBarItem systemItem="more" id="sS3-Bo-hs7"/>
-                            </items>
-                        </tabBar>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="lXa-mY-2DG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xjm-W3-8Rp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2246" y="1322"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="4q2-9K-pyg">
+            <objects>
+                <tableViewController id="RMG-sk-f95" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="GwO-AX-cGS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="F7i-kU-59X" customClass="CalendarTableViewCell" customModule="XmasAdventCalendar" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Yhx-vQ-bL1">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yhx-vQ-bL1" id="Egj-8x-axl">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RMG-sk-f95" id="GIA-tu-ksI"/>
+                            <outlet property="delegate" destination="RMG-sk-f95" id="3Kp-93-WN1"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="contacts" id="8PQ-ZF-Yni"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8c-Ig-KS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685" y="1322"/>
+        </scene>
+        <!--Calendars-->
+        <scene sceneID="BeF-5h-QB0">
+            <objects>
+                <tableViewController id="hnb-sd-ja1" customClass="CalendarsTableViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="cNd-Fi-JuH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="sSa-CC-gnf" customClass="CalendarTableViewCell" customModule="XmasAdventCalendar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F7i-kU-59X" id="ohv-1y-hWN">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sSa-CC-gnf" id="LNv-wM-YfB">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNY-CT-hGM" customClass="PFImageView">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IY6-zg-tOG" customClass="PFImageView">
                                             <rect key="frame" x="8" y="8" width="141" height="183"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar Creator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iru-Fd-LFc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar Creator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTT-F2-yRF">
                                             <rect key="frame" x="157" y="80" width="224" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEa-ug-BEM">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9k-m3-BRC">
                                             <rect key="frame" x="157" y="24" width="224" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,25 +134,25 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cellImage" destination="pNY-CT-hGM" id="1Wp-nT-M7q"/>
-                                    <outlet property="creatorLabel" destination="Iru-Fd-LFc" id="xZx-jf-sZe"/>
-                                    <outlet property="titleLabel" destination="DEa-ug-BEM" id="rhM-JB-1vP"/>
+                                    <outlet property="cellImage" destination="IY6-zg-tOG" id="0Ka-ju-YfM"/>
+                                    <outlet property="creatorLabel" destination="bTT-F2-yRF" id="ZZQ-mK-cQb"/>
+                                    <outlet property="titleLabel" destination="g9k-m3-BRC" id="hqy-it-9cR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Lzz-JM-1Gi" id="C0N-1c-PDt"/>
-                            <outlet property="delegate" destination="Lzz-JM-1Gi" id="3Sd-Ac-FBO"/>
+                            <outlet property="dataSource" destination="hnb-sd-ja1" id="du3-oQ-Rgo"/>
+                            <outlet property="delegate" destination="hnb-sd-ja1" id="Kx4-PP-JzK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Calendars" id="JGv-y4-Abc">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="7WB-7x-6Mu">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6IB-pA-UtN">
+                    <navigationItem key="navigationItem" title="Calendars" id="Z0g-kJ-EDM">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Zcy-FQ-tLa">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jGz-XB-Jwj">
                                 <rect key="frame" x="20" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
-                                    <action selector="logout:" destination="Lzz-JM-1Gi" eventType="touchUpInside" id="q3g-kn-ciw"/>
+                                    <action selector="logout:" destination="hnb-sd-ja1" eventType="touchUpInside" id="tSE-Ua-h1o"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -105,31 +164,34 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iLB-2D-SFK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ihh-iq-XYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269" y="387"/>
+            <point key="canvasLocation" x="2794" y="405"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="mcy-7i-oV1">
+        <!--Calendars-->
+        <scene sceneID="yUh-Jz-Efu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mcr-3p-tue" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Fr-1U-uL1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendars" image="calendar" id="dNA-Ad-i5j"/>
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oce-y5-Khu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5pB-NZ-5vT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Lzz-JM-1Gi" kind="relationship" relationship="rootViewController" id="phI-ck-hNa"/>
+                        <segue destination="hnb-sd-ja1" kind="relationship" relationship="rootViewController" id="yfN-Z1-mSE"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NWK-Op-zgi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWe-N2-nnn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1707" y="387"/>
+            <point key="canvasLocation" x="2240" y="405"/>
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" width="32" height="32"/>
+        <image name="contacts" width="32" height="32"/>
+        <image name="settings" width="32" height="32"/>
         <image name="snow2" width="792" height="1224"/>
     </resources>
 </document>
