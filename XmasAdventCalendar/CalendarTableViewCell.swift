@@ -13,6 +13,7 @@ import ParseUI
 class CalendarTableViewCell: PFTableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var creatorLabel: UILabel!
     @IBOutlet weak var cellImage: PFImageView!
 
     /*

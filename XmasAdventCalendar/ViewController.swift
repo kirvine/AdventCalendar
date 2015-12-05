@@ -57,8 +57,5 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         alertController.addAction(OKAction)
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-    @IBAction func logout(sender: AnyObject) {
-        PFUser.logOut()
-    }
+
 }
