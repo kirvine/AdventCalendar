@@ -30,7 +30,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829" y="387"/>
+            <point key="canvasLocation" x="1125" y="387"/>
         </scene>
         <!--Calendars-->
         <scene sceneID="0ef-pE-kNV">
@@ -40,6 +40,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <tabBar key="tableFooterView" contentMode="scaleToFill" id="Knl-sw-jk9">
+                            <rect key="frame" x="0.0" y="292" width="414" height="49"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <items>
+                                <tabBarItem systemItem="favorites" id="5wj-yb-UgZ"/>
+                                <tabBarItem systemItem="more" id="sS3-Bo-hs7"/>
+                            </items>
+                        </tabBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="F7i-kU-59X" customClass="CalendarTableViewCell" customModule="XmasAdventCalendar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="414" height="200"/>
@@ -78,9 +87,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calendars" id="JGv-y4-Abc">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="7WB-7x-6Mu">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="7WB-7x-6Mu">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6IB-pA-UtN">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
@@ -98,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLB-2D-SFK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2417" y="387"/>
+            <point key="canvasLocation" x="2269" y="387"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mcy-7i-oV1">
@@ -117,7 +126,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWK-Op-zgi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1605" y="387"/>
+            <point key="canvasLocation" x="1707" y="387"/>
         </scene>
     </scenes>
     <resources>
