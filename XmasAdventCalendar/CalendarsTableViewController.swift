@@ -16,13 +16,6 @@ class CalendarsTableViewController: PFQueryTableViewController {
     // fetch calendar objects
     override func queryForTable() -> PFQuery {
         
-//        let query = PFQuery(className: "Calendars")
-////        query.whereKey("viewedBy", equalTo: PFUser.currentUser()!.username!)
-//        query.whereKey("createdBy", equalTo: PFUser.currentUser()!)
-//        query.whereKey("viewedBy", equalTo: PFUser.currentUser()!.username!)
-//        query.orderByAscending("createdAt")
-//        return query
-        
             var creates = PFQuery(className: "Calendars")
             creates.whereKey("createdBy", equalTo: PFUser.currentUser()!.username!)
             
@@ -40,11 +33,13 @@ class CalendarsTableViewController: PFQueryTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CalendarTableViewCell
         
         // fetch image
-        let imageFile = object?.objectForKey("image") as? PFFile
-        cell.cellImage.image = UIImage(named: "placeholder")
-        cell.cellImage.file = imageFile
-        cell.cellImage.loadInBackground()
-        
+        var placeholder = UIImage(named: "merryxmas")
+        cell.cellImage.image = placeholder
+        if let imageFile = object?.objectForKey("image") as? PFFile {
+            cell.cellImage.file = imageFile
+            cell.cellImage.loadInBackground()
+        }
+
         // fetch labels
         cell.titleLabel.text = object?.objectForKey("title") as? String
         cell.creatorLabel.text = object?.objectForKey("createdBy") as? String
