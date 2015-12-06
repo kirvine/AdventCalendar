@@ -12,8 +12,6 @@ import ParseUI
 
 class CalendarsTableViewController: PFQueryTableViewController {
 
-    var calendarObjects: NSMutableArray! = NSMutableArray()
-    
     // fetch calendar objects
     override func queryForTable() -> PFQuery {
         
@@ -24,7 +22,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
             views.whereKey("viewedBy", equalTo: PFUser.currentUser()!.username!)
             
             var query = PFQuery.orQueryWithSubqueries([creates, views])
-            query.orderByAscending("createdAt")
+            query.orderByDescending("createdAt")
             return query
 
     }
@@ -70,24 +68,6 @@ class CalendarsTableViewController: PFQueryTableViewController {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        var upcoming: NewCalendarViewController = segue.destinationViewController as! NewCalendarViewController
-        
-        if (segue.identifier == "editCalendar") {
-            
-            let indexPath = self.tableView.indexPathForSelectedRow!
-            
-            let object: PFObject = self.calendarObjects.objectAtIndex(indexPath.row) as! PFObject
-            
-            upcoming.currentObject = object
-            
-            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            
-        }
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -98,16 +78,5 @@ class CalendarsTableViewController: PFQueryTableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

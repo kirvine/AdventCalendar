@@ -2,6 +2,7 @@
 //  NewCalendarViewController.swift
 //  XmasAdventCalendar
 //
+//  source: https://medium.com/swift-programming/ios-swift-parse-com-part-3-sign-up-sign-in-sign-out-security-349adc94ef0e#.pjyiltqwb
 //  Created by Karen on 12/5/15.
 //  Copyright © 2015 Karen. All rights reserved.
 //
@@ -12,11 +13,11 @@ import ParseUI
 
 class NewCalendarViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    // User selected object
-    var currentObject : PFObject?
+    // Calendar object to create
+    var newObject : PFObject?
     
-    // Object to update
-    var updateObject : PFObject?
+    // Calendar object to create
+    var currentObject : PFObject?
     
     // Image Picker object
     var imagePicker = UIImagePickerController()
@@ -28,8 +29,11 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var createdByLabel: UILabel!
 
     
-    // Present image picker
-    // Will prompt user to allow permission to device photo library
+    
+    
+    //  MARK:   Actions
+    
+    // Prompt user to allow permission to device photo library
     @IBAction func uploadImage(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
             imagePicker.delegate = self
@@ -38,6 +42,63 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
             presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
+
+    
+    // The save button
+    @IBAction func saveButton(sender: AnyObject) {
+        
+        newObject = PFObject(className:"Calendars")
+        
+        // Update the object
+        if let newCalendar = newObject {
+            
+            if let title = titleField.text?.isEmpty {
+                
+                let alertMsg = UIAlertController(title: "Error", message: "Calendar must have a title", preferredStyle: UIAlertControllerStyle.Alert)
+                alertMsg.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alertMsg, animated: true, completion: nil)
+                
+            } else {
+                
+                newCalendar["title"] = titleField.text
+                newCalendar["createdBy"] = PFUser.currentUser()?.username
+                
+                // Upload any flag image
+                if imageDidChange == true {
+                    
+                    let imageData = UIImagePNGRepresentation(calendarImage.image!)
+                    let fileName = titleField.text! + ".png"
+                    let imageFile = PFFile(name:fileName, data: imageData!)
+                    newCalendar["image"] = imageFile
+                    
+                }
+                
+                // Save the data back to the server in a background task
+                newCalendar.saveInBackground()
+            }
+
+        }
+        
+        // Return to table view
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
+    
+    //  MARK: Override Functions
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // set initial labels and fields
+        calendarImage.image = UIImage(named: "merryxmas")
+        yearLabel.text = getCurrentYear()
+        createdByLabel.text = PFUser.currentUser()?.username
+        
+        }
+
+    
+    //  MARK:   Custom Functions
     
     // Process selected image - add image to the parse object model
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -54,84 +115,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
         // Dismiss the image picker
         dismissViewControllerAnimated(true, completion: nil)
     }
-
     
-    // The save button
-    @IBAction func saveButton(sender: AnyObject) {
-        
-        // Use the sent country object or create a new country PFObject
-        if let updateObjectTest = currentObject as PFObject? {
-            updateObject = currentObject! as PFObject
-        } else {
-            updateObject = PFObject(className:"Calendars")
-        }
-        
-        // Update the object
-        if let updateObject = updateObject {
-            
-            updateObject["title"] = titleField.text
-            updateObject["createdBy"] = PFUser.currentUser()?.username
-            
-            // Upload any flag image
-            if imageDidChange == true {
-                let imageData = UIImagePNGRepresentation(calendarImage.image!)
-                let fileName = titleField.text! + ".png"
-                let imageFile = PFFile(name:fileName, data: imageData!)
-                updateObject["image"] = imageFile
-            }
-            
-//            // Update the record ACL such that the new record is only visible to the current user
-//            updateObject.ACL = PFACL(user: PFUser.currentUser()!)
-            
-            // Save the data back to the server in a background task
-            updateObject.saveInBackground()
-        }
-        
-        // Return to table view
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // set initial labels
-        yearLabel.text = getCurrentYear()
-        createdByLabel.text = PFUser.currentUser()?.username
-        
-        // Configure delegate property for the form fields
-        titleField.delegate = self
-        
-        // Unwrap the current object
-        if let object = currentObject {
-            if let value = object["title"] as? String {
-                titleField.text = value
-            }
-            if let value = object["createdBy"] as? String {
-                createdByLabel.text = value
-            }
-            
-            // Display standard image
-            let initialThumbnail = UIImage(named: "merryxmas")
-            calendarImage.image = initialThumbnail
-            
-            // Replace question image if an image exists on the parse platform
-            if let thumbnail = object["image"] as? PFFile {
-                calendarImage.file = thumbnail
-                calendarImage.loadInBackground()
-            }
-        }
-    }
-    
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-
     func getCurrentYear() -> String {
         let currentDate = NSDate()
         let dateFormatter = NSDateFormatter()
@@ -139,17 +123,6 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
         let convertedDate = dateFormatter.stringFromDate(currentDate)
         return convertedDate
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
