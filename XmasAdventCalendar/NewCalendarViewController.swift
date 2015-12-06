@@ -16,9 +16,6 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
     // Calendar object to create
     var newObject : PFObject?
     
-    // Calendar object to create
-    var currentObject : PFObject?
-    
     // Image Picker object
     var imagePicker = UIImagePickerController()
     var imageDidChange = false
@@ -52,7 +49,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
         // Update the object
         if let newCalendar = newObject {
             
-            if let title = titleField.text?.isEmpty {
+            if titleField.text == nil {
                 
                 let alertMsg = UIAlertController(title: "Error", message: "Calendar must have a title", preferredStyle: UIAlertControllerStyle.Alert)
                 alertMsg.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
@@ -75,6 +72,9 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
                 
                 // Save the data back to the server in a background task
                 newCalendar.saveInBackground()
+                if let id = newCalendar.objectId {
+                    create25Days(id)
+                }
             }
 
         }
@@ -122,6 +122,37 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
         dateFormatter.dateFormat = "Y"
         let convertedDate = dateFormatter.stringFromDate(currentDate)
         return convertedDate
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    
+    func create25Days(calendarId: String) {
+        let calendar = NSCalendar.currentCalendar()
+
+        let dateComponents = NSDateComponents()
+        dateComponents.day = 1
+        dateComponents.month = 12
+        dateComponents.year = Int(getCurrentYear())!
+        
+        var newDay = PFObject(className: "Days")
+        
+        for day in 1...25 {
+            let date = calendar.dateFromComponents(dateComponents)
+            dateComponents.day += 1
+            
+            newDay["date"] = date
+            newDay["calendarId"] = calendarId
+            newDay.saveInBackground()
+        }
     }
 
 
