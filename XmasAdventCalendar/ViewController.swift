@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+class ViewController: UITabBarController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -31,9 +31,9 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             self.presentViewController(logInViewController, animated: false, completion: nil)
             
         } else {
-            
+            presentLoggedInAlert()
             // seque to CalendarsViewController
-            self.performSegueWithIdentifier("tabs", sender: self)
+//            self.performSegueWithIdentifier("tabs", sender: self)
             
             
         }

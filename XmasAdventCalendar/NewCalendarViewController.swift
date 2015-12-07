@@ -73,6 +73,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
                 // Save the data back to the server in a background task
                 newCalendar.saveInBackground()
                 if let id = newCalendar.objectId {
+                    print(String(id))
                     create25Days(id)
                 }
             }
@@ -146,6 +147,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
         var newDay = PFObject(className: "Days")
         
         for day in 1...25 {
+            print(day)
             let date = calendar.dateFromComponents(dateComponents)
             dateComponents.day += 1
             

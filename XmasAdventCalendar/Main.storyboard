@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sfb-EV-7VX">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Ttu-KN-uF9">
+            <objects>
+                <tabBarController id="sfb-EV-7VX" customClass="ViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ml7-Mu-VMl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RvV-Fd-g0E" kind="relationship" relationship="viewControllers" id="9Hh-Mc-Mmb"/>
+                        <segue destination="O2F-PU-tDr" kind="relationship" relationship="viewControllers" id="Fq6-Zt-rar"/>
+                        <segue destination="i4l-ok-QuO" kind="relationship" relationship="viewControllers" id="pFX-E1-rAg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X1C-Qt-uib" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="339"/>
+        </scene>
+        <!--Calendars-->
+        <scene sceneID="gJh-wy-YeT">
+            <objects>
+                <tableViewController id="tGr-c2-09z" customClass="CalendarsTableViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="210" sectionHeaderHeight="28" sectionFooterHeight="28" id="rRC-qe-XQN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="ZF2-nA-LP3" customClass="CalendarTableViewCell" customModule="XmasAdventCalendar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZF2-nA-LP3" id="jBd-vH-0iB">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="199"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-yE-SZg" customClass="PFImageView">
+                                            <rect key="frame" x="16" y="10" width="140" height="180"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yco-Pn-050">
+                                            <rect key="frame" x="186" y="23" width="130" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Creator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-qY-DSo">
+                                            <rect key="frame" x="186" y="69" width="125" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellImage" destination="HTd-yE-SZg" id="xTZ-4K-nMa"/>
+                                    <outlet property="creatorLabel" destination="MHn-qY-DSo" id="cfg-Zs-N2c"/>
+                                    <outlet property="titleLabel" destination="yco-Pn-050" id="k6G-ic-XqO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tGr-c2-09z" id="ZDs-oI-Y2F"/>
+                            <outlet property="delegate" destination="tGr-c2-09z" id="fho-Fg-hl0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Calendars" id="gaO-AY-iWl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="g4R-mk-vK6">
+                            <connections>
+                                <segue destination="gRv-FQ-cmh" kind="show" id="oax-to-C3w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="parseClassName" value=""/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="objectsPerPage">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="813-Lf-4Mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1787" y="347"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="7ug-Jo-INS">
+            <objects>
+                <tableViewController id="l9u-WF-3SF" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sXt-Ai-cPt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6BS-bh-W4d">
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6BS-bh-W4d" id="b98-cY-hYu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="l9u-WF-3SF" id="IVY-Aj-Ix0"/>
+                            <outlet property="delegate" destination="l9u-WF-3SF" id="LOY-RT-dbt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Contacts" id="haa-qZ-gSi"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfW-XS-czA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1213" y="-599"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="w4S-ie-Bmu">
+            <objects>
+                <viewController id="beq-IC-c7u" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1fO-AD-k5o"/>
+                        <viewControllerLayoutGuide type="bottom" id="0M1-jQ-qZ1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vl1-HU-BjR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="hJe-ey-Xkk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAy-jK-Yky" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1213" y="1353"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="zp5-zC-lRQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i4l-ok-QuO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="mEb-s3-jmi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gxe-wE-eTz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="beq-IC-c7u" kind="relationship" relationship="rootViewController" id="zag-nI-PO7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYf-RN-PWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="1353"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="NIp-xM-Guk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O2F-PU-tDr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contacts" image="contacts" id="8CG-SI-wC1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CfN-0A-AB1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="l9u-WF-3SF" kind="relationship" relationship="rootViewController" id="yLU-Up-QnG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5x-rD-dYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="-599"/>
+        </scene>
+        <!--Calendars-->
+        <scene sceneID="0bE-qj-AIa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RvV-Fd-g0E" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendars" image="calendar" id="ymF-Hn-sO9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pv0-nS-wQB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tGr-c2-09z" kind="relationship" relationship="rootViewController" id="13A-Yq-eOb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uQm-QO-JpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1213" y="347"/>
+        </scene>
+        <!--Add Calendar-->
+        <scene sceneID="UDH-wT-9ra">
+            <objects>
+                <viewController id="h2v-N6-bI6" customClass="NewCalendarViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ucr-vs-hmo"/>
+                        <viewControllerLayoutGuide type="bottom" id="HMa-jJ-egI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9dt-EO-sCV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G36-Y1-ZCn" customClass="PFImageView">
+                                <rect key="frame" x="107" y="122" width="200" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wid-XI-CvF">
+                                <rect key="frame" x="129" y="447" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J31-iQ-g9b">
+                                <rect key="frame" x="221" y="447" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAQ-Rp-Pav">
+                                <rect key="frame" x="184" y="560" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="h2v-N6-bI6" eventType="touchUpInside" id="pLD-M2-OfT"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calendar Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-Ny-DSV">
+                                <rect key="frame" x="107" y="330" width="200" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Holiday Season" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="la5-sj-eUA">
+                                <rect key="frame" x="176" y="368" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2025" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYG-QT-LjY">
+                                <rect key="frame" x="132" y="368" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU7-Gd-nFP">
+                                <rect key="frame" x="272" y="288" width="25" height="25"/>
+                                <state key="normal" image="camera"/>
+                                <connections>
+                                    <action selector="uploadImage:" destination="h2v-N6-bI6" eventType="touchUpInside" id="Nno-3o-aw5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Calendar" id="f4f-tC-hxn"/>
+                    <connections>
+                        <outlet property="calendarImage" destination="G36-Y1-ZCn" id="z3e-yW-GPW"/>
+                        <outlet property="createdByLabel" destination="J31-iQ-g9b" id="YMV-TT-HAD"/>
+                        <outlet property="titleField" destination="HEJ-Ny-DSV" id="azl-dJ-YxG"/>
+                        <outlet property="yearLabel" destination="uYG-QT-LjY" id="YnC-0p-78B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cHg-1e-0GI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2797" y="347"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bnn-cE-ali">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gRv-FQ-cmh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YT2-ye-gIr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h2v-N6-bI6" kind="relationship" relationship="rootViewController" id="APt-Cj-8Tl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eyr-5x-di6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2309" y="347"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar" width="32" height="32"/>
+        <image name="camera" width="25" height="25"/>
+        <image name="contacts" width="32" height="32"/>
+        <image name="settings" width="32" height="32"/>
+    </resources>
+</document>

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B0264401C0FF6E4006B2E8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02643F1C0FF6E4006B2E8A /* AppDelegate.swift */; };
 		4B0264421C0FF6E4006B2E8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0264411C0FF6E4006B2E8A /* ViewController.swift */; };
-		4B0264451C0FF6E4006B2E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0264431C0FF6E4006B2E8A /* Main.storyboard */; };
 		4B0264471C0FF6E4006B2E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0264461C0FF6E4006B2E8A /* Assets.xcassets */; };
 		4B02644A1C0FF6E4006B2E8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0264481C0FF6E4006B2E8A /* LaunchScreen.storyboard */; };
 		4B0264551C0FF6E4006B2E8A /* XmasAdventCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0264541C0FF6E4006B2E8A /* XmasAdventCalendarTests.swift */; };
@@ -36,6 +35,7 @@
 		4B026A071C1037DD006B2E8A /* budmo jiggler.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B026A051C1037DD006B2E8A /* budmo jiggler.ttf */; };
 		4B0915D81C13D71200731385 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0915D71C13D71200731385 /* SettingsViewController.swift */; };
 		4B0915DD1C13E0C200731385 /* NewCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0915DC1C13E0C200731385 /* NewCalendarViewController.swift */; };
+		4B0915E11C15364700731385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0915E01C15364700731385 /* Main.storyboard */; };
 		4B0A3A711C10DE5A009A10A4 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B0A3A701C10DE5A009A10A4 /* Pacifico.ttf */; };
 		4B0A3A751C10E84B009A10A4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0A3A741C10E84B009A10A4 /* SignUpViewController.swift */; };
 		4B0A3A7B1C113AA0009A10A4 /* CalendarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0A3A7A1C113AA0009A10A4 /* CalendarsTableViewController.swift */; };
@@ -85,7 +85,6 @@
 		4B02643C1C0FF6E4006B2E8A /* XmasAdventCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XmasAdventCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B02643F1C0FF6E4006B2E8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B0264411C0FF6E4006B2E8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4B0264441C0FF6E4006B2E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B0264461C0FF6E4006B2E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B0264491C0FF6E4006B2E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B02644B1C0FF6E4006B2E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1289,6 +1288,7 @@
 		4B026A051C1037DD006B2E8A /* budmo jiggler.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "budmo jiggler.ttf"; sourceTree = "<group>"; };
 		4B0915D71C13D71200731385 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4B0915DC1C13E0C200731385 /* NewCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCalendarViewController.swift; sourceTree = "<group>"; };
+		4B0915E01C15364700731385 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4B0A3A701C10DE5A009A10A4 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		4B0A3A741C10E84B009A10A4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4B0A3A7A1C113AA0009A10A4 /* CalendarsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarsTableViewController.swift; sourceTree = "<group>"; };
@@ -3872,7 +3872,7 @@
 		4B0A3A771C112BAB009A10A4 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				4B0264431C0FF6E4006B2E8A /* Main.storyboard */,
+				4B0915E01C15364700731385 /* Main.storyboard */,
 				4B0264481C0FF6E4006B2E8A /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -4031,8 +4031,8 @@
 				4B026A041C103523006B2E8A /* Lights.otf in Resources */,
 				4B02644A1C0FF6E4006B2E8A /* LaunchScreen.storyboard in Resources */,
 				4B0A3A711C10DE5A009A10A4 /* Pacifico.ttf in Resources */,
+				4B0915E11C15364700731385 /* Main.storyboard in Resources */,
 				4B0264471C0FF6E4006B2E8A /* Assets.xcassets in Resources */,
-				4B0264451C0FF6E4006B2E8A /* Main.storyboard in Resources */,
 				4B026A071C1037DD006B2E8A /* budmo jiggler.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4151,14 +4151,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4B0264431C0FF6E4006B2E8A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B0264441C0FF6E4006B2E8A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4B0264481C0FF6E4006B2E8A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
