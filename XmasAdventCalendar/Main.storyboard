@@ -73,7 +73,7 @@
                     <navigationItem key="navigationItem" title="Calendars" id="gaO-AY-iWl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g4R-mk-vK6">
                             <connections>
-                                <segue destination="gRv-FQ-cmh" kind="show" id="oax-to-C3w"/>
+                                <segue destination="h2v-N6-bI6" kind="show" id="xtg-0e-fXV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -264,25 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHg-1e-0GI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2797" y="347"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="bnn-cE-ali">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gRv-FQ-cmh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YT2-ye-gIr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="h2v-N6-bI6" kind="relationship" relationship="rootViewController" id="APt-Cj-8Tl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eyr-5x-di6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2309" y="347"/>
+            <point key="canvasLocation" x="2340" y="347"/>
         </scene>
     </scenes>
     <resources>
