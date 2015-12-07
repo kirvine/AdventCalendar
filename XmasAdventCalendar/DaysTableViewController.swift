@@ -12,9 +12,11 @@ import ParseUI
 
 class DaysTableViewController: PFQueryTableViewController {
 
+    var queryKey: String?
+    
     override func queryForTable() -> PFQuery {
         var query = PFQuery(className: "Days")
-        query.whereKey("calendarId", equalTo: "GpuZjBE6wc")
+        query.whereKey("calendarId", equalTo: self.queryKey!)
         query.orderByAscending("date")
         return query
     
@@ -22,8 +24,8 @@ class DaysTableViewController: PFQueryTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DayTableViewCell
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("dayCell", forIndexPath: indexPath) as! DayTableViewCell
+    
         // fetch image
         var placeholder = UIImage(named: "present")
         cell.giftImage.image = placeholder
@@ -35,7 +37,7 @@ class DaysTableViewController: PFQueryTableViewController {
         // fetch labels
         var date = object?.objectForKey("date") as? NSDate
         var stringDate = formatDateLabel(date!)
-        cell.dayLabel.text = stringDate
+//        cell.dayLabel.text = stringDate
         cell.noteLabel.text = object?.objectForKey("note") as? String
         
         return cell

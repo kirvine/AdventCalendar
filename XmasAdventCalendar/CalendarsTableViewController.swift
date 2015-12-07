@@ -11,6 +11,8 @@ import Parse
 import ParseUI
 
 class CalendarsTableViewController: PFQueryTableViewController {
+    
+    var queryKey: String = ""
 
     // fetch calendar objects
     override func queryForTable() -> PFQuery {
@@ -43,7 +45,6 @@ class CalendarsTableViewController: PFQueryTableViewController {
         }
 
         // fetch labels
-//        cell.titleLabel.text = object?.objectForKey("createdAt") as? String
         cell.titleLabel.text = object?.objectForKey("title") as? String
         cell.creatorLabel.text = object?.objectForKey("createdBy") as? String
         
@@ -67,7 +68,24 @@ class CalendarsTableViewController: PFQueryTableViewController {
             self.loadNextPage()
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         } else {
-            self.performSegueWithIdentifier("viewDays", sender: self)
+            var obj = self.objects?[indexPath.row] as? PFObject
+            queryKey = obj!.objectId!
+//            let indexPath = tableView.indexPathForSelectedRow()
+//              self.queryKey = self.objects[indexPath.row]
+//            self.performSegueWithIdentifier("viewDays", sender: self)
+        }
+    }
+    
+//    override func objectAtIndexPath(indexPath: NSIndexPath?) -> PFObject? {
+//        var obj = self.objects?[indexPath!.row] as? PFObject
+//        queryKey = obj?.objectId
+//    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "viewDays" {
+            let daysTable: DaysTableViewController = segue.destinationViewController as! DaysTableViewController
+            daysTable.queryKey = self.queryKey
         }
     }
     
