@@ -35,9 +35,9 @@ class DaysTableViewController: PFQueryTableViewController {
         }
         
         // fetch labels
-        var date = object?.objectForKey("date") as? NSDate
-        var stringDate = formatDateLabel(date!)
-//        cell.dayLabel.text = stringDate
+        var date = object?.objectForKey("date")
+        var stringDate = formatDateLabel(date as! NSDate)
+        cell.dayLabel.text = stringDate
         cell.noteLabel.text = object?.objectForKey("note") as? String
         
         return cell
@@ -45,7 +45,7 @@ class DaysTableViewController: PFQueryTableViewController {
 
     func formatDateLabel(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEE d"
+        dateFormatter.dateFormat = "MMM d"
         let stringDate = dateFormatter.stringFromDate(date)
         return stringDate
     }
