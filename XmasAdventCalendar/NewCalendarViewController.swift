@@ -49,7 +49,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
         // Update the object
         if let newCalendar = newObject {
             
-            if titleField.text == nil {
+            if titleField.text == "" {
                 
                 let alertMsg = UIAlertController(title: "Error", message: "Calendar must have a title", preferredStyle: UIAlertControllerStyle.Alert)
                 alertMsg.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

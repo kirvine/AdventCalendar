@@ -14,7 +14,9 @@ class CalendarsTableViewController: PFQueryTableViewController {
 
     // fetch calendar objects
     override func queryForTable() -> PFQuery {
-        
+        if (PFUser.currentUser() == nil) {
+            return PFQuery()
+        } else {
             var creates = PFQuery(className: "Calendars")
             creates.whereKey("createdBy", equalTo: PFUser.currentUser()!.username!)
             
@@ -24,6 +26,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
             var query = PFQuery.orQueryWithSubqueries([creates, views])
             query.orderByDescending("createdAt")
             return query
+        }
 
     }
 
@@ -70,13 +73,16 @@ class CalendarsTableViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.loadObjects()
     }
 
 }

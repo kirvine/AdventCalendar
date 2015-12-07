@@ -31,7 +31,7 @@ class ViewController: UITabBarController, PFLogInViewControllerDelegate, PFSignU
             self.presentViewController(logInViewController, animated: false, completion: nil)
             
         } else {
-            presentLoggedInAlert()
+//            presentLoggedInAlert()
             // seque to CalendarsViewController
 //            self.performSegueWithIdentifier("tabs", sender: self)
             

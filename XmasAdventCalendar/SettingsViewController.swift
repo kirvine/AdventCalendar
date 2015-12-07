@@ -25,8 +25,8 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logout(sender: AnyObject) {
         PFUser.logOut()
-        self.navigationController?.popToRootViewControllerAnimated(true)
-        
+        var vc = ViewController()
+        vc.viewDidAppear(true)
     }
 
     /*

@@ -120,7 +120,7 @@
         <!--Settings-->
         <scene sceneID="w4S-ie-Bmu">
             <objects>
-                <viewController id="beq-IC-c7u" sceneMemberID="viewController">
+                <viewController id="beq-IC-c7u" customClass="SettingsViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1fO-AD-k5o"/>
                         <viewControllerLayoutGuide type="bottom" id="0M1-jQ-qZ1"/>
@@ -128,6 +128,16 @@
                     <view key="view" contentMode="scaleToFill" id="vl1-HU-BjR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgn-MR-rZy">
+                                <rect key="frame" x="183" y="207" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="beq-IC-c7u" eventType="touchUpInside" id="OvU-QQ-JYe"/>
+                                    <segue destination="sfb-EV-7VX" kind="modal" id="UuB-uX-SGi"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="hJe-ey-Xkk"/>
