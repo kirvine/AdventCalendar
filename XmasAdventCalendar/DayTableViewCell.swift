@@ -14,6 +14,6 @@ class DayTableViewCell: PFTableViewCell {
 
     @IBOutlet weak var giftImage: PFImageView!
     @IBOutlet weak var dayLabel: UILabel!
-    @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var noteLabel: UILabel!
 
 }

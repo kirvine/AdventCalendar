@@ -12,6 +12,42 @@ import ParseUI
 
 class DaysTableViewController: PFQueryTableViewController {
 
+    override func queryForTable() -> PFQuery {
+        var query = PFQuery(className: "Days")
+        query.whereKey("calendarId", equalTo: "GpuZjBE6wc")
+        query.orderByAscending("date")
+        return query
+    
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DayTableViewCell
+        
+        // fetch image
+        var placeholder = UIImage(named: "present")
+        cell.giftImage.image = placeholder
+        if let imageFile = object?.objectForKey("image") as? PFFile {
+            cell.giftImage.file = imageFile
+            cell.giftImage.loadInBackground()
+        }
+        
+        // fetch labels
+        var date = object?.objectForKey("date") as? NSDate
+        var stringDate = formatDateLabel(date!)
+        cell.dayLabel.text = stringDate
+        cell.noteLabel.text = object?.objectForKey("note") as? String
+        
+        return cell
+    }
+
+    func formatDateLabel(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEE d"
+        let stringDate = dateFormatter.stringFromDate(date)
+        return stringDate
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

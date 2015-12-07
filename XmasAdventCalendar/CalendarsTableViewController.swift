@@ -61,15 +61,15 @@ class CalendarsTableViewController: PFQueryTableViewController {
         return height
         
     }
-//
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if indexPath.row + 1 > self.objects?.count {
-//            self.loadNextPage()
-//            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//        } else {
-//            self.performSegueWithIdentifier("viewDays", sender: self)
-//        }
-//    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row + 1 > self.objects?.count {
+            self.loadNextPage()
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        } else {
+            self.performSegueWithIdentifier("viewDays", sender: self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
