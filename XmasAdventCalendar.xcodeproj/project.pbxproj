@@ -40,6 +40,8 @@
 		4B0A3A751C10E84B009A10A4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0A3A741C10E84B009A10A4 /* SignUpViewController.swift */; };
 		4B0A3A7B1C113AA0009A10A4 /* CalendarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0A3A7A1C113AA0009A10A4 /* CalendarsTableViewController.swift */; };
 		4B0A3A7D1C113AD1009A10A4 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0A3A7C1C113AD1009A10A4 /* CalendarTableViewCell.swift */; };
+		4B0B7FC81C161DBA0047062C /* DaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0B7FC71C161DBA0047062C /* DaysTableViewController.swift */; };
+		4B0B7FCA1C161F830047062C /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0B7FC91C161F830047062C /* DayTableViewCell.swift */; };
 		87CCAD4449B14435B0249F96 /* Pods_XmasAdventCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1987C92E45974FAFAD7ABCF /* Pods_XmasAdventCalendar.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = FB97B1A3DC2CC804A142A1FD629C6594;
 			remoteInfo = "Pods-XmasAdventCalendar";
+		};
+		4B0B7FC51C161DA50047062C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B0269761C0FFFB6006B2E8A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C86A30E39A42C2E305A580E7FBF1DD1A;
+			remoteInfo = ParseUI;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1293,6 +1302,8 @@
 		4B0A3A741C10E84B009A10A4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4B0A3A7A1C113AA0009A10A4 /* CalendarsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarsTableViewController.swift; sourceTree = "<group>"; };
 		4B0A3A7C1C113AD1009A10A4 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		4B0B7FC71C161DBA0047062C /* DaysTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysTableViewController.swift; sourceTree = "<group>"; };
+		4B0B7FC91C161F830047062C /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
 		5374FD255299422CAFC7E688 /* Pods-XmasAdventCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XmasAdventCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XmasAdventCalendar/Pods-XmasAdventCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		B1987C92E45974FAFAD7ABCF /* Pods_XmasAdventCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XmasAdventCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8211CC595F59FD68423B740 /* Pods-XmasAdventCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XmasAdventCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-XmasAdventCalendar/Pods-XmasAdventCalendar.release.xcconfig"; sourceTree = "<group>"; };
@@ -3692,6 +3703,7 @@
 			children = (
 				4B0269CC1C0FFFB7006B2E8A /* Bolts.framework */,
 				4B0269D01C0FFFB7006B2E8A /* Parse.framework */,
+				4B0B7FC61C161DA50047062C /* ParseUI.framework */,
 				4B0269D81C0FFFB7006B2E8A /* Pods_XmasAdventCalendar.framework */,
 			);
 			name = Products;
@@ -3865,6 +3877,8 @@
 				4B0A3A7C1C113AD1009A10A4 /* CalendarTableViewCell.swift */,
 				4B0915D71C13D71200731385 /* SettingsViewController.swift */,
 				4B0915DC1C13E0C200731385 /* NewCalendarViewController.swift */,
+				4B0B7FC71C161DBA0047062C /* DaysTableViewController.swift */,
+				4B0B7FC91C161F830047062C /* DayTableViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -4021,6 +4035,13 @@
 			remoteRef = 4B0269D71C0FFFB7006B2E8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		4B0B7FC61C161DA50047062C /* ParseUI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ParseUI.framework;
+			remoteRef = 4B0B7FC51C161DA50047062C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -4114,7 +4135,9 @@
 				4B0264401C0FF6E4006B2E8A /* AppDelegate.swift in Sources */,
 				4B0A3A7D1C113AD1009A10A4 /* CalendarTableViewCell.swift in Sources */,
 				4B02648F1C0FF9FA006B2E8A /* XmasAdventCalendar-Bridging-Header.m in Sources */,
+				4B0B7FC81C161DBA0047062C /* DaysTableViewController.swift in Sources */,
 				4B0915D81C13D71200731385 /* SettingsViewController.swift in Sources */,
+				4B0B7FCA1C161F830047062C /* DayTableViewCell.swift in Sources */,
 				4B0915DD1C13E0C200731385 /* NewCalendarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
