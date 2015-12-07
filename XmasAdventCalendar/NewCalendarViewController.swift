@@ -71,10 +71,16 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
                 }
                 
                 // Save the data back to the server in a background task
-                newCalendar.saveInBackground()
-                if let id = newCalendar.objectId {
-                    print("starting to create new day objects")
-                    create25Days(id)
+                newCalendar.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        // The object has been saved.
+                        if let id = newCalendar.objectId {
+                            self.createDays(id)
+                        }
+                    } else {
+                        // There was a problem, check error.description
+                    }
                 }
             }
 
@@ -136,7 +142,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
     }
 
     
-    func create25Days(calendarId: String) {
+    func createDays(calendarId: String) {
         let calendar = NSCalendar.currentCalendar()
 
         let dateComponents = NSDateComponents()
@@ -150,7 +156,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
             let date = calendar.dateFromComponents(dateComponents)
             dateComponents.day += 1
             
-            newDay["date"] = date
+            newDay["date"] = date!
             newDay["calendarId"] = calendarId
             newDay.saveInBackground()
         }

@@ -43,6 +43,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
         }
 
         // fetch labels
+//        cell.titleLabel.text = object?.objectForKey("createdAt") as? String
         cell.titleLabel.text = object?.objectForKey("title") as? String
         cell.creatorLabel.text = object?.objectForKey("createdBy") as? String
         
