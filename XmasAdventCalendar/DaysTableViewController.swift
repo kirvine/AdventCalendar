@@ -10,23 +10,23 @@ import UIKit
 import Parse
 import ParseUI
 
-class DaysTableViewController: PFQueryTableViewController, CalendarSelectedDelegate {
+class DaysTableViewController: PFQueryTableViewController {
 
     var selectedObject: PFObject?
-    var calendarString: String = ""
+    var calendarString: String?
     
     override func queryForTable() -> PFQuery {
         print("*running queryForTable")
         let query = PFQuery(className: "Days")
-        query.whereKey("calendarId", equalTo: self.calendarString)
+        query.whereKey("calendarId", equalTo: self.calendarString!)
         query.orderByAscending("date")
         print("---\(self.calendarString)")
         return query
     }
     
-    func userDidSelectCalendar(id: String) {
-        self.calendarString = id
-    }
+//    func userDidSelectCalendar(id: String) {
+//        self.calendarString = id
+//    }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {

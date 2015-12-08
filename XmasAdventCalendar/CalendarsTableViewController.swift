@@ -10,14 +10,14 @@ import UIKit
 import Parse
 import ParseUI
 
-protocol CalendarSelectedDelegate {
-    func userDidSelectCalendar(id:String)
-}
+//protocol CalendarSelectedDelegate {
+//    func userDidSelectCalendar(id:String)
+//}
 
 class CalendarsTableViewController: PFQueryTableViewController {
     
 //    var queryKey: String = ""
-    var delegate: CalendarSelectedDelegate? = nil
+//    var delegate: CalendarSelectedDelegate? = nil
 
     // fetch calendar objects
     override func queryForTable() -> PFQuery {
@@ -77,18 +77,28 @@ class CalendarsTableViewController: PFQueryTableViewController {
 //            var obj = self.objects?[indexPath.row] as? PFObject
 //            queryKey = obj!.objectId!
 //            print("*setting: \(queryKey) didSelectRow")
-            if (delegate != nil) {
-                let obj = self.objects?[indexPath.row] as? PFObject
-                let calendarId: String = obj!.objectId!
-                delegate!.userDidSelectCalendar(calendarId)
-            }
+//            if (delegate != nil) {
+//                let obj = self.objects?[indexPath.row] as? PFObject
+//                let calendarId: String = obj!.objectId!
+//                delegate!.userDidSelectCalendar(calendarId)
+//            }
             
         }
     }
     
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        print("*didDeselectRow")
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewDays" {
-            let daysTable: DaysTableViewController = segue.destinationViewController as! DaysTableViewController
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let obj = self.objects?[indexPath.row] as? PFObject
+                let calendarId: String = obj!.objectId!
+                (segue.destinationViewController as! DaysTableViewController).calendarString = calendarId
+            }
+
+//             let daysTable: DaysTableViewController = segue.destinationViewController as! DaysTableViewController
 //            daysTable.queryKey = self.queryKey
 //            print("*sending: \(self.queryKey) prepareForSegue")
         }
