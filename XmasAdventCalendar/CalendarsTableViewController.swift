@@ -49,7 +49,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
             cell.cellImage.image = placeholder
         }
 
-        // fetch labels & connect them to labels
+        // fetch labels & connect to labels
         cell.titleLabel.text = object?.objectForKey("title") as? String
         cell.creatorLabel.text = object?.objectForKey("createdBy") as? String
         

@@ -30,38 +30,38 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //  MARK:   Actions
     
-//    // The save button
-//    @IBAction func saveButton(sender: AnyObject) {
-//        
-//        // Use the sent country object or create a new country PFObject
-//        if let updateObjectTest = selectedObject as PFObject? {
-//            updateObject = selectedObject! as PFObject
-//        } else {
-//            updateObject = PFObject(className:"Days")
-//        }
-//        
-//        // Update the object
-//        if let updateObject = updateObject {
-//            
-//            updateObject["note"] = noteField.text
-//
-//            
-//            // Upload any flag image
-//            if imageDidChange == true {
-//                let imageData = UIImagePNGRepresentation(giftImage.image!)
-//                let fileName = dateLabel.text! + ".png"
-//                let imageFile = PFFile(name:fileName, data:imageData!)
-//                updateObject["image"] = imageFile
-//            }
-//            
-//            
-//            // Save the data back to the server in a background task
-//            updateObject.save()
-//        }
-//        
-//        // Return to table view
-//        self.navigationController?.popViewControllerAnimated(true)
-//    }
+    // The save button
+    @IBAction func saveButton(sender: AnyObject) {
+        
+        // Use the sent country object or create a new country PFObject
+        if let updateObjectTest = selectedObject as PFObject? {
+            updateObject = selectedObject! as PFObject
+        } else {
+            updateObject = PFObject(className:"Days")
+        }
+        
+        // Update the object
+        if let updateObject = updateObject {
+            
+            updateObject["note"] = noteField.text
+
+            
+            // Upload any flag image
+            if imageDidChange == true {
+                let imageData = UIImagePNGRepresentation(giftImage.image!)
+                let fileName = dateLabel.text! + ".png"
+                let imageFile = PFFile(name:fileName, data:imageData!)
+                updateObject["image"] = imageFile
+            }
+            
+            
+            // Save the data back to the server in a background task
+            updateObject.save()
+        }
+        
+        // Return to table view
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
     // Present image picker
     @IBAction func uploadGiftImage(sender: AnyObject) {

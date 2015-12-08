@@ -39,7 +39,7 @@ class DaysTableViewController: PFQueryTableViewController {
             cell.giftImage.image = placeholder
         }
         
-        // fetch labels
+        // fetch labels & connect to labels
         let date = object?.objectForKey("date")
         let stringDate = formatDateLabel(date as! NSDate)
         cell.dayLabel.text = stringDate
