@@ -15,9 +15,6 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     // User selected object
     var selectedObject : PFObject? = PFObject(className: "Days")
     
-    // Object to update
-    var updateObject : PFObject?
-    
     // Image Picker object
     var imagePicker = UIImagePickerController()
     var imageDidChange = false
@@ -30,39 +27,6 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //  MARK:   Actions
     
-    // The save button
-    @IBAction func saveButton(sender: AnyObject) {
-        
-        // Use the sent country object or create a new country PFObject
-        if let updateObjectTest = selectedObject as PFObject? {
-            updateObject = selectedObject! as PFObject
-        } else {
-            updateObject = PFObject(className:"Days")
-        }
-        
-        // Update the object
-        if let updateObject = updateObject {
-            
-            updateObject["note"] = noteField.text
-
-            
-            // Upload any flag image
-            if imageDidChange == true {
-                let imageData = UIImagePNGRepresentation(giftImage.image!)
-                let fileName = dateLabel.text! + ".png"
-                let imageFile = PFFile(name:fileName, data:imageData!)
-                updateObject["image"] = imageFile
-            }
-            
-            
-            // Save the data back to the server in a background task
-            updateObject.save()
-        }
-        
-        // Return to table view
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
     // Present image picker
     @IBAction func uploadGiftImage(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
@@ -72,6 +36,30 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
             presentViewController(imagePicker, animated: true, completion: nil)
         }
         
+    }
+    
+    // The save button
+    @IBAction func saveButton(sender: AnyObject) {
+        
+        // Update the object
+        if let day = selectedObject {
+            
+            day["note"] = noteField.text
+            
+            // Upload any flag image
+            if imageDidChange == true {
+                let imageData = UIImagePNGRepresentation(giftImage.image!)
+                let fileName = dateLabel.text! + ".png"
+                let imageFile = PFFile(name:fileName, data:imageData!)
+                day["image"] = imageFile
+            }
+            
+            // Save the data back to the server in a background task
+            day.save()
+        }
+        
+        // Return to table view
+//        self.navigationController?.popViewControllerAnimated(true)
     }
     
     
@@ -85,8 +73,8 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         if let object = selectedObject {
             
             // set day label
-            var date = object["date"] as? NSDate
-            var stringDate = formatDateLabel(date!)
+            let date = object["date"] as? NSDate
+            let stringDate = formatDateLabel(date!)
             dateLabel.text = stringDate
             
             if let value = object["note"] as? String {
