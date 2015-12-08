@@ -70,7 +70,7 @@ class LogInViewController : PFLogInViewController {
     //  MARK:   Customizations
     
     func customizeBackground() {
-        backgroundImage = UIImageView(image: UIImage(named: "snow"))
+        backgroundImage = UIImageView(image: UIImage(named: "snow3"))
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
         self.logInView!.insertSubview(backgroundImage, atIndex: 0)
     }

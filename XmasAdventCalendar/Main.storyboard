@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sfb-EV-7VX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sfb-EV-7VX">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -62,7 +63,7 @@
                                     <outlet property="cellImage" destination="HTd-yE-SZg" id="xTZ-4K-nMa"/>
                                     <outlet property="creatorLabel" destination="MHn-qY-DSo" id="cfg-Zs-N2c"/>
                                     <outlet property="titleLabel" destination="yco-Pn-050" id="k6G-ic-XqO"/>
-                                    <segue destination="gMM-0K-GQz" kind="showDetail" identifier="viewDays" action="showViewController:sender:" id="sx9-H2-Lc8"/>
+                                    <segue destination="gMM-0K-GQz" kind="show" identifier="viewDays" id="sx9-H2-Lc8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -281,13 +282,13 @@
         <scene sceneID="iYO-vt-XpE">
             <objects>
                 <tableViewController id="gMM-0K-GQz" customClass="DaysTableViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" id="wGd-qK-Ehe">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" id="wGd-qK-Ehe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dayCell" rowHeight="102" id="xE3-yc-b4O" customClass="DayTableViewCell" customModule="XmasAdventCalendar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="102"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="102"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xE3-yc-b4O" id="Wpq-kY-7x4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
@@ -305,8 +306,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-a8-hJb" customClass="PFImageView">
-                                            <rect key="frame" x="8" y="1" width="100" height="100"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-a8-hJb" customClass="PFImageView">
+                                            <rect key="frame" x="8" y="0.0" width="100" height="100"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>

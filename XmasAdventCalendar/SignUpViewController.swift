@@ -49,7 +49,7 @@ class SignUpViewController : PFSignUpViewController {
     //  MARK:   Customizations
     
     func customizeBackground() {
-        backgroundImage = UIImageView(image: UIImage(named: "snow"))
+        backgroundImage = UIImageView(image: UIImage(named: "snow3"))
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
         self.signUpView!.insertSubview(backgroundImage, atIndex: 0)
     }

@@ -70,22 +70,14 @@ class CalendarsTableViewController: PFQueryTableViewController {
         } else {
             var obj = self.objects?[indexPath.row] as? PFObject
             queryKey = obj!.objectId!
-//            let indexPath = tableView.indexPathForSelectedRow()
-//              self.queryKey = self.objects[indexPath.row]
-//            self.performSegueWithIdentifier("viewDays", sender: self)
         }
     }
-    
-//    override func objectAtIndexPath(indexPath: NSIndexPath?) -> PFObject? {
-//        var obj = self.objects?[indexPath!.row] as? PFObject
-//        queryKey = obj?.objectId
-//    }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewDays" {
             let daysTable: DaysTableViewController = segue.destinationViewController as! DaysTableViewController
             daysTable.queryKey = self.queryKey
+            daysTable.loadObjects()
         }
     }
     

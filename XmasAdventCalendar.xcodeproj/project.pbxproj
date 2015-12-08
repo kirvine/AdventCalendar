@@ -1377,6 +1377,7 @@
 			isa = PBXGroup;
 			children = (
 				4B02643F1C0FF6E4006B2E8A /* AppDelegate.swift */,
+				4B0B7FD31C1640BD0047062C /* Models */,
 				4B0A3A761C112B7F009A10A4 /* Controllers */,
 				4B0A3A771C112BAB009A10A4 /* Storyboards */,
 				4B0264461C0FF6E4006B2E8A /* Assets.xcassets */,
@@ -3874,11 +3875,9 @@
 				4B0269FC1C102D60006B2E8A /* LogInViewController.swift */,
 				4B0A3A741C10E84B009A10A4 /* SignUpViewController.swift */,
 				4B0A3A7A1C113AA0009A10A4 /* CalendarsTableViewController.swift */,
-				4B0A3A7C1C113AD1009A10A4 /* CalendarTableViewCell.swift */,
-				4B0915D71C13D71200731385 /* SettingsViewController.swift */,
 				4B0915DC1C13E0C200731385 /* NewCalendarViewController.swift */,
 				4B0B7FC71C161DBA0047062C /* DaysTableViewController.swift */,
-				4B0B7FC91C161F830047062C /* DayTableViewCell.swift */,
+				4B0915D71C13D71200731385 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -3890,6 +3889,15 @@
 				4B0264481C0FF6E4006B2E8A /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		4B0B7FD31C1640BD0047062C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4B0A3A7C1C113AD1009A10A4 /* CalendarTableViewCell.swift */,
+				4B0B7FC91C161F830047062C /* DayTableViewCell.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		D50C1A334F909BD4C2330341 /* Pods */ = {
