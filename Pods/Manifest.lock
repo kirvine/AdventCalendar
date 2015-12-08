@@ -1,0 +1,33 @@
+PODS:
+  - Bolts (1.2.0):
+    - Bolts/AppLinks (= 1.2.0)
+    - Bolts/Tasks (= 1.2.0)
+  - Bolts/AppLinks (1.2.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.2.0)
+  - Parse (1.8.1):
+    - Bolts/Tasks (>= 1.2.0)
+  - ParseUI (1.1.6):
+    - Bolts/Tasks (~> 1.2)
+    - Parse (~> 1.8)
+
+DEPENDENCIES:
+  - Bolts (from `https://github.com/kwkhaw/Bolts-iOS.git`)
+  - Parse
+  - ParseUI
+
+EXTERNAL SOURCES:
+  Bolts:
+    :git: https://github.com/kwkhaw/Bolts-iOS.git
+
+CHECKOUT OPTIONS:
+  Bolts:
+    :commit: 412f62aa979dff584bb7e7b7685bc95d907fd5ca
+    :git: https://github.com/kwkhaw/Bolts-iOS.git
+
+SPEC CHECKSUMS:
+  Bolts: c4173988ebd9d67397a18f7142d1414884d2ac9b
+  Parse: 2155953b1565494095d5fa5c83b3c77f2c677c09
+  ParseUI: 8a22e448c03f825203d8c379c80523517f68baa3
+
+COCOAPODS: 0.39.0
