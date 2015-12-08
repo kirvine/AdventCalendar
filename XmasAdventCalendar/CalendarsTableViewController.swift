@@ -10,9 +10,15 @@ import UIKit
 import Parse
 import ParseUI
 
+protocol CalendarSelectedDelegate {
+    func userDidSelectCalendar(id:String)
+}
+
 class CalendarsTableViewController: PFQueryTableViewController {
     
     var queryKey: String = ""
+    
+    var delegate: CalendarSelectedDelegate? = nil
 
     // fetch calendar objects
     override func queryForTable() -> PFQuery {
@@ -42,6 +48,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
         if let imageFile = object?.objectForKey("image") as? PFFile {
             cell.cellImage.file = imageFile
             cell.cellImage.loadInBackground()
+            
         }
 
         // fetch labels
@@ -68,8 +75,15 @@ class CalendarsTableViewController: PFQueryTableViewController {
             self.loadNextPage()
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         } else {
-            var obj = self.objects?[indexPath.row] as? PFObject
-            queryKey = obj!.objectId!
+//            var obj = self.objects?[indexPath.row] as? PFObject
+//            queryKey = obj!.objectId!
+//            print("*setting: \(queryKey) didSelectRow")
+            if (delegate != nil) {
+                var obj = self.objects?[indexPath.row] as? PFObject
+                let calendarId: String = obj!.objectId!
+                delegate!.userDidSelectCalendar(calendarId)
+            }
+            
         }
     }
     
@@ -77,6 +91,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
         if segue.identifier == "viewDays" {
             let daysTable: DaysTableViewController = segue.destinationViewController as! DaysTableViewController
             daysTable.queryKey = self.queryKey
+            print("*sending: \(self.queryKey) prepareForSegue")
         }
     }
     

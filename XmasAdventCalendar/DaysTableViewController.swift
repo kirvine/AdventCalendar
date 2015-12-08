@@ -10,19 +10,25 @@ import UIKit
 import Parse
 import ParseUI
 
-class DaysTableViewController: PFQueryTableViewController {
+class DaysTableViewController: PFQueryTableViewController, CalendarSelectedDelegate {
 
     var queryKey: String? = ""
     var selectedObject: PFObject?
+    var calendarString: String? = ""
     
     override func queryForTable() -> PFQuery {
-        print("running queryForTable")
+        print("*running queryForTable")
         var query = PFQuery(className: "Days")
-        query.whereKey("calendarId", equalTo: self.queryKey!)
+        query.whereKey("calendarId", equalTo: self.calendarString!)
         query.orderByAscending("date")
-        print("query:\(query.countObjects())")
+        print("---\(self.calendarString)")
         return query
     }
+    
+    func userDidSelectCalendar(id: String) {
+        self.calendarString = id
+    }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         
@@ -53,19 +59,7 @@ class DaysTableViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("running viewDidLoad")
-        
-//        dispatch_async(dispatch_get_main_queue(), {
-//            self.queryForTable()
-//            
-//            // only for demo purposes; forecast retrieved too fast normally
-//            sleep(2)
-//            var i = 0
-//            repeat { i += 1 } while self.queryForTable().countObjects() == 0
-//            
-//            // update labels as soon as data is retrieved
-//            self.tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?)
-//        })
+//        print("*running viewDidLoad")
 
     }
 
@@ -82,6 +76,12 @@ class DaysTableViewController: PFQueryTableViewController {
     }
     
     //  MARK: Custom Functions
+//    func isCalendarRetrieved(completion: (result: PFQuery) -> Void) {
+//        var query = PFQuery()
+//        var i = 0
+//        repeat { i += 1 } while query.countObjects() == 0
+//        completion(result: query)
+//    }
     
     func formatDateLabel(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
