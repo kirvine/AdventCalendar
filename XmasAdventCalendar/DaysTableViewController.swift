@@ -61,6 +61,13 @@ class DaysTableViewController: PFQueryTableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editDay" {
+            let dayEditor: EditDayViewController = segue.destinationViewController as! EditDayViewController
+            dayEditor.selectedObject = self.selectedObject
+        }
+    }
+    
     //  MARK: Custom Functions
     func formatDateLabel(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
@@ -69,15 +76,5 @@ class DaysTableViewController: PFQueryTableViewController {
         return stringDate
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
