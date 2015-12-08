@@ -77,7 +77,6 @@ class CalendarsTableViewController: PFQueryTableViewController {
         if segue.identifier == "viewDays" {
             let daysTable: DaysTableViewController = segue.destinationViewController as! DaysTableViewController
             daysTable.queryKey = self.queryKey
-            daysTable.loadObjects()
         }
     }
     

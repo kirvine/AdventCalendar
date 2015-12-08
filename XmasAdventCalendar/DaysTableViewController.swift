@@ -16,11 +16,12 @@ class DaysTableViewController: PFQueryTableViewController {
     var selectedObject: PFObject?
     
     override func queryForTable() -> PFQuery {
+        print("running queryForTable")
         var query = PFQuery(className: "Days")
         query.whereKey("calendarId", equalTo: self.queryKey!)
         query.orderByAscending("date")
+        print("query:\(query.countObjects())")
         return query
-    
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
@@ -52,8 +53,20 @@ class DaysTableViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("running viewDidLoad")
+        
+//        dispatch_async(dispatch_get_main_queue(), {
+//            self.queryForTable()
+//            
+//            // only for demo purposes; forecast retrieved too fast normally
+//            sleep(2)
+//            var i = 0
+//            repeat { i += 1 } while self.queryForTable().countObjects() == 0
+//            
+//            // update labels as soon as data is retrieved
+//            self.tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?)
+//        })
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,6 +82,7 @@ class DaysTableViewController: PFQueryTableViewController {
     }
     
     //  MARK: Custom Functions
+    
     func formatDateLabel(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM d"

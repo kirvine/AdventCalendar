@@ -131,14 +131,8 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
         return convertedDate
     }
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    func createViewedByArray() {
+        
     }
 
     
