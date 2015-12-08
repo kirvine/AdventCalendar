@@ -12,33 +12,31 @@ import ParseUI
 
 class DaysTableViewController: PFQueryTableViewController {
 
-    var selectedObject: PFObject?
     var calendarString: String?
     
     override func queryForTable() -> PFQuery {
-        print("*running queryForTable")
+        
         let query = PFQuery(className: "Days")
         query.whereKey("calendarId", equalTo: self.calendarString!)
         query.orderByAscending("date")
-        print("---\(self.calendarString)")
+        
         return query
     }
-    
-//    func userDidSelectCalendar(id: String) {
-//        self.calendarString = id
-//    }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("dayCell", forIndexPath: indexPath) as! DayTableViewCell
     
-        // fetch image
-        let placeholder = UIImage(named: "present")
-        cell.giftImage.image = placeholder
+        // fetch image & connect to labels
         if let imageFile = object?.objectForKey("image") as? PFFile {
+            // image has been uploaded
             cell.giftImage.file = imageFile
             cell.giftImage.loadInBackground()
+        } else {
+            // no image present
+            let placeholder = UIImage(named: "present")
+            cell.giftImage.image = placeholder
         }
         
         // fetch labels
@@ -50,16 +48,8 @@ class DaysTableViewController: PFQueryTableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let object = self.objects?[indexPath.row] as? PFObject
-        selectedObject = object!
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("*running viewDidLoad")
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,8 +59,14 @@ class DaysTableViewController: PFQueryTableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editDay" {
-            let dayEditor: EditDayViewController = segue.destinationViewController as! EditDayViewController
-            dayEditor.selectedObject = self.selectedObject
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                // send selected day object to edit view
+                let dayObject = self.objects?[indexPath.row] as? PFObject
+                (segue.destinationViewController as! EditDayViewController).selectedObject = dayObject
+                
+            }
+            
         }
     }
     
