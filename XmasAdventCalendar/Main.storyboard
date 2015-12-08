@@ -278,7 +278,7 @@
             </objects>
             <point key="canvasLocation" x="2340" y="347"/>
         </scene>
-        <!--Days Table View Controller-->
+        <!--Title-->
         <scene sceneID="iYO-vt-XpE">
             <objects>
                 <tableViewController id="gMM-0K-GQz" customClass="DaysTableViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
@@ -314,7 +314,8 @@
                                 <connections>
                                     <outlet property="dayLabel" destination="URP-Qk-VEE" id="aqx-lM-a7A"/>
                                     <outlet property="giftImage" destination="Eqw-a8-hJb" id="YS4-hW-lwn"/>
-                                    <outlet property="noteLabel" destination="tr5-pV-Ib4" id="oOQ-qC-zk0"/>
+                                    <outlet property="noteLabel" destination="tr5-pV-Ib4" id="6pT-b1-jt3"/>
+                                    <segue destination="vDI-rZ-bfN" kind="show" id="moe-FV-4Ha"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -323,16 +324,60 @@
                             <outlet property="delegate" destination="gMM-0K-GQz" id="ur2-LH-NB9"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="Wgc-AX-ZF3">
+                        <barButtonItem key="rightBarButtonItem" image="info" style="plain" id="QI1-5G-ihw"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCp-Xs-A8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1787" y="1353"/>
+        </scene>
+        <!--Edit Day View Controller-->
+        <scene sceneID="xWe-mc-4YJ">
+            <objects>
+                <viewController id="vDI-rZ-bfN" customClass="EditDayViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xWo-ue-Lbw"/>
+                        <viewControllerLayoutGuide type="bottom" id="3P3-hL-T1v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UrS-vE-X7A">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALK-RA-88F">
+                                <rect key="frame" x="107" y="137" width="200" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSD-ee-TVq">
+                                <rect key="frame" x="107" y="357" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Send a message with your gift!" translatesAutoresizingMaskIntoConstraints="NO" id="Wkh-zJ-Rx6">
+                                <rect key="frame" x="87" y="419" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="dSD-ee-TVq" id="9n0-5o-14O"/>
+                        <outlet property="giftImage" destination="ALK-RA-88F" id="stO-Ls-ZTK"/>
+                        <outlet property="noteField" destination="Wkh-zJ-Rx6" id="UzZ-jQ-t6T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HAe-Bp-Hx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2373" y="1353"/>
         </scene>
     </scenes>
     <resources>
         <image name="calendar" width="32" height="32"/>
         <image name="camera" width="25" height="25"/>
         <image name="contacts" width="32" height="32"/>
+        <image name="info" width="25" height="25"/>
         <image name="settings" width="32" height="32"/>
     </resources>
 </document>

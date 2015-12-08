@@ -74,7 +74,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
                 newCalendar.saveInBackgroundWithBlock {
                     (success: Bool, error: NSError?) -> Void in
                     if (success) {
-                        // The object has been saved.
+                        // The object has been saved. Now make 25 days
                         if let id = newCalendar.objectId {
                             self.createDays(id)
                         }

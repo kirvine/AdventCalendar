@@ -12,7 +12,7 @@ import ParseUI
 
 class DaysTableViewController: PFQueryTableViewController {
 
-    var queryKey: String?
+    var selectedObject: PFObject?
     
     override func queryForTable() -> PFQuery {
         var query = PFQuery(className: "Days")
@@ -42,13 +42,11 @@ class DaysTableViewController: PFQueryTableViewController {
         
         return cell
     }
-
-    func formatDateLabel(date: NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM d"
-        let stringDate = dateFormatter.stringFromDate(date)
-        return stringDate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +57,14 @@ class DaysTableViewController: PFQueryTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //  MARK: Custom Functions
+    func formatDateLabel(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        let stringDate = dateFormatter.stringFromDate(date)
+        return stringDate
     }
     
 
