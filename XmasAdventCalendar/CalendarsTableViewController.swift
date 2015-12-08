@@ -16,8 +16,7 @@ protocol CalendarSelectedDelegate {
 
 class CalendarsTableViewController: PFQueryTableViewController {
     
-    var queryKey: String = ""
-    
+//    var queryKey: String = ""
     var delegate: CalendarSelectedDelegate? = nil
 
     // fetch calendar objects
@@ -25,13 +24,13 @@ class CalendarsTableViewController: PFQueryTableViewController {
         if (PFUser.currentUser() == nil) {
             return PFQuery()
         } else {
-            var creates = PFQuery(className: "Calendars")
+            let creates = PFQuery(className: "Calendars")
             creates.whereKey("createdBy", equalTo: PFUser.currentUser()!.username!)
             
-            var views = PFQuery(className: "Calendars")
+            let views = PFQuery(className: "Calendars")
             views.whereKey("viewedBy", equalTo: PFUser.currentUser()!.username!)
             
-            var query = PFQuery.orQueryWithSubqueries([creates, views])
+            let query = PFQuery.orQueryWithSubqueries([creates, views])
             query.orderByDescending("createdAt")
             return query
         }
@@ -43,7 +42,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CalendarTableViewCell
         
         // fetch image
-        var placeholder = UIImage(named: "merryxmas")
+        let placeholder = UIImage(named: "merryxmas")
         cell.cellImage.image = placeholder
         if let imageFile = object?.objectForKey("image") as? PFFile {
             cell.cellImage.file = imageFile
@@ -79,7 +78,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
 //            queryKey = obj!.objectId!
 //            print("*setting: \(queryKey) didSelectRow")
             if (delegate != nil) {
-                var obj = self.objects?[indexPath.row] as? PFObject
+                let obj = self.objects?[indexPath.row] as? PFObject
                 let calendarId: String = obj!.objectId!
                 delegate!.userDidSelectCalendar(calendarId)
             }
@@ -90,8 +89,8 @@ class CalendarsTableViewController: PFQueryTableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewDays" {
             let daysTable: DaysTableViewController = segue.destinationViewController as! DaysTableViewController
-            daysTable.queryKey = self.queryKey
-            print("*sending: \(self.queryKey) prepareForSegue")
+//            daysTable.queryKey = self.queryKey
+//            print("*sending: \(self.queryKey) prepareForSegue")
         }
     }
     

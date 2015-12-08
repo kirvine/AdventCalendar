@@ -12,14 +12,13 @@ import ParseUI
 
 class DaysTableViewController: PFQueryTableViewController, CalendarSelectedDelegate {
 
-    var queryKey: String? = ""
     var selectedObject: PFObject?
-    var calendarString: String? = ""
+    var calendarString: String = ""
     
     override func queryForTable() -> PFQuery {
         print("*running queryForTable")
-        var query = PFQuery(className: "Days")
-        query.whereKey("calendarId", equalTo: self.calendarString!)
+        let query = PFQuery(className: "Days")
+        query.whereKey("calendarId", equalTo: self.calendarString)
         query.orderByAscending("date")
         print("---\(self.calendarString)")
         return query
@@ -35,7 +34,7 @@ class DaysTableViewController: PFQueryTableViewController, CalendarSelectedDeleg
         let cell = tableView.dequeueReusableCellWithIdentifier("dayCell", forIndexPath: indexPath) as! DayTableViewCell
     
         // fetch image
-        var placeholder = UIImage(named: "present")
+        let placeholder = UIImage(named: "present")
         cell.giftImage.image = placeholder
         if let imageFile = object?.objectForKey("image") as? PFFile {
             cell.giftImage.file = imageFile
@@ -43,8 +42,8 @@ class DaysTableViewController: PFQueryTableViewController, CalendarSelectedDeleg
         }
         
         // fetch labels
-        var date = object?.objectForKey("date")
-        var stringDate = formatDateLabel(date as! NSDate)
+        let date = object?.objectForKey("date")
+        let stringDate = formatDateLabel(date as! NSDate)
         cell.dayLabel.text = stringDate
         cell.noteLabel.text = object?.objectForKey("note") as? String
         
@@ -52,7 +51,7 @@ class DaysTableViewController: PFQueryTableViewController, CalendarSelectedDeleg
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var object = self.objects?[indexPath.row] as? PFObject
+        let object = self.objects?[indexPath.row] as? PFObject
         selectedObject = object!
     }
     
@@ -76,12 +75,6 @@ class DaysTableViewController: PFQueryTableViewController, CalendarSelectedDeleg
     }
     
     //  MARK: Custom Functions
-//    func isCalendarRetrieved(completion: (result: PFQuery) -> Void) {
-//        var query = PFQuery()
-//        var i = 0
-//        repeat { i += 1 } while query.countObjects() == 0
-//        completion(result: query)
-//    }
     
     func formatDateLabel(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
