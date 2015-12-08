@@ -12,6 +12,7 @@ import ParseUI
 
 class DaysTableViewController: PFQueryTableViewController {
 
+    var queryKey: String? = ""
     var selectedObject: PFObject?
     
     override func queryForTable() -> PFQuery {
@@ -43,8 +44,9 @@ class DaysTableViewController: PFQueryTableViewController {
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var object = self.objects?[indexPath.row] as? PFObject
+        selectedObject = object!
     }
     
     

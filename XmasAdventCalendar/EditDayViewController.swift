@@ -13,7 +13,7 @@ import ParseUI
 class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     // User selected object
-    var currentObject : PFObject?
+    var selectedObject : PFObject?
     
     // Object to update
     var updateObject : PFObject?
@@ -34,8 +34,8 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func saveButton(sender: AnyObject) {
         
         // Use the sent country object or create a new country PFObject
-        if let updateObjectTest = currentObject as PFObject? {
-            updateObject = currentObject! as PFObject
+        if let updateObjectTest = selectedObject as PFObject? {
+            updateObject = selectedObject! as PFObject
         } else {
             updateObject = PFObject(className:"Days")
         }
@@ -83,7 +83,7 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         noteField.delegate = self
         
         // Unwrap the current object object
-        if let object = currentObject {
+        if let object = selectedObject {
             
             // set day label
             var date = object["date"] as? NSDate
