@@ -18,6 +18,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     var imageView: UIImageView!
     var containerView = UIView()
     
+    var buttonLocations = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +51,12 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func buttonAction(sender: UIButton!) {
-        var day = Int(sender.titleForState(.Normal)!)
+        var dayNumber = sender.titleForState(.Normal)!
+        var dayObject = getDayObject(dayNumber)
+        
+        if canOpen(dayObject) {
+            performSegueWithIdentifier("show", sender: nil)
+        }
         
         
     }
@@ -67,17 +74,24 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     
 
     //  MARK: Custom Functions
-    func getDayObject() {
-//        var query = PFQuery(className: "Days")
-//        query.whereKey("calendarId", equalTo: calendarId!)
-//        query.whereKey("day", equalTo: dayNumber!)
+    func getDayObject(dayNumber: String) -> PFObject {
+        var query = PFQuery(className: "Days")
+        query.whereKey("calendarId", equalTo: calendarId!)
+        query.whereKey("day", equalTo: dayNumber)
+        return query.getFirstObject()!
     }
     
     
-    func canOpen(adventDay: String, adventYear: String) -> Bool {
+    func canOpen(object: PFObject?) -> Bool {
+        // get day and year that gift should be opened
+        let giftDay = object!.objectForKey("day") as? String
+        let giftYear = object!.objectForKey("year") as? String
+        
+        // get current day and year
         let currentDay = getCurrentDate("d")
         let currentYear = getCurrentDate("Y")
-        return (currentDay >= adventDay && currentYear >= adventYear)
+        
+        return (currentDay >= giftDay && currentYear >= giftYear)
     }
     
     func getCurrentDate(format: String) -> String {

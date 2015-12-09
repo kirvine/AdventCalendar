@@ -17,17 +17,7 @@ class AdventDayViewController: UIViewController {
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var giftImage: PFImageView!
     
-    var calendarId: String? = ""
-    var dayNumber: String? = ""
     var dayObject: PFObject?
-    
-    func getDayObject() {
-        var query = PFQuery(className: "Days")
-        query.whereKey("calendarId", equalTo: calendarId!)
-        query.whereKey("day", equalTo: dayNumber!)
-        
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

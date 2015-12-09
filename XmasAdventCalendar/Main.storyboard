@@ -392,7 +392,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="9yq-cq-Rmk" kind="show" action="showDetailViewController:sender:" id="Gtt-Yy-3LB"/>
+                        <segue destination="9yq-cq-Rmk" kind="show" identifier="showGift" action="showDetailViewController:sender:" id="Gtt-Yy-3LB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8U-Mr-PQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
