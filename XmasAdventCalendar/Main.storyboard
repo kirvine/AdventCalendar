@@ -8,6 +8,7 @@
         <mutableArray key="Pacifico.ttf">
             <string>Pacifico</string>
             <string>Pacifico</string>
+            <string>Pacifico</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -224,10 +225,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="eY0-bZ-49Y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="eY0-bZ-49Y">
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G36-Y1-ZCn" customClass="PFImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G36-Y1-ZCn" customClass="PFImageView">
                                 <rect key="frame" x="105" y="90" width="200" height="200"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wid-XI-CvF">
@@ -272,12 +273,12 @@
                                     <action selector="saveButton:" destination="h2v-N6-bI6" eventType="touchUpInside" id="pLD-M2-OfT"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calendar Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVy-bL-Jau">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calendar Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVy-bL-Jau">
                                 <rect key="frame" x="107" y="306" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WOI-DG-f58">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WOI-DG-f58">
                                 <rect key="frame" x="106" y="451" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -290,13 +291,6 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="eY0-bZ-49Y" firstAttribute="centerX" secondItem="9dt-EO-sCV" secondAttribute="centerX" id="5kM-li-GAf"/>
-                            <constraint firstItem="WOI-DG-f58" firstAttribute="centerX" secondItem="9dt-EO-sCV" secondAttribute="centerX" id="BFQ-DY-Xkg"/>
-                            <constraint firstItem="wVy-bL-Jau" firstAttribute="centerX" secondItem="9dt-EO-sCV" secondAttribute="centerX" id="ClV-jr-w2V"/>
-                            <constraint firstItem="G36-Y1-ZCn" firstAttribute="centerX" secondItem="9dt-EO-sCV" secondAttribute="centerX" id="whW-fB-Mhh"/>
-                            <constraint firstItem="eY0-bZ-49Y" firstAttribute="centerY" secondItem="9dt-EO-sCV" secondAttribute="centerY" id="yyv-HS-iO2"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Calendar" id="f4f-tC-hxn"/>
                     <connections>
@@ -397,10 +391,56 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="9yq-cq-Rmk" kind="show" action="showDetailViewController:sender:" id="Gtt-Yy-3LB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8U-Mr-PQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1787" y="2246"/>
+        </scene>
+        <!--Advent Day View Controller-->
+        <scene sceneID="WAJ-ah-HBV">
+            <objects>
+                <viewController id="9yq-cq-Rmk" customClass="AdventDayViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FKa-wa-m7k"/>
+                        <viewControllerLayoutGuide type="bottom" id="zl0-KQ-qrf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ol7-5m-hKQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-uE-pyL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-7b-5Sa" customClass="PFImageView">
+                                <rect key="frame" x="57" y="225" width="300" height="300"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gift note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7W-rc-PhW">
+                                <rect key="frame" x="57" y="488" width="300" height="37"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="December Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-FN-uDX">
+                                <rect key="frame" x="57" y="145" width="300" height="77"/>
+                                <fontDescription key="fontDescription" name="Pacifico" family="Pacifico" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="dayLabel" destination="qcG-FN-uDX" id="Wan-pu-vAT"/>
+                        <outlet property="giftImage" destination="z6a-7b-5Sa" id="42O-xG-z85"/>
+                        <outlet property="noteLabel" destination="i7W-rc-PhW" id="9SM-h3-lIw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="smh-kl-jPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2340" y="2246"/>
         </scene>
         <!--Edit Day View Controller-->
         <scene sceneID="xWe-mc-4YJ">
@@ -417,12 +457,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="XYT-gV-3FT">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALK-RA-88F" customClass="PFImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALK-RA-88F" customClass="PFImageView">
                                 <rect key="frame" x="107" y="98" width="200" height="200"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Send a message with your gift!" translatesAutoresizingMaskIntoConstraints="NO" id="Wkh-zJ-Rx6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wkh-zJ-Rx6">
                                 <rect key="frame" x="87" y="419" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.91206991792929293" green="0.17470263019799426" blue="0.14086693654355856" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
@@ -445,23 +486,18 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add message below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHk-5A-N4U">
                                 <rect key="frame" x="87" y="385" width="232" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="December" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSD-ee-TVq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="December" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSD-ee-TVq">
                                 <rect key="frame" x="107" y="314" width="200" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dSD-ee-TVq" firstAttribute="centerX" secondItem="UrS-vE-X7A" secondAttribute="centerX" id="F6S-Qc-qBw"/>
-                            <constraint firstItem="ALK-RA-88F" firstAttribute="centerX" secondItem="UrS-vE-X7A" secondAttribute="centerX" id="X3i-vD-J6c"/>
-                            <constraint firstItem="Wkh-zJ-Rx6" firstAttribute="centerX" secondItem="UrS-vE-X7A" secondAttribute="centerX" id="y9Z-aM-and"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="dSD-ee-TVq" id="9n0-5o-14O"/>
