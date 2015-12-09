@@ -318,7 +318,6 @@
                             <state key="normal" title="View Advent Calendar"/>
                             <connections>
                                 <action selector="viewAdventCalendar" destination="gMM-0K-GQz" eventType="touchUpInside" id="TMU-5R-hnK"/>
-                                <segue destination="zoA-Eo-onF" kind="show" identifier="showAdvent" id="Bre-an-I2S"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -362,6 +361,9 @@
                     <navigationItem key="navigationItem" title="Title" id="Wgc-AX-ZF3">
                         <barButtonItem key="rightBarButtonItem" image="info" style="plain" id="QI1-5G-ihw"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="zoA-Eo-onF" kind="show" identifier="showAdvent" id="c6R-Lu-K0a"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCp-Xs-A8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,7 +15,7 @@ class DaysTableViewController: PFQueryTableViewController {
     var calendarString: String?
     
     @IBAction func viewAdventCalendar (){
-        print("*button action \(calendarString)")
+        print("* in view advent action \(calendarString)")
         performSegueWithIdentifier("showAdvent", sender: calendarString!)
     }
     
@@ -63,19 +63,19 @@ class DaysTableViewController: PFQueryTableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        print("* in prepareForSegue")
         if segue.identifier == "editDay" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 // send selected day object to edit view
                 let dayObject = self.objects?[indexPath.row] as? PFObject
                 (segue.destinationViewController as! EditDayViewController).selectedObject = dayObject
-            } else if segue.identifier == "showAdvent" {
-                print("sending data through showAdvent segue")
-                if let vc = segue.destinationViewController as? AdventCalendarViewController {
-                    vc.calendarId = sender as? String
-                }
             }
-            
+        } else if segue.identifier == "showAdvent" {
+            print("* in showAdvent segue")
+            if let vc = segue.destinationViewController as? AdventCalendarViewController {
+                vc.calendarId = sender as? String
+                print("* showAdvent sending \(sender)")
+            }
         }
     }
 
