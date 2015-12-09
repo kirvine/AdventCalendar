@@ -21,7 +21,6 @@ class AdventDayViewController: UIViewController {
     
     
     @IBAction func returnToAdventCalendar(sender: UIButton) {
-       self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {

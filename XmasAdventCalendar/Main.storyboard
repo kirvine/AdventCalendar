@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Pacifico.ttf">
@@ -394,13 +395,14 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <segue destination="9yq-cq-Rmk" kind="show" identifier="showGift" action="showDetailViewController:sender:" id="Gtt-Yy-3LB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8U-Mr-PQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="2246"/>
+            <point key="canvasLocation" x="1787" y="2306"/>
         </scene>
         <!--Advent Day View Controller-->
         <scene sceneID="WAJ-ah-HBV">
@@ -432,15 +434,20 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-DR-oWE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-DR-oWE">
                                 <rect key="frame" x="369" y="28" width="25" height="25"/>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="returnToAdventCalendar:" destination="9yq-cq-Rmk" eventType="touchUpInside" id="Wiy-cD-npY"/>
+                                    <segue destination="zoA-Eo-onF" kind="show" id="pao-NC-TVF"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BE1-DR-oWE" firstAttribute="trailing" secondItem="Ol7-5m-hKQ" secondAttribute="trailingMargin" id="gk9-SY-Otx"/>
+                            <constraint firstItem="BE1-DR-oWE" firstAttribute="top" secondItem="FKa-wa-m7k" secondAttribute="bottom" constant="8" symbolic="YES" id="hn6-Y1-vlS"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="dayLabel" destination="qcG-FN-uDX" id="Wan-pu-vAT"/>
@@ -450,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smh-kl-jPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340" y="2246"/>
+            <point key="canvasLocation" x="2340" y="2306"/>
         </scene>
         <!--Edit Day View Controller-->
         <scene sceneID="xWe-mc-4YJ">
@@ -530,4 +537,7 @@
         <image name="info" width="25" height="25"/>
         <image name="settings" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pao-NC-TVF"/>
+    </inferredMetricsTieBreakers>
 </document>
