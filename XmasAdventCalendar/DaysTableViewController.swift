@@ -35,7 +35,7 @@ class DaysTableViewController: PFQueryTableViewController {
             cell.giftImage.loadInBackground()
         } else {
             // no image present
-            let placeholder = UIImage(named: "present")
+            let placeholder = UIImage(named: "day_placeholder")
             cell.giftImage.image = placeholder
         }
         
@@ -50,6 +50,8 @@ class DaysTableViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loadObjects()
     }
 
     override func didReceiveMemoryWarning() {

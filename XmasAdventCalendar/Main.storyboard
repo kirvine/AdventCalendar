@@ -383,7 +383,6 @@
                                 <rect key="frame" x="274" y="265" width="25" height="25"/>
                                 <state key="normal" image="camera"/>
                                 <connections>
-                                    <action selector="uploadGiftImage:" destination="vDI-rZ-bfN" eventType="touchUpInside" id="3YU-GW-Dlo"/>
                                     <action selector="uploadImage:" destination="vDI-rZ-bfN" eventType="touchUpInside" id="Y3D-UF-c8d"/>
                                 </connections>
                             </button>

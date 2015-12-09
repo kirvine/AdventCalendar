@@ -115,7 +115,7 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
                 giftImage.loadInBackground()
             } else {
                 // if no picture, display generic
-                let placeholder = UIImage(named: "present")
+                let placeholder = UIImage(named: "day_placeholder")
                 giftImage.image = placeholder
             }
         }
