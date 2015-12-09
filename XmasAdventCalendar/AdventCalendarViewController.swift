@@ -33,7 +33,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         
         
         let button = UIButton.init(type: .System)
-        button.frame = CGRectMake(50, 50, 50, 50)
+        button.frame = CGRectMake(150, 150, 50, 50)
         button.backgroundColor = UIColor.clearColor()
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
@@ -51,11 +51,11 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func buttonAction(sender: UIButton!) {
-        var dayNumber = sender.titleForState(.Normal)!
-        var dayObject = getDayObject(dayNumber)
+        let dayNumber = sender.titleForState(.Normal)!
+        let dayObject = getDayObject(dayNumber)
         
         if canOpen(dayObject) {
-            performSegueWithIdentifier("show", sender: nil)
+            performSegueWithIdentifier("showGift", sender: nil)
         }
         
         
@@ -78,7 +78,11 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         var query = PFQuery(className: "Days")
         query.whereKey("calendarId", equalTo: calendarId!)
         query.whereKey("day", equalTo: dayNumber)
-        return query.getFirstObject()!
+        print("*calendar: \(calendarId) day: \(dayNumber)")
+        print(query)
+        var obj = query.getFirstObject()!
+        print(obj)
+        return obj
     }
     
     

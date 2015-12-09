@@ -16,7 +16,7 @@ class AdventDayViewController: UIViewController {
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var giftImage: PFImageView!
-    
+
     var dayObject: PFObject?
     
     override func viewDidLoad() {

@@ -317,7 +317,8 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="View Advent Calendar"/>
                             <connections>
-                                <segue destination="zoA-Eo-onF" kind="show" identifier="showAdvent" id="4Dw-Fn-IqV"/>
+                                <action selector="viewAdventCalendar" destination="gMM-0K-GQz" eventType="touchUpInside" id="TMU-5R-hnK"/>
+                                <segue destination="zoA-Eo-onF" kind="show" identifier="showAdvent" id="Bre-an-I2S"/>
                             </connections>
                         </button>
                         <prototypes>

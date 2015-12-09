@@ -14,6 +14,11 @@ class DaysTableViewController: PFQueryTableViewController {
 
     var calendarString: String?
     
+    @IBAction func viewAdventCalendar (){
+        print("*button action \(calendarString)")
+        performSegueWithIdentifier("showAdvent", sender: calendarString!)
+    }
+    
     override func queryForTable() -> PFQuery {
         
         let query = PFQuery(className: "Days")
@@ -22,7 +27,6 @@ class DaysTableViewController: PFQueryTableViewController {
         
         return query
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         
@@ -66,7 +70,10 @@ class DaysTableViewController: PFQueryTableViewController {
                 let dayObject = self.objects?[indexPath.row] as? PFObject
                 (segue.destinationViewController as! EditDayViewController).selectedObject = dayObject
             } else if segue.identifier == "showAdvent" {
-                (segue.destinationViewController as! AdventCalendarViewController).calendarId = calendarString
+                print("sending data through showAdvent segue")
+                if let vc = segue.destinationViewController as? AdventCalendarViewController {
+                    vc.calendarId = sender as? String
+                }
             }
             
         }
