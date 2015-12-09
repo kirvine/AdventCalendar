@@ -11,7 +11,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class NewCalendarViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Calendar object to create
     var newObject : PFObject?
@@ -32,11 +32,51 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
     
     // Prompt user to allow permission to device photo library
     @IBAction func uploadImage(sender: AnyObject) {
+        
+        
+        let alert:UIAlertController=UIAlertController(title: "Upload Image", message: nil, preferredStyle: .ActionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.openCamera()
+        })
+    
+        let libraryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.openLibrary()
+        })
+    
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+
+        alert.addAction(cameraAction)
+        alert.addAction(libraryAction)
+        alert.addAction(cancelAction)
+        
+        imagePicker.delegate = self
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
             imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = .PhotoLibrary
             presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func openCamera() {
+        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            imagePicker.sourceType = .Camera
+            imagePicker.allowsEditing = true
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func openLibrary() {
+        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            imagePicker.sourceType = .PhotoLibrary
+            imagePicker.allowsEditing = true
+            self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
 
