@@ -58,7 +58,6 @@ class DaysTableViewController: PFQueryTableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -69,11 +68,9 @@ class DaysTableViewController: PFQueryTableViewController {
                 (segue.destinationViewController as! EditDayViewController).selectedObject = dayObject
             }
         } else if segue.identifier == "showAdvent" {
-//            print("* in showAdvent segue")
             // send calendar id to AdventCalendar view
             if let vc = segue.destinationViewController as? AdventCalendarViewController {
                 vc.calendarId = sender as? String
-//                print("* showAdvent sending \(sender)")
             }
         }
     }

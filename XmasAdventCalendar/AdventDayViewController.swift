@@ -19,6 +19,11 @@ class AdventDayViewController: UIViewController {
 
     var dayObject: PFObject?
     
+    
+    @IBAction func returnToAdventCalendar(sender: UIButton) {
+       self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

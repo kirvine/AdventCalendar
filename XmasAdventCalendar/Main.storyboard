@@ -432,6 +432,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-DR-oWE">
+                                <rect key="frame" x="369" y="28" width="25" height="25"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="returnToAdventCalendar:" destination="9yq-cq-Rmk" eventType="touchUpInside" id="Wiy-cD-npY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -503,9 +510,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="dateLabel" destination="dSD-ee-TVq" id="9n0-5o-14O"/>
-                        <outlet property="giftImage" destination="ALK-RA-88F" id="stO-Ls-ZTK"/>
-                        <outlet property="noteField" destination="Wkh-zJ-Rx6" id="UzZ-jQ-t6T"/>
+                        <outlet property="dateLabel" destination="dSD-ee-TVq" id="xLR-c6-fbP"/>
+                        <outlet property="giftImage" destination="ALK-RA-88F" id="JUy-YC-zHW"/>
+                        <outlet property="noteField" destination="Wkh-zJ-Rx6" id="oeq-G5-TSm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAe-Bp-Hx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -518,6 +525,7 @@
         <image name="bg_bottomsnow" width="1650" height="2550"/>
         <image name="calendar" width="32" height="32"/>
         <image name="camera" width="25" height="25"/>
+        <image name="close" width="25" height="25"/>
         <image name="contacts" width="32" height="32"/>
         <image name="info" width="25" height="25"/>
         <image name="settings" width="32" height="32"/>

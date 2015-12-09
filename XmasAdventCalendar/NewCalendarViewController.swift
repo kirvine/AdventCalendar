@@ -129,9 +129,7 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
         titleField.delegate = self;
         
         // set initial labels and fields
-        calendarImage.image = UIImage(named: "calendar_placeholder")
-        yearLabel.text = getCurrentYear()
-        createdByLabel.text = PFUser.currentUser()?.username
+        updateLabels()
         
         }
 
@@ -147,7 +145,6 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
             calendarImage.image = pickedImage
             calendarImage.contentMode = .ScaleAspectFit
             
-            // Update the image did change flag so that we pick this up when the country is ssaved back to Parse
             imageDidChange = true
         }
         
@@ -170,6 +167,12 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
     
     //  MARK:   Custom Functions
 
+    func updateLabels() {
+        calendarImage.image = UIImage(named: "calendar_placeholder")
+        yearLabel.text = getCurrentYear()
+        createdByLabel.text = PFUser.currentUser()?.username
+    }
+    
     func getCurrentYear() -> String {
         let currentDate = NSDate()
         let dateFormatter = NSDateFormatter()
@@ -177,29 +180,6 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
         let convertedDate = dateFormatter.stringFromDate(currentDate)
         return convertedDate
     }
-    
-    func createViewedByArray() {
-        
-    }
-
-//    func createDays(calendarId: String) {
-//        let calendar = NSCalendar.currentCalendar()
-//
-//        let dateComponents = NSDateComponents()
-//        dateComponents.day = 1
-//        dateComponents.month = 12
-//        dateComponents.year = Int(getCurrentYear())!
-//        
-//        for day in 1...25 {
-//            let newDay = PFObject(className: "Days")
-//            let date = calendar.dateFromComponents(dateComponents)
-//            dateComponents.day += 1
-//            
-//            newDay["date"] = date!
-//            newDay["calendarId"] = calendarId
-//            newDay.saveInBackground()
-//        }
-//    }
     
     func createDays(calendarId: String) {
         let year = getCurrentYear()

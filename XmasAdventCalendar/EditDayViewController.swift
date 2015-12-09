@@ -92,7 +92,6 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         noteField.delegate = self
         
         updateLabels()
-        
     }
     
     //  MARK:   UIImagePicker Functions
@@ -116,30 +115,30 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     //  MARK:   Custom Functions
     func updateLabels() {
         if let object = self.selectedObject {
-            
+            print("* in update labels")
             // set day label
             let number = object.objectForKey("day") as? String
-            dateLabel.text  = "Dec \(number!)"
+            self.dateLabel.text  = "Dec \(number!)"
             
             // set contents of note field
             if let value = object.objectForKey("note") as? String {
-                noteField.text = value
+                self.noteField.text = value
             }
             
             // set image
             if let imageFile = object.objectForKey("image") as? PFFile {
                 // image has been uploaded
-                giftImage.file = imageFile
-                giftImage.loadInBackground()
+                self.giftImage.file = imageFile
+                self.giftImage.loadInBackground()
             } else {
                 // no image present
                 let placeholder = UIImage(named: "day_placeholder")
-                giftImage.image = placeholder
+                self.giftImage.image = placeholder
             }
         }
-
-        
     }
+    
+    
     
 }
 
