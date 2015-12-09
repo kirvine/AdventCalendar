@@ -69,41 +69,8 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
         
         
         self.presentViewController(optionMenu, animated: true, completion: nil)
-        
-//        let ac = UIAlertController(title: "Upload Image", message: nil, preferredStyle: .ActionSheet)
-//        ac.addAction(UIAlertAction(title: "Camera", style: .Default, handler: openCamera))
-//        ac.addAction(UIAlertAction(title: "Library", style: .Default, handler: openLibrary))
-//        ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-//        presentViewController(ac, animated: true, completion: nil)
-        
-//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
-//            imagePicker.delegate = self
-//            imagePicker.allowsEditing = true
-//            imagePicker.sourceType = .PhotoLibrary
-//            presentViewController(imagePicker, animated: true, completion: nil)
-//        }
-    }
     
-    func openCamera(action: UIAlertAction!) {
-        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
-            imagePicker.delegate = self
-            imagePicker.sourceType = .Camera
-            imagePicker.allowsEditing = true
-            print("in camera")
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
     }
-    
-    func openLibrary(action: UIAlertAction!) {
-        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
-            imagePicker.delegate = self
-            imagePicker.sourceType = .PhotoLibrary
-            imagePicker.allowsEditing = true
-            print("in lib")
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
-    }
-
     
     // The save button
     @IBAction func saveButton(sender: AnyObject) {
@@ -171,11 +138,12 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
         }
 
     
-    //  MARK:   Custom Functions
+    
+    //  MARK:   UIImagePicker Functions
     
     // Process selected image - add image to the parse object model
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             
             // Update the image within the app interface
             calendarImage.image = pickedImage
@@ -188,7 +156,10 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
         // Dismiss the image picker
         dismissViewControllerAnimated(true, completion: nil)
     }
+
     
+    //  MARK:   Custom Functions
+
     func getCurrentYear() -> String {
         let currentDate = NSDate()
         let dateFormatter = NSDateFormatter()
