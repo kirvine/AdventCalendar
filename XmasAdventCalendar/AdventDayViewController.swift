@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
+
 
 class AdventDayViewController: UIViewController {
 
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var giftImage: PFImageView!
+    
+    var calendarId: String? = ""
+    var dayNumber: Int?
+    var dayObject: PFObject?
+    
+    func getDayObject() {
+        var query = PFQuery(className: "Days")
+        query.whereKey("calendarId", equalTo: calendarId!)
+        query.whereKey("date", containedIn: <#T##[AnyObject]#>)
+        
+    }
     
     
     override func viewDidLoad() {

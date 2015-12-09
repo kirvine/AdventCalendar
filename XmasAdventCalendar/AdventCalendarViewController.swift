@@ -49,7 +49,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func buttonAction(sender: UIButton!) {
-        let day = sender.titleForState(.Normal)
+        var day = Int(sender.titleForState(.Normal)!)
+        
         
     }
     
