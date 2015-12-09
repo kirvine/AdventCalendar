@@ -99,7 +99,6 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // Unwrap the selected object
         if let object = self.selectedObject {
-            print("\(object) edit")
             
             // set day label
             let date = object["date"] as? NSDate
@@ -113,28 +112,12 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
             if let imageFile = object.objectForKey("image") as? PFFile {
                 // image has been uploaded
                 giftImage.file = imageFile
-                print(imageFile)
                 giftImage.loadInBackground()
             } else {
                 // no image present
                 let placeholder = UIImage(named: "day_placeholder")
                 giftImage.image = placeholder
             }
-
-//            // if no picture, display generic
-//            let placeholder = UIImage(named: "day_placeholder")
-//            giftImage.image = placeholder
-//            
-//            // if day has an image display it
-//            if let image = object["image"] as? PFFile {
-//                giftImage.file = image
-//                giftImage.loadInBackground()
-//            }
-//            else {
-//                // if no picture, display generic
-//                let placeholder = UIImage(named: "day_placeholder")
-//                giftImage.image = placeholder
-//            }
         }
     }
     

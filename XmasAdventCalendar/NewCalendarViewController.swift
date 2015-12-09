@@ -11,7 +11,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Calendar object to create
     var newObject : PFObject?
@@ -126,6 +126,7 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
         super.viewDidLoad()
         
         imagePicker.delegate = self
+        titleField.delegate = self;
         
         // set initial labels and fields
         calendarImage.image = UIImage(named: "calendar_placeholder")
@@ -165,10 +166,6 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        textField.resignFirstResponder()
     }
     
     //  MARK:   Custom Functions

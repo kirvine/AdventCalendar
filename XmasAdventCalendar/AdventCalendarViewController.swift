@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
 
+    var calendarId: String? = ""
+    
     var scrollView: UIScrollView!
     var imageView: UIImageView!
     var containerView = UIView()
@@ -17,6 +21,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // image
         imageView = UIImageView(image: UIImage(named: "advent"))
         
         scrollView = UIScrollView(frame: view.bounds)
@@ -24,33 +29,35 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = imageView.bounds.size
         scrollView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
+        
+        let button = UIButton.init(type: .System)
+        button.frame = CGRectMake(50, 50, 50, 50)
+        button.backgroundColor = UIColor.clearColor()
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.whiteColor().CGColor
+        button.setTitle("1", forState: UIControlState.Normal)
+        button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        
         scrollView.addSubview(imageView)
+        scrollView.addSubview(button)
+        
         view.addSubview(scrollView)
         
+        scrollView.delegate = self
+    }
+    
+    func buttonAction(sender: UIButton!) {
+        let day = sender.titleForState(.Normal)
         
-        let buttonOne = UIButton.init(type: .System)
-        buttonOne.frame = CGRectMake(10, 50, 50, 50)
-        buttonOne.backgroundColor = UIColor.greenColor()
-        buttonOne.setTitle("test", forState: UIControlState.Normal)
-        buttonOne.addTarget(self, action: "buttonAction1x1:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        self.scrollView = UIScrollView()
-        self.scrollView.delegate = self
-        self.scrollView.contentSize = CGSizeMake(1000, 1000)
-        
-        containerView = UIView()
-        
-        
-        scrollView.addSubview(containerView)
-        view.addSubview(scrollView)
-        containerView.addSubview(buttonOne)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         scrollView.frame = view.bounds
-        containerView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height)
+//        containerView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height)
     }
 
     override func didReceiveMemoryWarning() {
