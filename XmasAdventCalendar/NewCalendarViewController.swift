@@ -36,7 +36,6 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
         let optionMenu = UIAlertController(title: nil, message: "Upload Image", preferredStyle: .ActionSheet)
 
         let photoLibraryOption = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-            print("library")
             //shows the photo library
             self.imagePicker.allowsEditing = true
             self.imagePicker.sourceType = .PhotoLibrary
@@ -44,8 +43,7 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         })
         
-        let cameraOption = UIAlertAction(title: "Take a photo", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-            print("camera")
+        let cameraOption = UIAlertAction(title: "Camera", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
             //shows the camera
             self.imagePicker.allowsEditing = true
             self.imagePicker.sourceType = .Camera
@@ -56,17 +54,15 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
         
         let cancelOption = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("Cancel")
             self.dismissViewControllerAnimated(true, completion: nil)
         })
         
+        // add options to alert
+        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            optionMenu.addAction(cameraOption)
+        }
         optionMenu.addAction(photoLibraryOption)
         optionMenu.addAction(cancelOption)
-        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
-            optionMenu.addAction(cameraOption)} else {
-            print ("I don't have a camera.")
-        }
-        
         
         self.presentViewController(optionMenu, animated: true, completion: nil)
     
@@ -75,6 +71,7 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
     // The save button
     @IBAction func saveButton(sender: AnyObject) {
         
+        // Create new object
         newObject = PFObject(className:"Calendars")
         
         // Update the object
@@ -131,7 +128,7 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
         imagePicker.delegate = self
         
         // set initial labels and fields
-        calendarImage.image = UIImage(named: "merryxmas")
+        calendarImage.image = UIImage(named: "calendar_placeholder")
         yearLabel.text = getCurrentYear()
         createdByLabel.text = PFUser.currentUser()?.username
         
@@ -141,7 +138,7 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
     
     //  MARK:   UIImagePicker Functions
     
-    // Process selected image - add image to the parse object model
+    // Process selected image & add back to parse object
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             

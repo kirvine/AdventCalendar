@@ -28,14 +28,39 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     //  MARK:   Actions
     
     // Present image picker
-    @IBAction func uploadGiftImage(sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
-            imagePicker.delegate = self
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = .PhotoLibrary
-            presentViewController(imagePicker, animated: true, completion: nil)
-        }
+    @IBAction func uploadImage(sender: AnyObject) {
+        let optionMenu = UIAlertController(title: nil, message: "Upload Image", preferredStyle: .ActionSheet)
         
+        let photoLibraryOption = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            //shows the photo library
+            self.imagePicker.allowsEditing = true
+            self.imagePicker.sourceType = .PhotoLibrary
+            self.imagePicker.modalPresentationStyle = .Popover
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        })
+        
+        let cameraOption = UIAlertAction(title: "Camera", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            //shows the camera
+            self.imagePicker.allowsEditing = true
+            self.imagePicker.sourceType = .Camera
+            self.imagePicker.modalPresentationStyle = .Popover
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            
+        })
+        
+        let cancelOption = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+        // add options to alert
+        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            optionMenu.addAction(cameraOption)
+        }
+        optionMenu.addAction(photoLibraryOption)
+        optionMenu.addAction(cancelOption)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
     }
     
     // The save button
@@ -46,25 +71,28 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             day["note"] = noteField.text
             
-            // Upload any flag image
+            // Upload any gift image
             if imageDidChange == true {
+                
                 let imageData = UIImagePNGRepresentation(giftImage.image!)
-                let fileName = dateLabel.text! + ".png"
-                let imageFile = PFFile(name:fileName, data:imageData!)
+                let imageFile = PFFile(data:imageData!)
                 day["image"] = imageFile
+                
             }
             
             // Save the data back to the server in a background task
-            day.save()
+            day.saveInBackground()
         }
         
         // Return to table view
-//        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker.delegate = self
         
         // Configure delegate property for the form fields
         noteField.delegate = self
@@ -81,31 +109,23 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
                 noteField.text = value
             }
             
-            // Display standard question image
-            let initialThumbnail = UIImage(named: "present")
-            giftImage.image = initialThumbnail
-            
-            // Replace question image if an image exists on the parse platform
-            if let thumbnail = object["image"] as? PFFile {
-                giftImage.file = thumbnail
+            // if day has an image display it
+            if let image = object["image"] as? PFFile {
+                giftImage.file = image
                 giftImage.loadInBackground()
+            } else {
+                // if no picture, display generic
+                let placeholder = UIImage(named: "present")
+                giftImage.image = placeholder
             }
         }
     }
     
+    //  MARK:   UIImagePicker Functions
     
-    //  MARK:   Custom Functions
-    
-    func formatDateLabel(date: NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM d"
-        let stringDate = dateFormatter.stringFromDate(date)
-        return stringDate
-    }
-    
-    // Process selected image - add image to the parse object model
+    // Process selected image & add back to parse object
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             
             // Update the image within the app interface
             giftImage.image = pickedImage
@@ -118,15 +138,17 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dismiss the image picker
         dismissViewControllerAnimated(true, completion: nil)
     }
+    //  MARK:   Custom Functions
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    func formatDateLabel(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        let stringDate = dateFormatter.stringFromDate(date)
+        return stringDate
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-
+    
 }
+
+
+

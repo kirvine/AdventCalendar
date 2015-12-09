@@ -45,7 +45,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
             cell.cellImage.file = imageFile
             cell.cellImage.loadInBackground()
         } else {
-            let placeholder = UIImage(named: "merryxmas")
+            let placeholder = UIImage(named: "calendar_placeholder")
             cell.cellImage.image = placeholder
         }
 
@@ -69,14 +69,14 @@ class CalendarsTableViewController: PFQueryTableViewController {
     }
 
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row + 1 > self.objects?.count {
-            
-            self.loadNextPage()
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            
-        }
-    }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        if indexPath.row + 1 > self.objects?.count {
+//            
+//            self.loadNextPage()
+//            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//            
+//        }
+//    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -101,11 +101,6 @@ class CalendarsTableViewController: PFQueryTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    override func viewDidAppear(animated: Bool) {
-        self.loadObjects()
     }
 
 }
