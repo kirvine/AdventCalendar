@@ -65,6 +65,7 @@ class DaysTableViewController: PFQueryTableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 // send selected day object to edit view
                 let dayObject = self.objects?[indexPath.row] as? PFObject
+                print(dayObject?.objectId)
                 (segue.destinationViewController as! EditDayViewController).selectedObject = dayObject
                 
             }

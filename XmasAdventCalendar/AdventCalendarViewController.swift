@@ -45,6 +45,13 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         view.addSubview(scrollView)
         containerView.addSubview(buttonOne)
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        scrollView.frame = view.bounds
+        containerView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

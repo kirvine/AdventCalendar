@@ -11,7 +11,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // Calendar object to create
     var newObject : PFObject?
@@ -155,6 +155,22 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
     }
 
     
+    // MARK:    UITextField Delegate
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
     //  MARK:   Custom Functions
 
     func getCurrentYear() -> String {
@@ -169,7 +185,6 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
         
     }
 
-    
     func createDays(calendarId: String) {
         let calendar = NSCalendar.currentCalendar()
 
