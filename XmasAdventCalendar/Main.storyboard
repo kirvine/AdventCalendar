@@ -24,7 +24,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1C-Qt-uib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="339"/>
+            <point key="canvasLocation" x="552" y="359"/>
         </scene>
         <!--Calendars-->
         <scene sceneID="gJh-wy-YeT">
@@ -88,7 +88,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="813-Lf-4Mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="347"/>
+            <point key="canvasLocation" x="1787" y="359"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="7ug-Jo-INS">
@@ -117,7 +117,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfW-XS-czA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1213" y="-599"/>
+            <point key="canvasLocation" x="1213" y="-523"/>
         </scene>
         <!--Settings-->
         <scene sceneID="w4S-ie-Bmu">
@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAy-jK-Yky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1213" y="1353"/>
+            <point key="canvasLocation" x="1185" y="1377"/>
         </scene>
         <!--Settings-->
         <scene sceneID="zp5-zC-lRQ">
@@ -165,7 +165,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYf-RN-PWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="1353"/>
+            <point key="canvasLocation" x="560" y="1361"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="NIp-xM-Guk">
@@ -184,7 +184,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5x-rD-dYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="-599"/>
+            <point key="canvasLocation" x="560" y="-523"/>
         </scene>
         <!--Calendars-->
         <scene sceneID="0bE-qj-AIa">
@@ -204,7 +204,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQm-QO-JpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1213" y="347"/>
+            <point key="canvasLocation" x="1213" y="359"/>
         </scene>
         <!--Add Calendar-->
         <scene sceneID="UDH-wT-9ra">
@@ -218,8 +218,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="eY0-bZ-49Y">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="eY0-bZ-49Y">
+                                <rect key="frame" x="-2" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G36-Y1-ZCn" customClass="PFImageView">
                                 <rect key="frame" x="107" y="122" width="200" height="200"/>
@@ -267,13 +267,14 @@
                                     <action selector="uploadImage:" destination="h2v-N6-bI6" eventType="touchUpInside" id="Nno-3o-aw5"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgs-bx-GrZ">
+                            <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgs-bx-GrZ">
                                 <rect key="frame" x="103" y="517" width="204" height="30"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAQ-Rp-Pav">
-                                <rect key="frame" x="0.0" y="546" width="414" height="53"/>
+                                <rect key="frame" x="-2" y="589" width="414" height="53"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Save">
@@ -285,6 +286,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eY0-bZ-49Y" firstAttribute="centerX" secondItem="9dt-EO-sCV" secondAttribute="centerX" id="5kM-li-GAf"/>
+                            <constraint firstItem="eY0-bZ-49Y" firstAttribute="centerY" secondItem="9dt-EO-sCV" secondAttribute="centerY" id="yyv-HS-iO2"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Calendar" id="f4f-tC-hxn"/>
                     <connections>
@@ -296,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHg-1e-0GI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340" y="347"/>
+            <point key="canvasLocation" x="2340" y="359"/>
         </scene>
         <!--Title-->
         <scene sceneID="iYO-vt-XpE">
@@ -350,7 +355,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCp-Xs-A8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="1353"/>
+            <point key="canvasLocation" x="1787" y="1377"/>
         </scene>
         <!--Edit Day View Controller-->
         <scene sceneID="xWe-mc-4YJ">
@@ -364,7 +369,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="XYT-gV-3FT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="XYT-gV-3FT">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALK-RA-88F">
@@ -410,15 +415,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAe-Bp-Hx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2373" y="1353"/>
+            <point key="canvasLocation" x="2340" y="1377"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bg_bottomsnow" width="1650" height="2550"/>
         <image name="calendar" width="32" height="32"/>
         <image name="camera" width="25" height="25"/>
         <image name="contacts" width="32" height="32"/>
         <image name="info" width="25" height="25"/>
-        <image name="red" width="792" height="1224"/>
         <image name="settings" width="32" height="32"/>
     </resources>
 </document>

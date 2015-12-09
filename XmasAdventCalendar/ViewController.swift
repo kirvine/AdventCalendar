@@ -44,14 +44,4 @@ class ViewController: UITabBarController, PFLogInViewControllerDelegate, PFSignU
         self.dismissViewControllerAnimated(true, completion: nil)
         self.performSegueWithIdentifier("calendars", sender: self)
     }
-    
-    func presentLoggedInAlert() {
-        let alertController = UIAlertController(title: "You're logged in", message: "Welcome", preferredStyle: .Alert)
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        }
-        alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-
 }

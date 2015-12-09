@@ -11,7 +11,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class NewCalendarViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class NewCalendarViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Calendar object to create
     var newObject : PFObject?
@@ -34,7 +34,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func uploadImage(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
             imagePicker.delegate = self
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = true
             imagePicker.sourceType = .PhotoLibrary
             presentViewController(imagePicker, animated: true, completion: nil)
         }
@@ -60,7 +60,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
                 newCalendar["title"] = titleField.text
                 newCalendar["createdBy"] = PFUser.currentUser()?.username
                 
-                // Upload any flag image
+                // Upload image
                 if imageDidChange == true {
                     
                     let imageData = UIImagePNGRepresentation(calendarImage.image!)
@@ -145,8 +145,7 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
         dateComponents.year = Int(getCurrentYear())!
         
         for day in 1...25 {
-            print("in loop")
-            var newDay = PFObject(className: "Days")
+            let newDay = PFObject(className: "Days")
             let date = calendar.dateFromComponents(dateComponents)
             dateComponents.day += 1
             
@@ -155,6 +154,5 @@ class NewCalendarViewController: UIViewController, UIImagePickerControllerDelega
             newDay.saveInBackground()
         }
     }
-
 
 }

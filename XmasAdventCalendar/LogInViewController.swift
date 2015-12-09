@@ -34,9 +34,6 @@ class LogInViewController : PFLogInViewController {
         // customize sign up button
         customizeSignUp(logInView?.signUpButton!)
         
-        // create an array of all the views we want to animate at launch
-        viewsToAnimate = [self.logInView?.logo, self.logInView?.usernameField, self.logInView?.passwordField, self.logInView?.logInButton, self.logInView?.passwordForgottenButton, self.logInView?.signUpButton]
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,31 +43,14 @@ class LogInViewController : PFLogInViewController {
         
         // position logo at top
         positionLogo()
-        
-        // position views initially
-        positionViews()
 
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // animate views to float up from bottom
-        if viewsFinalYPosition.count == self.viewsToAnimate.count {
-            UIView.animateWithDuration(1, delay: 0.0, options: .CurveEaseInOut,  animations: { () -> Void in
-                for viewToAnimate in self.viewsToAnimate {
-                    let currentFrame = viewToAnimate.frame
-                    viewToAnimate.frame = CGRectMake(currentFrame.origin.x, self.viewsFinalYPosition.removeAtIndex(0), currentFrame.width, currentFrame.height)
-                }
-            }, completion: nil)
-        }
-        
-    }
     
     //  MARK:   Customizations
     
     func customizeBackground() {
-        backgroundImage = UIImageView(image: UIImage(named: "snow3"))
+        backgroundImage = UIImageView(image: UIImage(named: "bg_snow"))
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
         self.logInView!.insertSubview(backgroundImage, atIndex: 0)
     }
@@ -107,15 +87,6 @@ class LogInViewController : PFLogInViewController {
         logInView!.logo!.sizeToFit()
         let logoFrame = logInView!.logo!.frame
         logInView!.logo!.frame = CGRectMake(logoFrame.origin.x, logInView!.usernameField!.frame.origin.y - logoFrame.height - 16, logInView!.frame.width,  logoFrame.height)
-    }
-    
-    func positionViews() {
-        viewsFinalYPosition = [CGFloat]()
-        for viewToAnimate in viewsToAnimate {
-            let currentFrame = viewToAnimate.frame
-            viewsFinalYPosition.append(currentFrame.origin.y)
-            viewToAnimate.frame = CGRectMake(currentFrame.origin.x, self.view.frame.height + currentFrame.origin.y, currentFrame.width, currentFrame.height)
-        }
     }
     
 }
