@@ -55,7 +55,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         let dayObject = getDayObject(dayNumber)
         
         if canOpen(dayObject) {
-            performSegueWithIdentifier("showGift", sender: nil)
+            performSegueWithIdentifier("showGift", sender: dayObject)
         }
         
         

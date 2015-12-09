@@ -65,25 +65,20 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // The save button
     @IBAction func saveButton(sender: AnyObject) {
-        
-        // Update the object
         if let day = selectedObject {
             
+            // update note field
             day["note"] = noteField.text
             
-            // Upload any gift image
+            // update image
             if imageDidChange == true {
-                
                 let imageData = UIImagePNGRepresentation(giftImage.image!)
                 let imageFile = PFFile(data:imageData!)
                 day["image"] = imageFile
-                
             }
-            
             // Save the data back to the server in a background task
             day.saveInBackground()
         }
-        
         // Return to table view
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -92,33 +87,12 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // configure delegates
         imagePicker.delegate = self
-        
-        // Configure delegate property for the form fields
         noteField.delegate = self
         
-        // Unwrap the selected object
-        if let object = self.selectedObject {
-            
-            // set day label
-            let number = object.objectForKey("day") as? String
-            dateLabel.text  = "Dec \(number!)"
-            
-            // set contents of note field
-            if let value = object.objectForKey("note") as? String {
-                noteField.text = value
-            }
-            
-            if let imageFile = object.objectForKey("image") as? PFFile {
-                // image has been uploaded
-                giftImage.file = imageFile
-                giftImage.loadInBackground()
-            } else {
-                // no image present
-                let placeholder = UIImage(named: "day_placeholder")
-                giftImage.image = placeholder
-            }
-        }
+        updateLabels()
+        
     }
     
     //  MARK:   UIImagePicker Functions
@@ -137,6 +111,34 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // Dismiss the image picker
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //  MARK:   Custom Functions
+    func updateLabels() {
+        if let object = self.selectedObject {
+            
+            // set day label
+            let number = object.objectForKey("day") as? String
+            dateLabel.text  = "Dec \(number!)"
+            
+            // set contents of note field
+            if let value = object.objectForKey("note") as? String {
+                noteField.text = value
+            }
+            
+            // set image
+            if let imageFile = object.objectForKey("image") as? PFFile {
+                // image has been uploaded
+                giftImage.file = imageFile
+                giftImage.loadInBackground()
+            } else {
+                // no image present
+                let placeholder = UIImage(named: "day_placeholder")
+                giftImage.image = placeholder
+            }
+        }
+
+        
     }
     
 }
