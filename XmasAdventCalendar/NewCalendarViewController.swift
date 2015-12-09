@@ -182,23 +182,37 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
         
     }
 
+//    func createDays(calendarId: String) {
+//        let calendar = NSCalendar.currentCalendar()
+//
+//        let dateComponents = NSDateComponents()
+//        dateComponents.day = 1
+//        dateComponents.month = 12
+//        dateComponents.year = Int(getCurrentYear())!
+//        
+//        for day in 1...25 {
+//            let newDay = PFObject(className: "Days")
+//            let date = calendar.dateFromComponents(dateComponents)
+//            dateComponents.day += 1
+//            
+//            newDay["date"] = date!
+//            newDay["calendarId"] = calendarId
+//            newDay.saveInBackground()
+//        }
+//    }
+    
     func createDays(calendarId: String) {
-        let calendar = NSCalendar.currentCalendar()
-
-        let dateComponents = NSDateComponents()
-        dateComponents.day = 1
-        dateComponents.month = 12
-        dateComponents.year = Int(getCurrentYear())!
+        let year = getCurrentYear()
         
         for day in 1...25 {
             let newDay = PFObject(className: "Days")
-            let date = calendar.dateFromComponents(dateComponents)
-            dateComponents.day += 1
             
-            newDay["date"] = date!
+            newDay["day"] = String(day)
+            newDay["year"] = year
             newDay["calendarId"] = calendarId
             newDay.saveInBackground()
         }
+
     }
 
 }

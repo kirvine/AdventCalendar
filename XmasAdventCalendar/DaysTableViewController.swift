@@ -39,10 +39,9 @@ class DaysTableViewController: PFQueryTableViewController {
             cell.giftImage.image = placeholder
         }
         
-        // fetch labels & connect to labels
-        let date = object?.objectForKey("date")
-        let stringDate = formatDateLabel(date as! NSDate)
-        cell.dayLabel.text = stringDate
+        // fetch labels & connect to labels        
+        let number = object?.objectForKey("day")
+        cell.dayLabel.text = "Dec \(number!)"
         cell.noteLabel.text = object?.objectForKey("note") as? String
         
         return cell
@@ -72,15 +71,6 @@ class DaysTableViewController: PFQueryTableViewController {
             
         }
     }
-    
-    //  MARK: Custom Functions
-    
-    func formatDateLabel(date: NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM d"
-        let stringDate = dateFormatter.stringFromDate(date)
-        return stringDate
-    }
-    
+
 
 }

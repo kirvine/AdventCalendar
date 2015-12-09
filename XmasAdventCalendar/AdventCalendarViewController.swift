@@ -66,6 +66,29 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     }
     
 
+    //  MARK: Custom Functions
+    func getDayObject() {
+//        var query = PFQuery(className: "Days")
+//        query.whereKey("calendarId", equalTo: calendarId!)
+//        query.whereKey("day", equalTo: dayNumber!)
+    }
+    
+    
+    func canOpen(adventDay: String, adventYear: String) -> Bool {
+        let currentDay = getCurrentDate("d")
+        let currentYear = getCurrentDate("Y")
+        return (currentDay >= adventDay && currentYear >= adventYear)
+    }
+    
+    func getCurrentDate(format: String) -> String {
+        let currentDate = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = format
+        let convertedDate = dateFormatter.stringFromDate(currentDate)
+        return convertedDate
+    }
+    
+    
     /*
     // MARK: - Navigation
 

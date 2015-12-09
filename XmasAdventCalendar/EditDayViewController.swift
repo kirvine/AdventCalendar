@@ -101,11 +101,11 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         if let object = self.selectedObject {
             
             // set day label
-            let date = object["date"] as? NSDate
-            let stringDate = formatDateLabel(date!)
-            dateLabel.text = stringDate
+            let number = object.objectForKey("day") as? String
+            dateLabel.text  = "Dec \(number!)"
             
-            if let value = object["note"] as? String {
+            // set contents of note field
+            if let value = object.objectForKey("note") as? String {
                 noteField.text = value
             }
             
@@ -138,15 +138,6 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dismiss the image picker
         dismissViewControllerAnimated(true, completion: nil)
     }
-    //  MARK:   Custom Functions
-    
-    func formatDateLabel(date: NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM d"
-        let stringDate = dateFormatter.stringFromDate(date)
-        return stringDate
-    }
-    
     
 }
 

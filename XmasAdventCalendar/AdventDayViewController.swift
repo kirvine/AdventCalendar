@@ -18,13 +18,13 @@ class AdventDayViewController: UIViewController {
     @IBOutlet weak var giftImage: PFImageView!
     
     var calendarId: String? = ""
-    var dayNumber: Int?
+    var dayNumber: String? = ""
     var dayObject: PFObject?
     
     func getDayObject() {
         var query = PFQuery(className: "Days")
         query.whereKey("calendarId", equalTo: calendarId!)
-        query.whereKey("date", containedIn: <#T##[AnyObject]#>)
+        query.whereKey("day", equalTo: dayNumber!)
         
     }
     
