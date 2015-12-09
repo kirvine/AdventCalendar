@@ -32,50 +32,74 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
     
     // Prompt user to allow permission to device photo library
     @IBAction func uploadImage(sender: AnyObject) {
-        
-        
-        let alert:UIAlertController=UIAlertController(title: "Upload Image", message: nil, preferredStyle: .ActionSheet)
-        
-        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.openCamera()
-        })
-    
-        let libraryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.openLibrary()
-        })
-    
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+       
+        let optionMenu = UIAlertController(title: nil, message: "Upload Image", preferredStyle: .ActionSheet)
 
-        alert.addAction(cameraAction)
-        alert.addAction(libraryAction)
-        alert.addAction(cancelAction)
+        let photoLibraryOption = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            print("library")
+            //shows the photo library
+            self.imagePicker.allowsEditing = true
+            self.imagePicker.sourceType = .PhotoLibrary
+            self.imagePicker.modalPresentationStyle = .Popover
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        })
         
-        imagePicker.delegate = self
+        let cameraOption = UIAlertAction(title: "Take a photo", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            print("camera")
+            //shows the camera
+            self.imagePicker.allowsEditing = true
+            self.imagePicker.sourceType = .Camera
+            self.imagePicker.modalPresentationStyle = .Popover
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            
+        })
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        let cancelOption = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancel")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
-            imagePicker.delegate = self
-            imagePicker.allowsEditing = true
-            imagePicker.sourceType = .PhotoLibrary
-            presentViewController(imagePicker, animated: true, completion: nil)
+        optionMenu.addAction(photoLibraryOption)
+        optionMenu.addAction(cancelOption)
+        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            optionMenu.addAction(cameraOption)} else {
+            print ("I don't have a camera.")
         }
+        
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+        
+//        let ac = UIAlertController(title: "Upload Image", message: nil, preferredStyle: .ActionSheet)
+//        ac.addAction(UIAlertAction(title: "Camera", style: .Default, handler: openCamera))
+//        ac.addAction(UIAlertAction(title: "Library", style: .Default, handler: openLibrary))
+//        ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+//        presentViewController(ac, animated: true, completion: nil)
+        
+//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+//            imagePicker.delegate = self
+//            imagePicker.allowsEditing = true
+//            imagePicker.sourceType = .PhotoLibrary
+//            presentViewController(imagePicker, animated: true, completion: nil)
+//        }
     }
     
-    func openCamera() {
+    func openCamera(action: UIAlertAction!) {
         if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            imagePicker.delegate = self
             imagePicker.sourceType = .Camera
             imagePicker.allowsEditing = true
+            print("in camera")
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
     
-    func openLibrary() {
+    func openLibrary(action: UIAlertAction!) {
         if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            imagePicker.delegate = self
             imagePicker.sourceType = .PhotoLibrary
             imagePicker.allowsEditing = true
+            print("in lib")
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
@@ -136,6 +160,8 @@ class NewCalendarViewController: UIViewController, UIAlertViewDelegate, UIImageP
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker.delegate = self
         
         // set initial labels and fields
         calendarImage.image = UIImage(named: "merryxmas")
