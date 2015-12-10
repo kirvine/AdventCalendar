@@ -106,7 +106,8 @@ class CalendarsTableViewController: PFQueryTableViewController {
     //  MARK:   Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "calToDays" {
+        if segue.identifier == "calToDay" {
+            print("*in calToDays segue")
             if let vc = segue.destinationViewController as? DaysTableViewController {
 //                vc.calendarString = calObject?.objectId
                 vc.calendarObject = sender as? PFObject
@@ -117,11 +118,6 @@ class CalendarsTableViewController: PFQueryTableViewController {
                 print("*is advent segue")
                 vc.calendarId = sender as? String
                 print("*is advent segue sending \(sender!)")
-            }
-            if let vc = segue.destinationViewController as? DaysTableViewController {
-                print("*is days segue")
-                vc.calendarString = calObject?.objectId
-                vc.calendarObject = sender as? PFObject
             }
         }
     }

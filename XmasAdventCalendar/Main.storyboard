@@ -85,7 +85,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="gMM-0K-GQz" kind="show" id="0Xc-Uv-YgU"/>
+                        <segue destination="gMM-0K-GQz" kind="show" identifier="calToDays" id="0Xc-Uv-YgU"/>
                         <segue destination="zoA-Eo-onF" kind="show" identifier="calToAdvent" id="Saz-I4-V6l"/>
                     </connections>
                 </tableViewController>
