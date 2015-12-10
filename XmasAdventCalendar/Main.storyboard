@@ -14,6 +14,7 @@
         <!--View Controller-->
         <scene sceneID="Ttu-KN-uF9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X1C-Qt-uib" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="sfb-EV-7VX" customClass="ViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -29,7 +30,6 @@
                         <segue destination="i4l-ok-QuO" kind="relationship" relationship="viewControllers" id="pFX-E1-rAg"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X1C-Qt-uib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="552" y="359"/>
         </scene>
@@ -97,6 +97,7 @@
         <!--Contacts-->
         <scene sceneID="7ug-Jo-INS">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfW-XS-czA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="l9u-WF-3SF" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sXt-Ai-cPt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -119,13 +120,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="haa-qZ-gSi"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hfW-XS-czA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1213" y="-523"/>
         </scene>
-        <!--Settings-->
+        <!--Account-->
         <scene sceneID="w4S-ie-Bmu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAy-jK-Yky" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="beq-IC-c7u" customClass="SettingsViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1fO-AD-k5o"/>
@@ -146,17 +147,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="hJe-ey-Xkk"/>
+                    <navigationItem key="navigationItem" title="Account" id="hJe-ey-Xkk"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pAy-jK-Yky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1185" y="1377"/>
         </scene>
-        <!--Settings-->
+        <!--Account-->
         <scene sceneID="zp5-zC-lRQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYf-RN-PWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i4l-ok-QuO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="mEb-s3-jmi"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="settings" id="mEb-s3-jmi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gxe-wE-eTz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -167,13 +168,13 @@
                         <segue destination="beq-IC-c7u" kind="relationship" relationship="rootViewController" id="zag-nI-PO7"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WYf-RN-PWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="560" y="1361"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="NIp-xM-Guk">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5x-rD-dYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O2F-PU-tDr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contacts" image="contacts" id="8CG-SI-wC1"/>
                     <toolbarItems/>
@@ -186,13 +187,13 @@
                         <segue destination="l9u-WF-3SF" kind="relationship" relationship="rootViewController" id="yLU-Up-QnG"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b5x-rD-dYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="560" y="-523"/>
         </scene>
         <!--Calendars-->
         <scene sceneID="0bE-qj-AIa">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uQm-QO-JpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RvV-Fd-g0E" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendars" image="calendar" id="ymF-Hn-sO9"/>
                     <toolbarItems/>
@@ -205,7 +206,6 @@
                         <segue destination="tGr-c2-09z" kind="relationship" relationship="rootViewController" id="13A-Yq-eOb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uQm-QO-JpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1213" y="359"/>
         </scene>
@@ -516,8 +516,8 @@
         <image name="settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bKh-FD-93p"/>
-        <segue reference="ABS-A3-I9s"/>
+        <segue reference="xtg-0e-fXV"/>
+        <segue reference="Saz-I4-V6l"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -17,9 +17,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     var scrollView: UIScrollView!
     var imageView: UIImageView!
     var containerView = UIView()
-    var bounds = CGRect()
-    
-//    var buttonLocations = [(150, 150), (450, 250), (750, 350), (450, 450), (150, 550), (450, 650), (750, 750), (450, 850), (150, 950), (450, 1100), (750, 1250), (450, 1400), (150, 1550), (450, 1700), (750, 1850)]
+    var bounds = CGSize()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +59,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         
         scrollView.addSubview(imageView)
         
-        bounds = view.bounds
+        // set scroll size equal to image size
+        bounds = scrollView.contentSize
     }
     
     func buttonLocationsArray() ->  [(Int, Int)] {
@@ -69,8 +69,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         
         print("*width =  \(width) height = \(height)")
         
-        let xSpacing = Int(width/3)
-        let ySpacing = Int(height/3)
+        let xSpacing = Int(width/4)
+        let ySpacing = Int(height/8)
         
         let x1 = xSpacing/2
         let x2 = x1 + xSpacing
@@ -86,13 +86,13 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         var x: Int
         var y: Int
         
-        for col in 1...8 {
+        for col in 0...7 {
             y = y1 + (col*ySpacing)
             
-            for row in 1...3 {
-                if (row == 1) {
+            for row in 0...2 {
+                if (row == 0) {
                     x = x1
-                } else if (row == 2) {
+                } else if (row == 1) {
                     x = x2
                 } else {
                     x = x3
@@ -109,61 +109,13 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
             
         }
         
+        print(buttons.count)
         return buttons
         
     }
-    
-//    func buttonLocationsArray() ->  [(Int, Int)] {
-//        let width = bounds.width
-//        let height = bounds.height
-//        
-//        print("*width =  \(width) height = \(height)")
-//        
-//        let xSpacing = Int(width/3)
-//        let ySpacing = Int(height/3)
-//        
-//        let x1 = xSpacing/2
-//        let x2 = x1 + xSpacing
-//        let x3 = x1 + (2*xSpacing)
-//        
-//        let y1 = ySpacing/2
-//        
-//        // hard code in where last y will be
-//        let y2 = y1 + (8*ySpacing)
-//        
-//        var buttons: [(Int, Int)] = []
-//        
-//        var x: Int
-//        var y: Int
-//        
-//        for row in 1...3 {
-//            if (row == 1) {
-//                x = x1
-//            } else if (row == 2) {
-//                x = x2
-//            } else {
-//                x = x3
-//            }
-//            for col in 1...8 {
-//                y = y1 + (col*ySpacing)
-//                
-//                buttons.append((x, y))
-//            }
-//            
-//            // place 25th button
-//            x = x2+50
-//            y = y2 + 50
-//            buttons.append((x, y))
-//
-//        }
-//
-//        return buttons
-//        
-//    }
-    
-    
+
     func placeButtons() {
-        var buttonLocations = buttonLocationsArray()
+        let buttonLocations = buttonLocationsArray()
         var num = 1
         
         for (x, y) in buttonLocations {
