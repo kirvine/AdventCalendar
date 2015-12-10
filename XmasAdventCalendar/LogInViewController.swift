@@ -66,7 +66,7 @@ class LogInViewController : PFLogInViewController {
     }
     
     func customizeLogIn() {
-        logInView?.logInButton?.setTitleColor(UIColor.grayColor(), forState: .Normal)
+        logInView?.logInButton?.setTitleColor(UIColor.redColor(), forState: .Normal)
         logInView?.logInButton?.setBackgroundImage(nil, forState: .Normal)
         logInView?.logInButton?.backgroundColor = UIColor.whiteColor()
     }

@@ -65,7 +65,7 @@ class SignUpViewController : PFSignUpViewController {
     }
     
     func customizeSignUp(button: UIButton!) {
-        signUpView?.signUpButton?.setTitleColor(UIColor.grayColor(), forState: .Normal)
+        signUpView?.signUpButton?.setTitleColor(UIColor.redColor(), forState: .Normal)
         signUpView?.signUpButton?.setBackgroundImage(nil, forState: .Normal)
         signUpView?.signUpButton?.backgroundColor = UIColor.whiteColor()
     }
