@@ -382,7 +382,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqm-7X-1dp">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqm-7X-1dp">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="advent" translatesAutoresizingMaskIntoConstraints="NO" id="8lb-RI-am6">
@@ -480,7 +480,7 @@
                                 <rect key="frame" x="87" y="419" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.91206991792929293" green="0.17470263019799426" blue="0.14086693654355856" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnb-LV-b33">
@@ -527,7 +527,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="advent" width="2000" height="800"/>
+        <image name="advent" width="800" height="2000"/>
         <image name="bg_bottomsnow" width="1650" height="2550"/>
         <image name="calendar" width="32" height="32"/>
         <image name="camera" width="25" height="25"/>

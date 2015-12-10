@@ -112,6 +112,20 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    //  MARK:   UITextView Delegate Functions
+    
+    func textViewShouldEndEditing(textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
+    
     //  MARK:   Custom Functions
     func updateLabels() {
         if let object = selectedObject {

@@ -126,7 +126,7 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
         super.viewDidLoad()
         
         imagePicker.delegate = self
-        titleField.delegate = self;
+        titleField.delegate = self
         
         // set initial labels and fields
         updateLabels()
@@ -163,6 +163,11 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     //  MARK:   Custom Functions
