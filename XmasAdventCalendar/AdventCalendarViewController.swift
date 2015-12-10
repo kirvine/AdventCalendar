@@ -86,16 +86,18 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         var x: Int
         var y: Int
         
-        for row in 1...3 {
-            if (row == 1) {
-                x = x1
-            } else if (row == 2) {
-                x = x2
-            } else {
-                x = x3
-            }
-            for col in 1...8 {
-                y = y1 + (col*ySpacing)
+        for col in 1...8 {
+            y = y1 + (col*ySpacing)
+            
+            for row in 1...3 {
+                if (row == 1) {
+                    x = x1
+                } else if (row == 2) {
+                    x = x2
+                } else {
+                    x = x3
+                }
+
                 
                 buttons.append((x, y))
             }
@@ -104,12 +106,61 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
             x = x2+50
             y = y2 + 50
             buttons.append((x, y))
-
+            
         }
-
+        
         return buttons
         
     }
+    
+//    func buttonLocationsArray() ->  [(Int, Int)] {
+//        let width = bounds.width
+//        let height = bounds.height
+//        
+//        print("*width =  \(width) height = \(height)")
+//        
+//        let xSpacing = Int(width/3)
+//        let ySpacing = Int(height/3)
+//        
+//        let x1 = xSpacing/2
+//        let x2 = x1 + xSpacing
+//        let x3 = x1 + (2*xSpacing)
+//        
+//        let y1 = ySpacing/2
+//        
+//        // hard code in where last y will be
+//        let y2 = y1 + (8*ySpacing)
+//        
+//        var buttons: [(Int, Int)] = []
+//        
+//        var x: Int
+//        var y: Int
+//        
+//        for row in 1...3 {
+//            if (row == 1) {
+//                x = x1
+//            } else if (row == 2) {
+//                x = x2
+//            } else {
+//                x = x3
+//            }
+//            for col in 1...8 {
+//                y = y1 + (col*ySpacing)
+//                
+//                buttons.append((x, y))
+//            }
+//            
+//            // place 25th button
+//            x = x2+50
+//            y = y2 + 50
+//            buttons.append((x, y))
+//
+//        }
+//
+//        return buttons
+//        
+//    }
+    
     
     func placeButtons() {
         var buttonLocations = buttonLocationsArray()
