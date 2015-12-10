@@ -15,6 +15,7 @@
             <objects>
                 <tabBarController id="sfb-EV-7VX" customClass="ViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Ml7-Mu-VMl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -68,7 +69,6 @@
                                     <outlet property="cellImage" destination="HTd-yE-SZg" id="xTZ-4K-nMa"/>
                                     <outlet property="creatorLabel" destination="MHn-qY-DSo" id="cfg-Zs-N2c"/>
                                     <outlet property="titleLabel" destination="yco-Pn-050" id="k6G-ic-XqO"/>
-                                    <segue destination="gMM-0K-GQz" kind="show" identifier="calToDays" id="W1b-ml-6iA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,7 +85,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="zoA-Eo-onF" kind="show" identifier="calToAdvent" id="iAJ-Ro-voI"/>
+                        <segue destination="gMM-0K-GQz" kind="show" id="0Xc-Uv-YgU"/>
+                        <segue destination="zoA-Eo-onF" kind="show" identifier="calToAdvent" id="Saz-I4-V6l"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="813-Lf-4Mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -350,7 +351,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="zoA-Eo-onF" kind="show" identifier="showAdvent" id="c6R-Lu-K0a"/>
+                        <segue destination="zoA-Eo-onF" kind="showDetail" identifier="showAdvent" action="showViewController:sender:" id="c6R-Lu-K0a"/>
                         <segue destination="vDI-rZ-bfN" kind="show" identifier="editDays" id="Re9-zJ-lee"/>
                     </connections>
                 </tableViewController>
@@ -510,8 +511,8 @@
         <image name="settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ABS-A3-I9s"/>
-        <segue reference="c6R-Lu-K0a"/>
+        <segue reference="Saz-I4-V6l"/>
+        <segue reference="xtg-0e-fXV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

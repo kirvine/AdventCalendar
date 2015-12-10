@@ -27,9 +27,10 @@ class DaysTableViewController: PFQueryTableViewController {
     }
 
     override func queryForTable() -> PFQuery {
-        print("*queryfortable")
+        print("*days queryfortable")
         let query = PFQuery(className: "Days")
-        query.whereKey("calendarId", equalTo: self.calendarString!)
+        query.whereKey("calendarId", equalTo: "29ujGZie0O")
+//        query.whereKey("calendarId", equalTo: self.calendarString!)
         query.orderByAscending("day")
         
         return query
