@@ -12,6 +12,8 @@ import ParseUI
 
 class CalendarsTableViewController: PFQueryTableViewController {
     
+    var calendars = [PFObject]()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
             
         } else {
             
+            print("*query")
             let creates = PFQuery(className: "Calendars")
             creates.whereKey("createdBy", equalTo: PFUser.currentUser()!.username!)
             
@@ -58,6 +61,8 @@ class CalendarsTableViewController: PFQueryTableViewController {
         cell.titleLabel.text = object?.objectForKey("title") as? String
         cell.creatorLabel.text = object?.objectForKey("createdBy") as? String
         
+        calendars.append(object!)
+        
         return cell
     }
 
@@ -90,19 +95,55 @@ class CalendarsTableViewController: PFQueryTableViewController {
             }
         }
     }
+    
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            
-            var selectedCell = tableView.cellForRowAtIndexPath(indexPath) as! CalendarTableViewCell
-//            gameScore.removeObjectForKey("playerName")
-//            self.arrayToPopulateCells.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            var object = objectAtIndexPath(indexPath)
+            object?.deleteInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    self.loadObjects()
+                } else {
+                    // There was a problem, check error.description
+                }
+            }
+        }
+    }
+
+    
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        print("*commitEdit")
+//        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+//            print("*canDelete")
+//            if let indexPath = self.tableView.indexPathForSelectedRow {
+//                print("*1")
+//                let calendarObject = self.objects?[indexPath.row] as? PFObject
+//                print("*2")
+//                let calendarId = calendarObject?.objectId
+//                print("*id: \(calendarId)")
+//                deleteQuery(calendarId!)
+//            }
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+//            print("*done")
+//        }
+//    }
+    
+    func deleteQuery(id: String) {
+        print("*deleting")
+        let query = PFQuery(className: "Calendars")
+        query.whereKey("objectId", equalTo: id)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            for object in objects! {
+                object.deleteEventually()
+            }
         }
     }
     
