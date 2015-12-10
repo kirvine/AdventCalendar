@@ -37,6 +37,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         super.viewDidLayoutSubviews()
         
         scrollView.frame = view.bounds
+        let bounds = scrollView.frame
+        print("*\(bounds)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +67,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         let width = bounds.width
         let height = bounds.height
         
+        print("*width =  \(width) height = \(height)")
+        
         let xSpacing = Int(width/3)
         let ySpacing = Int(height/3)
         
@@ -73,8 +77,9 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         let x3 = x1 + (2*xSpacing)
         
         let y1 = ySpacing/2
-//        let y2 = y1 + ySpacing
-//        let y3 = y1 + (2*ySpacing)
+        
+        // hard code in where last y will be
+        let y2 = y1 + (8*ySpacing)
         
         var buttons: [(Int, Int)] = []
         
@@ -97,7 +102,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
             
             // place 25th button
             x = x2+50
-            y = y + 50
+            y = y2 + 50
             buttons.append((x, y))
 
         }

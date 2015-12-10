@@ -15,7 +15,8 @@ class DaysTableViewController: PFQueryTableViewController {
     var calendarString: String?
     var calendarObject: PFObject?
     
-    @IBAction func viewAdventCalendar (){
+    @IBAction func viewAdventCalendar () {
+        print("*view advent action")
         performSegueWithIdentifier("showAdvent", sender: calendarString!)
     }
     
@@ -79,7 +80,7 @@ class DaysTableViewController: PFQueryTableViewController {
             // send calendar id to AdventCalendar view
             if let vc = segue.destinationViewController as? AdventCalendarViewController {
                 vc.calendarId = sender as? String
-//                print("*in showAdvent segue sent: \(sender)")
+                print("*in showAdvent segue sent: \(sender)")
             }
         } else if segue.identifier == "daysToEditCal" {
             if let vc = segue.destinationViewController as? NewCalendarViewController {

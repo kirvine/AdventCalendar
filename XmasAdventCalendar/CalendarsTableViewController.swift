@@ -86,14 +86,15 @@ class CalendarsTableViewController: PFQueryTableViewController {
             self.calObject = self.objects?[indexPath.row] as? PFObject
             self.calendarId = calObject?.objectId
             let createdBy = calObject?.objectForKey("createdBy") as! String
-            print("*username: \(username) createdBy: \(createdBy)")
+            print("*did select username: \(username) createdBy: \(createdBy)")
+            print("*did select calendarId: \(calendarId) calObject: \(calObject)")
             
             if username == createdBy {
                 print("*is days")
-                performSegueWithIdentifier("calToDays", sender: calObject)
+                performSegueWithIdentifier("calToDays", sender: nil)
             } else {
                 print("*is advent")
-                performSegueWithIdentifier("calToAdvent", sender: calObject?.objectId)
+                performSegueWithIdentifier("calToAdvent", sender: nil)
             }
         }
 
@@ -106,18 +107,19 @@ class CalendarsTableViewController: PFQueryTableViewController {
     //  MARK:   Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "calToDay" {
+        if segue.identifier == "calToDays" {
             print("*in calToDays segue")
             if let vc = segue.destinationViewController as? DaysTableViewController {
                 vc.calendarString = self.calendarId
-                vc.calendarObject = sender as? PFObject
+                vc.calendarObject = self.calObject
+                print("*in calToDays segue calendarString: \(vc.calendarString) day: \(vc.calendarObject)")
             }
         } else if segue.identifier == "calToAdvent" {
             print("*is advent")
             if let vc = segue.destinationViewController as? AdventCalendarViewController {
                 print("*is advent segue")
-                vc.calendarId = sender as? String
-                print("*is advent segue sending \(sender!)")
+                vc.calendarId = self.calendarId
+                print("*is advent segue sending \(self.calendarId)")
             }
         }
     }
