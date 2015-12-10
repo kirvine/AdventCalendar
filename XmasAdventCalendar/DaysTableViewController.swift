@@ -70,8 +70,10 @@ class DaysTableViewController: PFQueryTableViewController {
         } else if segue.identifier == "showAdvent" {
             // send calendar id to AdventCalendar view
             if let vc = segue.destinationViewController as? AdventCalendarViewController {
-                print("*in showAdvent segue sending: \(sender)")
                 vc.calendarId = sender as? String
+                print("*in showAdvent segue sent: \(sender)")
+                // calling this ahead of time so buttons are only made at this transition
+//                vc.placeButtons()
             }
         }
     }
