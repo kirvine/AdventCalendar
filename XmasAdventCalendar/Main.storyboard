@@ -197,7 +197,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pv0-nS-wQB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -221,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="eY0-bZ-49Y">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G36-Y1-ZCn" customClass="PFImageView">
                                 <rect key="frame" x="105" y="90" width="200" height="200"/>
@@ -300,7 +299,7 @@
             </objects>
             <point key="canvasLocation" x="2340" y="359"/>
         </scene>
-        <!--Title-->
+        <!--Days Table View Controller-->
         <scene sceneID="iYO-vt-XpE">
             <objects>
                 <tableViewController id="gMM-0K-GQz" customClass="DaysTableViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
@@ -354,7 +353,7 @@
                             <outlet property="delegate" destination="gMM-0K-GQz" id="ur2-LH-NB9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="Wgc-AX-ZF3">
+                    <navigationItem key="navigationItem" id="Wgc-AX-ZF3">
                         <barButtonItem key="rightBarButtonItem" image="info" style="plain" id="QI1-5G-ihw"/>
                     </navigationItem>
                     <connections>
@@ -376,19 +375,8 @@
                     <view key="view" contentMode="scaleToFill" id="UwJ-ho-WnG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqm-7X-1dp">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="advent" translatesAutoresizingMaskIntoConstraints="NO" id="8lb-RI-am6">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                    </imageView>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -411,9 +399,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-uE-pyL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-7b-5Sa" customClass="PFImageView">
                                 <rect key="frame" x="57" y="225" width="300" height="300"/>
                             </imageView>
@@ -433,9 +418,12 @@
                                 <rect key="frame" x="369" y="28" width="25" height="25"/>
                                 <state key="normal" image="close"/>
                                 <connections>
-                                    <segue destination="zoA-Eo-onF" kind="show" id="pao-NC-TVF"/>
+                                    <segue destination="zoA-Eo-onF" kind="show" id="KKJ-iy-d7Z"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-uE-pyL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -443,6 +431,7 @@
                             <constraint firstItem="BE1-DR-oWE" firstAttribute="top" secondItem="FKa-wa-m7k" secondAttribute="bottom" constant="8" symbolic="YES" id="hn6-Y1-vlS"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="dayLabel" destination="qcG-FN-uDX" id="Pe3-tM-ihG"/>
                         <outlet property="giftImage" destination="z6a-7b-5Sa" id="rBm-Ys-Urs"/>
@@ -522,7 +511,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="advent" width="800" height="2000"/>
         <image name="bg_bottomsnow" width="1650" height="2550"/>
         <image name="calendar" width="32" height="32"/>
         <image name="camera" width="25" height="25"/>
@@ -532,6 +520,7 @@
         <image name="settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c6R-Lu-K0a"/>
+        <segue reference="KKJ-iy-d7Z"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
