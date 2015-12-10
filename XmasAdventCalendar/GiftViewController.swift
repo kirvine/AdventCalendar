@@ -61,7 +61,7 @@ class GiftViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("*******")
         if let vc = segue.destinationViewController as? AdventCalendarViewController {
-            vc.calendarId = dayObject?.objectId
+            vc.calendarId = dayObject?.objectForKey("calendarId") as! String
         }
     }
     

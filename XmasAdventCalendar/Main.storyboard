@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Pacifico.ttf">
@@ -380,7 +379,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <segue destination="9yq-cq-Rmk" kind="show" identifier="showGift" action="showDetailViewController:sender:" id="Gtt-Yy-3LB"/>
+                        <segue destination="9yq-cq-Rmk" kind="showDetail" identifier="showGift" id="Gtt-Yy-3LB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8U-Mr-PQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -399,6 +398,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-uE-pyL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-7b-5Sa" customClass="PFImageView">
                                 <rect key="frame" x="57" y="225" width="300" height="300"/>
                             </imageView>
@@ -414,28 +416,20 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-DR-oWE">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-DR-oWE">
                                 <rect key="frame" x="369" y="28" width="25" height="25"/>
                                 <state key="normal" image="close"/>
                                 <connections>
-                                    <segue destination="zoA-Eo-onF" kind="show" id="KKJ-iy-d7Z"/>
+                                    <segue destination="zoA-Eo-onF" kind="show" id="bKh-FD-93p"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-uE-pyL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="BE1-DR-oWE" firstAttribute="trailing" secondItem="Ol7-5m-hKQ" secondAttribute="trailingMargin" id="gk9-SY-Otx"/>
-                            <constraint firstItem="BE1-DR-oWE" firstAttribute="top" secondItem="FKa-wa-m7k" secondAttribute="bottom" constant="8" symbolic="YES" id="hn6-Y1-vlS"/>
-                        </constraints>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="dayLabel" destination="qcG-FN-uDX" id="Pe3-tM-ihG"/>
-                        <outlet property="giftImage" destination="z6a-7b-5Sa" id="rBm-Ys-Urs"/>
-                        <outlet property="noteLabel" destination="i7W-rc-PhW" id="MFc-h1-OT6"/>
+                        <outlet property="dayLabel" destination="qcG-FN-uDX" id="SFF-zp-CfV"/>
+                        <outlet property="giftImage" destination="z6a-7b-5Sa" id="lsS-dK-uVl"/>
+                        <outlet property="noteLabel" destination="i7W-rc-PhW" id="AP0-GO-qS3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smh-kl-jPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -520,7 +514,7 @@
         <image name="settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KKJ-iy-d7Z"/>
+        <segue reference="bKh-FD-93p"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

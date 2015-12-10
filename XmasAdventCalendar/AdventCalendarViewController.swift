@@ -59,17 +59,14 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func placeButtons() {
-        print("*in placeButtons")
         var num = 1
         for (x, y) in buttonLocations {
-            print("*1")
             // initalize button
             let button = UIButton.init(type: .System)
             
             // set size and location
             let w = CGFloat(x)
             let z = CGFloat(y)
-            print("*2")
             button.frame = CGRectMake(w, z, 80, 80)
             
             // set backgroung and borders
@@ -77,28 +74,27 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.whiteColor().CGColor
             button.backgroundColor = UIColor.clearColor()
-            print("*3")
+
             // set title to number of day
             button.setTitle("\(num)", forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             
             // set action
             button.addTarget(self, action: "openGift:", forControlEvents: UIControlEvents.TouchUpInside)
-            print("*4")
+
             // add button to scroll view
             scrollView.addSubview(button)
             
             // increment day number
             num += 1
-            print("*5")
+
         }
-        print("*6")
+        print("*placed buttons")
     }
     
     
     //  Button Actions
     func openGift(sender: UIButton!) {
-        print("*in before openGift")
         let dayNumber = Int(sender.titleForState(.Normal)!)
         let dayObject = getDayObject(dayNumber!)
         
@@ -107,6 +103,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         if canOpen(dayObject) {
             performSegueWithIdentifier("showGift", sender: dayObject)
         }
+        print("*opened Gift")
     }
     
     func getDayObject(dayNumber: Int) -> PFObject {
@@ -123,7 +120,6 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func canOpen(object: PFObject?) -> Bool {
-        print("*in canOpen")
         // get day and year that gift should be opened
         let giftDay = object!.objectForKey("day") as? Int
         let giftYear = object!.objectForKey("year") as? Int
