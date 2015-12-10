@@ -63,15 +63,14 @@ class DaysTableViewController: PFQueryTableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editDay" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                print("*daysVC segue")
                 // send selected day object to edit view
                 let dayObject = self.objects?[indexPath.row] as? PFObject
-                print("*daysVC sending: \(dayObject)")
                 (segue.destinationViewController as! EditDayViewController).selectedObject = dayObject
             }
         } else if segue.identifier == "showAdvent" {
             // send calendar id to AdventCalendar view
             if let vc = segue.destinationViewController as? AdventCalendarViewController {
+                print("*in showAdvent segue sending: \(sender)")
                 vc.calendarId = sender as? String
             }
         }

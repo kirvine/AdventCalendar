@@ -34,7 +34,7 @@ class GiftViewController: UIViewController {
     func updateLabels() {
         if let object = dayObject {
             // set day label
-            let number = object.objectForKey("day") as? String
+            let number = object.objectForKey("day") as? Int
             self.dayLabel.text  = "Dec \(number!)"
             
             // set contents of note field

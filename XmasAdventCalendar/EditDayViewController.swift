@@ -56,7 +56,6 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("*editVC")
         
         // configure delegates
         imagePicker.delegate = self
@@ -136,7 +135,6 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //  MARK:   Custom Functions
     func updateLabels() {
-        print("*labels")
         if let object = selectedObject {
             // set day label
             let number = object.objectForKey("day") as? Int
