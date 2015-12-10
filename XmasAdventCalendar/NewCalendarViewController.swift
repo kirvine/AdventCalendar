@@ -197,8 +197,9 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
             calendarImage.image = UIImage(named: "calendar_placeholder")
             let year = getCurrentYear()
             yearLabel.text = "\(year) Holiday Season"
-            let creator = PFUser.currentUser()?.username
-            createdByLabel.text = "Created by \(creator!)"
+            if let creator = PFUser.currentUser()?.username{
+                createdByLabel.text = "Created by \(creator)"
+            }
         } else {
             // load attributes of selected object
             let updateObject = selectedObject! as PFObject
@@ -211,12 +212,15 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
                 calendarImage.image = placeholder
             }
             titleField.text = updateObject.objectForKey("title") as? String
-            let year = updateObject.objectForKey("year") as? String
-            yearLabel.text = "\(year) Holiday Season"
-            let creator = updateObject.objectForKey("createdBy") as? String
-            createdByLabel.text = "Created by \(creator)"
-            let viewers = updateObject.objectForKey("viewedBy") as? [String]
-            viewersField.text = viewers!.joinWithSeparator(" ")
+            if let year = updateObject.objectForKey("year") as? String {
+                yearLabel.text = "\(year) Holiday Season"
+            }
+            if let creator = updateObject.objectForKey("createdBy") as? String {
+                createdByLabel.text = "Created by \(creator)"
+            }
+            if let viewers = updateObject.objectForKey("viewedBy") as? [String] {
+                viewersField.text = viewers.joinWithSeparator(" ")
+            }
         }
     }
     
