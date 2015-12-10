@@ -334,7 +334,6 @@
                                     <outlet property="dayLabel" destination="URP-Qk-VEE" id="aqx-lM-a7A"/>
                                     <outlet property="giftImage" destination="Eqw-a8-hJb" id="YS4-hW-lwn"/>
                                     <outlet property="noteLabel" destination="tr5-pV-Ib4" id="6pT-b1-jt3"/>
-                                    <segue destination="vDI-rZ-bfN" kind="show" identifier="editDay" id="moe-FV-4Ha"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -352,6 +351,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="zoA-Eo-onF" kind="show" identifier="showAdvent" id="c6R-Lu-K0a"/>
+                        <segue destination="vDI-rZ-bfN" kind="show" identifier="editDays" id="Re9-zJ-lee"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCp-Xs-A8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -497,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAe-Bp-Hx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1792" y="2277"/>
+            <point key="canvasLocation" x="1777" y="2281"/>
         </scene>
     </scenes>
     <resources>
@@ -510,8 +510,8 @@
         <image name="settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c6R-Lu-K0a"/>
         <segue reference="ABS-A3-I9s"/>
+        <segue reference="c6R-Lu-K0a"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

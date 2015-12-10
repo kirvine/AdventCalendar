@@ -3884,9 +3884,9 @@
 				4B0915DC1C13E0C200731385 /* NewCalendarViewController.swift */,
 				4B0B7FC71C161DBA0047062C /* DaysTableViewController.swift */,
 				4B19042C1C166EF200A0361F /* EditDayViewController.swift */,
-				4B0915D71C13D71200731385 /* SettingsViewController.swift */,
 				4B2D1D4D1C18005500F637EB /* AdventCalendarViewController.swift */,
 				4B2D1D4F1C18BB7E00F637EB /* GiftViewController.swift */,
+				4B0915D71C13D71200731385 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

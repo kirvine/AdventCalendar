@@ -53,9 +53,10 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("*edit day vdl")
+        
         
         // configure delegates
         imagePicker.delegate = self
@@ -63,7 +64,7 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         updateLabels()
     }
-    
+
     //  MARK:   UIImagePicker Functions
     
     // Process selected image & add back to parse object

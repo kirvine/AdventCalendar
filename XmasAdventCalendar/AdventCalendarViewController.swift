@@ -22,7 +22,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("*advent vdl \(calendarId)")
         setScrollImage()
         placeButtons()
         
@@ -59,6 +59,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     }
     
     func placeButtons() {
+        print("*place buttons \(calendarId)")
         var num = 1
         for (x, y) in buttonLocations {
             // initalize button
@@ -95,6 +96,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     
     //  Button Actions
     func openGift(sender: UIButton!) {
+        print("*button actions \(calendarId)")
         let dayNumber = Int(sender.titleForState(.Normal)!)
         let dayObject = getDayObject(dayNumber!)
         
@@ -111,6 +113,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     }
     
     func getDayObject(dayNumber: Int) -> PFObject {
+        print("*get day object \(calendarId)")
         var query = PFQuery(className: "Days")
 //        print("*in getDayObject calendarId: \(calendarId!)")
         query.whereKey("calendarId", equalTo: calendarId!)
@@ -122,6 +125,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     }
     
     func canOpen(object: PFObject?) -> Bool {
+        print("*can open\(calendarId)")
         // get day and year that gift should be opened
         let giftDay = object!.objectForKey("day") as? Int
         let giftYear = object!.objectForKey("year") as? Int

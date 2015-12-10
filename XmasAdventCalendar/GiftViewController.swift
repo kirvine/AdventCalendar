@@ -21,7 +21,7 @@ class GiftViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("*gift vdl")
         updateLabels()
 
     }
@@ -59,7 +59,7 @@ class GiftViewController: UIViewController {
     // MARK:    Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        print("*******")
+        print("*******")
         if let vc = segue.destinationViewController as? AdventCalendarViewController {
             vc.calendarId = dayObject?.objectForKey("calendarId") as! String
         }

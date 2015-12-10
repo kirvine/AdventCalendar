@@ -19,8 +19,15 @@ class DaysTableViewController: PFQueryTableViewController {
         performSegueWithIdentifier("showAdvent", sender: calendarString!)
     }
     
-    override func queryForTable() -> PFQuery {
+    override func viewDidLoad() {
+        print("*days table vdl")
+        super.viewDidLoad()
         
+        self.loadObjects()
+    }
+
+    override func queryForTable() -> PFQuery {
+        print("*queryfortable")
         let query = PFQuery(className: "Days")
         query.whereKey("calendarId", equalTo: self.calendarString!)
         query.orderByAscending("day")
@@ -51,12 +58,6 @@ class DaysTableViewController: PFQueryTableViewController {
         return cell
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.loadObjects()
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

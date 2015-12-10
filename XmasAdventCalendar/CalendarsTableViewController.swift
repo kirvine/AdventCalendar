@@ -13,9 +13,11 @@ import ParseUI
 class CalendarsTableViewController: PFQueryTableViewController {
     
     var calendars = [PFObject]()
+    var calObject: PFObject?
+    var calendarId: String?
     
     override func viewDidLoad() {
-        
+        print("*cal table vdl")
         super.viewDidLoad()
         self.loadObjects()
         
@@ -76,6 +78,27 @@ class CalendarsTableViewController: PFQueryTableViewController {
         
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("*didSelect")
+        let username = PFUser.currentUser()?.objectForKey("username") as! String
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            self.calObject = self.objects?[indexPath.row] as? PFObject
+            self.calendarId = calObject?.objectId
+            let createdBy = calObject?.objectForKey("createdBy") as! String
+            print("*username: \(username) createdBy: \(createdBy)")
+            
+            if username == createdBy {
+                print("*is days")
+                performSegueWithIdentifier("calToDays", sender: calObject)
+            } else {
+                print("*is advent")
+                performSegueWithIdentifier("calToAdvent", sender: calObject?.objectId)
+            }
+        }
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -83,59 +106,79 @@ class CalendarsTableViewController: PFQueryTableViewController {
     //  MARK:   Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let username = PFUser.currentUser()?.objectForKey("username") as! String
-        
-        if let indexPath = self.tableView.indexPathForSelectedRow {
-            let calObject = self.objects?[indexPath.row] as? PFObject
-            let createdBy = calObject?.objectForKey("createdBy") as! String
-            print("*username: \(username) createdBy: \(createdBy)")
-            
-            if username == createdBy {
-                if segue.identifier == "calToDays" {
-                    print("*is creator")
-                    if let vc = segue.destinationViewController as? DaysTableViewController {
-                        vc.calendarString = calObject?.objectId
-                        vc.calendarObject = calObject
-                    }
-                }
-            } else {
-                print("*not creator trying \(calObject?.objectId)")
-                if segue.identifier == "calToAdvent" {
-                    if let vc = segue.destinationViewController as? AdventCalendarViewController {
-                        vc.calendarId = calObject?.objectId
-                        ("*sent \(calObject?.objectId)")
-                    }
-                }
+        if segue.identifier == "calToDays" {
+            if let vc = segue.destinationViewController as? DaysTableViewController {
+//                vc.calendarString = calObject?.objectId
+                vc.calendarObject = sender as? PFObject
+            }
+        } else if segue.identifier == "calToAdvent" {
+            print("*is advent")
+            if let vc = segue.destinationViewController as? AdventCalendarViewController {
+                print("*is advent segue")
+                vc.calendarId = sender as? String
+                print("*is advent segue sending \(sender!)")
+            }
+            if let vc = segue.destinationViewController as? DaysTableViewController {
+                print("*is days segue")
+                vc.calendarString = calObject?.objectId
+                vc.calendarObject = sender as? PFObject
             }
         }
     }
     
-    func viewDaysSegueData() {
-        
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let username = PFUser.currentUser()?.objectForKey("username") as! String
+//        
+//        if let indexPath = self.tableView.indexPathForSelectedRow {
+//            let calObject = self.objects?[indexPath.row] as? PFObject
+//            let createdBy = calObject?.objectForKey("createdBy") as! String
+//            print("*username: \(username) createdBy: \(createdBy)")
+//            
+//            if username == createdBy {
+//                 print("*is creator")
+//                if segue.identifier == "calToDays" {
+//                    if let vc = segue.destinationViewController as? DaysTableViewController {
+//                        vc.calendarString = calObject?.objectId
+//                        vc.calendarObject = calObject
+//                    }
+//                }
+//            } else {
+//                print("*not creator trying \(calObject?.objectId)")
+//                if segue.identifier == "calToAdvent" {
+//                    print("*not creator in calToAdvent")
+//                    if let vc = segue.destinationViewController as? AdventCalendarViewController {
+//                        vc.calendarId = calObject?.objectId
+//                        ("*sent \(calObject?.objectId)")
+//                    }
+//                }
+//            }
+//        }
+//        print("*exiting")
+//
+//    }
     
 
     
     //  MARK:   Delete functions
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-
-//        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            var object = objectAtIndexPath(indexPath)
-            object?.deleteInBackgroundWithBlock {
-                (success: Bool, error: NSError?) -> Void in
-                if (success) {
-                    self.loadObjects()
-                } else {
-                    // There was a problem, check error.description
-                }
-            }
+//    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return true
+//    }
+//    
+//    
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//
+////        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+//            var object = objectAtIndexPath(indexPath)
+//            object?.deleteInBackgroundWithBlock {
+//                (success: Bool, error: NSError?) -> Void in
+//                if (success) {
+//                    self.loadObjects()
+//                } else {
+//                    // There was a problem, check error.description
+//                }
+//            }
 //        }
-    }
+//    }
     
     
     
