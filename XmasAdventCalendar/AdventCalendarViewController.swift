@@ -18,47 +18,18 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     var imageView: UIImageView!
     var containerView = UIView()
     
-    var buttonLocations = []
+    var buttonLocations = [(150, 150), (450, 450)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // image
-        imageView = UIImageView(image: UIImage(named: "advent"))
+        setScrollImage()
+        placeButtons()
         
-        scrollView = UIScrollView(frame: view.bounds)
-        scrollView.backgroundColor = UIColor.blackColor()
-        scrollView.contentSize = imageView.bounds.size
-        scrollView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        
-        
-        let button = UIButton.init(type: .System)
-        button.frame = CGRectMake(150, 150, 50, 50)
-        button.backgroundColor = UIColor.clearColor()
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.whiteColor().CGColor
-        button.setTitle("1", forState: UIControlState.Normal)
-        button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        
-        scrollView.addSubview(imageView)
-        scrollView.addSubview(button)
         
         view.addSubview(scrollView)
         
         scrollView.delegate = self
-    }
-    
-    func buttonAction(sender: UIButton!) {
-        let dayNumber = sender.titleForState(.Normal)!
-        let dayObject = getDayObject(dayNumber)
-        
-        if canOpen(dayObject) {
-            performSegueWithIdentifier("showGift", sender: dayObject)
-        }
-        
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,6 +45,63 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     
 
     //  MARK: Custom Functions
+    
+    //  Setup scroll view
+    
+    func setScrollImage() {
+        imageView = UIImageView(image: UIImage(named: "advent"))
+        
+        scrollView = UIScrollView(frame: view.bounds)
+        scrollView.backgroundColor = UIColor.blackColor()
+        scrollView.contentSize = imageView.bounds.size
+        scrollView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
+        scrollView.addSubview(imageView)
+    }
+    
+    func placeButtons() {
+        var num = 1
+        for (x, y) in buttonLocations {
+            
+            // initalize button
+            let button = UIButton.init(type: .System)
+            
+            // set size and location
+            button.frame = CGRectMake(x, y, 80, 80)
+            
+            // set backgroung and borders
+            button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.whiteColor().CGColor
+            button.backgroundColor = UIColor.clearColor()
+            
+            // set title to number of day
+            button.setTitle("\(num)", forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            
+            // set action
+            button.addTarget(self, action: "openGift:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            // add button to scroll view
+            scrollView.addSubview(button)
+            
+            // increment day number
+            num += 1
+            
+        }
+    }
+    
+    
+    //  Button Actions
+    func openGift(sender: UIButton!) {
+        let dayNumber = sender.titleForState(.Normal)!
+        let dayObject = getDayObject(dayNumber)
+        
+        if canOpen(dayObject) {
+            performSegueWithIdentifier("showGift", sender: dayObject)
+        }
+    }
+    
     func getDayObject(dayNumber: String) -> PFObject {
         var query = PFQuery(className: "Days")
         query.whereKey("calendarId", equalTo: calendarId!)
@@ -81,7 +109,6 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         var obj = query.getFirstObject()!
         return obj
     }
-    
     
     func canOpen(object: PFObject?) -> Bool {
         // get day and year that gift should be opened
@@ -103,7 +130,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         return convertedDate
     }
 
-    // MARK: - Navigation
+    
+    // MARK:    Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showGift" {
