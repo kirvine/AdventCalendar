@@ -109,7 +109,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
         if segue.identifier == "calToDay" {
             print("*in calToDays segue")
             if let vc = segue.destinationViewController as? DaysTableViewController {
-//                vc.calendarString = calObject?.objectId
+                vc.calendarString = self.calendarId
                 vc.calendarObject = sender as? PFObject
             }
         } else if segue.identifier == "calToAdvent" {
@@ -122,38 +122,6 @@ class CalendarsTableViewController: PFQueryTableViewController {
         }
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let username = PFUser.currentUser()?.objectForKey("username") as! String
-//        
-//        if let indexPath = self.tableView.indexPathForSelectedRow {
-//            let calObject = self.objects?[indexPath.row] as? PFObject
-//            let createdBy = calObject?.objectForKey("createdBy") as! String
-//            print("*username: \(username) createdBy: \(createdBy)")
-//            
-//            if username == createdBy {
-//                 print("*is creator")
-//                if segue.identifier == "calToDays" {
-//                    if let vc = segue.destinationViewController as? DaysTableViewController {
-//                        vc.calendarString = calObject?.objectId
-//                        vc.calendarObject = calObject
-//                    }
-//                }
-//            } else {
-//                print("*not creator trying \(calObject?.objectId)")
-//                if segue.identifier == "calToAdvent" {
-//                    print("*not creator in calToAdvent")
-//                    if let vc = segue.destinationViewController as? AdventCalendarViewController {
-//                        vc.calendarId = calObject?.objectId
-//                        ("*sent \(calObject?.objectId)")
-//                    }
-//                }
-//            }
-//        }
-//        print("*exiting")
-//
-//    }
-    
-
     
     //  MARK:   Delete functions
 //    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
