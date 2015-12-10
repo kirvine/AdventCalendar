@@ -14,7 +14,9 @@ import ParseUI
 class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Calendar object to create
-    var newObject : PFObject?
+    var newObject: PFObject?
+    
+    var oldObject: PFObject?
     
     // Image Picker object
     var imagePicker = UIImagePickerController()
@@ -39,6 +41,8 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
     
     // The save button
     @IBAction func saveButton(sender: AnyObject) {
+        if let old = oldObject as PFObject? {
+            updateObject = currentObject! as PFObject
         
         // Create new object
         newObject = PFObject(className:"Calendars")

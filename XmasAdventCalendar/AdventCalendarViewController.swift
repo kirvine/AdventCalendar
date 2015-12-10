@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
+class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAlertViewDelegate {
 
     var calendarId: String? = ""
     
@@ -18,7 +18,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     var imageView: UIImageView!
     var containerView = UIView()
     
-    var buttonLocations = [(150, 150), (450, 450)]
+    var buttonLocations = [(150, 150), (450, 250), (750, 350), (450, 450), (150, 550), (450, 650), (750, 750), (450, 850), (150, 950), (450, 1100), (750, 1250), (450, 1400), (150, 1550), (450, 1700), (750, 1850)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,20 +102,22 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         
         if canOpen(dayObject) {
             performSegueWithIdentifier("showGift", sender: dayObject)
+        } else {
+            let alertView = UIAlertView(title: "No peeking 😝", message: "It isn't time to open this gift yet!", delegate: self, cancelButtonTitle: "OK")
+            alertView.alertViewStyle = .Default
+            alertView.show()
         }
         print("*opened Gift")
     }
     
     func getDayObject(dayNumber: Int) -> PFObject {
-        print("*in getDayObject")
         var query = PFQuery(className: "Days")
-        print("*in getDayObject calendarId: \(calendarId!)")
+//        print("*in getDayObject calendarId: \(calendarId!)")
         query.whereKey("calendarId", equalTo: calendarId!)
-        print("*in getDayObject dayNumer: \(dayNumber)")
+//        print("*in getDayObject dayNumer: \(dayNumber)")
         query.whereKey("day", equalTo: dayNumber)
-        print("*in getDayObject query: \(query)")
+//        print("*in getDayObject query: \(query)")
         var obj = query.getFirstObject()!
-        print("*in getDayObject 4")
         return obj
     }
     
