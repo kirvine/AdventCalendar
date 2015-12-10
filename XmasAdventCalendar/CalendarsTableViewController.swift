@@ -82,25 +82,18 @@ class CalendarsTableViewController: PFQueryTableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("*didSelect")
         let username = PFUser.currentUser()?.objectForKey("username") as! String
         
         if let indexPath = self.tableView.indexPathForSelectedRow {
             self.calObject = self.objects?[indexPath.row] as? PFObject
-            print("*did select \(calObject?.objectId)")
             if let calObj = calObject {
                 self.calendarId = calObject?.objectId
             }
-            print("*did select calendar id: \(calendarId)")
             let createdBy = calObject?.objectForKey("createdBy") as! String
-            print("*did select username: \(username) createdBy: \(createdBy)")
-            print("*did select calendarId: \(self.calendarId) calObject: \(self.calObject)")
             
             if username == createdBy {
-                print("*is days")
                 performSegueWithIdentifier("calToDays", sender: self.calendarId)
             } else {
-                print("*is advent")
                 performSegueWithIdentifier("calToAdvent", sender: nil)
             }
         }
@@ -115,45 +108,16 @@ class CalendarsTableViewController: PFQueryTableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "calToDays" {
-            print("*in calToDays segue")
             if let vc = segue.destinationViewController as? DaysTableViewController {
                 vc.calendarString = self.calendarId
                 vc.calendarObject = self.calObject
-                print("*in calToDays segue calendarString: \(vc.calendarString) day: \(vc.calendarObject)")
             }
         } else if segue.identifier == "calToAdvent" {
-            print("*is advent")
             if let vc = segue.destinationViewController as? AdventCalendarViewController {
-                print("*is advent segue")
                 vc.calendarId = self.calendarId
-                print("*is advent segue sending \(self.calendarId)")
             }
         }
     }
-    
-    
-    //  MARK:   Delete functions
-//    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        return true
-//    }
-//    
-//    
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//
-////        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-//            var object = objectAtIndexPath(indexPath)
-//            object?.deleteInBackgroundWithBlock {
-//                (success: Bool, error: NSError?) -> Void in
-//                if (success) {
-//                    self.loadObjects()
-//                } else {
-//                    // There was a problem, check error.description
-//                }
-//            }
-//        }
-//    }
-    
-    
     
 
 }

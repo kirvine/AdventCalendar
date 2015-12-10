@@ -16,12 +16,10 @@ class DaysTableViewController: PFQueryTableViewController {
     var calendarObject: PFObject?
     
     @IBAction func viewAdventCalendar () {
-        print("*view advent action")
         performSegueWithIdentifier("showAdvent", sender: calendarString!)
     }
     
     override func viewDidLoad() {
-        print("*days table vdl")
         super.viewDidLoad()
     }
     
@@ -30,7 +28,6 @@ class DaysTableViewController: PFQueryTableViewController {
     }
 
     override func queryForTable() -> PFQuery {
-        print("*days queryfortable")
         let query = PFQuery(className: "Days")
         if let calString = calendarString {
             query.whereKey("calendarId", equalTo: calString)
@@ -76,13 +73,11 @@ class DaysTableViewController: PFQueryTableViewController {
                 // send selected day object to edit view
                 let dayObject = self.objects?[indexPath.row] as? PFObject
                 (segue.destinationViewController as! EditDayViewController).selectedObject = dayObject
-                print("*in editDay segue sent: \(dayObject)")
             }
         } else if segue.identifier == "showAdvent" {
             // send calendar id to AdventCalendar view
             if let vc = segue.destinationViewController as? AdventCalendarViewController {
                 vc.calendarId = sender as? String
-                print("*in showAdvent segue sent: \(sender)")
             }
         } else if segue.identifier == "daysToEditCal" {
             if let vc = segue.destinationViewController as? NewCalendarViewController {

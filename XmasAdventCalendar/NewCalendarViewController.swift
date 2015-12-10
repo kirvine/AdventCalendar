@@ -98,9 +98,6 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("*new cal vdl")
-
-        
         imagePicker.delegate = self
         titleField.delegate = self
         

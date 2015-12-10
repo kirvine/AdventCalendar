@@ -23,13 +23,15 @@
             <string>Futura-Medium</string>
             <string>Futura-Medium</string>
             <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
         </mutableArray>
     </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="Ttu-KN-uF9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X1C-Qt-uib" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="sfb-EV-7VX" customClass="ViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -45,6 +47,7 @@
                         <segue destination="i4l-ok-QuO" kind="relationship" relationship="viewControllers" id="pFX-E1-rAg"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X1C-Qt-uib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="552" y="359"/>
         </scene>
@@ -124,7 +127,6 @@
         <!--Contacts-->
         <scene sceneID="7ug-Jo-INS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hfW-XS-czA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="l9u-WF-3SF" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sXt-Ai-cPt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -147,13 +149,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="haa-qZ-gSi"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfW-XS-czA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1213" y="-523"/>
         </scene>
         <!--Account-->
         <scene sceneID="w4S-ie-Bmu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pAy-jK-Yky" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="beq-IC-c7u" customClass="SettingsViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1fO-AD-k5o"/>
@@ -163,9 +165,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="tLE-In-PCU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgn-MR-rZy">
-                                <rect key="frame" x="183" y="207" width="48" height="30"/>
-                                <state key="normal" title="Logout"/>
+                                <rect key="frame" x="162" y="456" width="90" height="34"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logout:" destination="beq-IC-c7u" eventType="touchUpInside" id="OvU-QQ-JYe"/>
                                     <segue destination="sfb-EV-7VX" kind="show" id="UuB-uX-SGi"/>
@@ -176,13 +184,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="hJe-ey-Xkk"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAy-jK-Yky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1185" y="1377"/>
         </scene>
         <!--Account-->
         <scene sceneID="zp5-zC-lRQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WYf-RN-PWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i4l-ok-QuO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Account" image="settings" id="mEb-s3-jmi"/>
                     <toolbarItems/>
@@ -195,13 +203,13 @@
                         <segue destination="beq-IC-c7u" kind="relationship" relationship="rootViewController" id="zag-nI-PO7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYf-RN-PWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="560" y="1361"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="NIp-xM-Guk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b5x-rD-dYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O2F-PU-tDr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contacts" image="contacts" id="8CG-SI-wC1"/>
                     <toolbarItems/>
@@ -214,13 +222,13 @@
                         <segue destination="l9u-WF-3SF" kind="relationship" relationship="rootViewController" id="yLU-Up-QnG"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5x-rD-dYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="560" y="-523"/>
         </scene>
         <!--Calendars-->
         <scene sceneID="0bE-qj-AIa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uQm-QO-JpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RvV-Fd-g0E" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendars" image="calendar" id="ymF-Hn-sO9"/>
                     <toolbarItems/>
@@ -233,6 +241,7 @@
                         <segue destination="tGr-c2-09z" kind="relationship" relationship="rootViewController" id="13A-Yq-eOb"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uQm-QO-JpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1213" y="359"/>
         </scene>
@@ -254,17 +263,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G36-Y1-ZCn" customClass="PFImageView">
                                 <rect key="frame" x="105" y="90" width="200" height="200"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAQ-Rp-Pav">
-                                <rect key="frame" x="-2" y="556" width="414" height="53"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButton:" destination="h2v-N6-bI6" eventType="touchUpInside" id="pLD-M2-OfT"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calendar Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVy-bL-Jau">
                                 <rect key="frame" x="107" y="306" width="200" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.42930034350000001" blue="0.36591621229999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -304,6 +302,16 @@
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAQ-Rp-Pav">
+                                <rect key="frame" x="105" y="514" width="200" height="53"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="h2v-N6-bI6" eventType="touchUpInside" id="pLD-M2-OfT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -432,34 +440,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-uE-pyL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-uE-pyL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-7b-5Sa" customClass="PFImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-7b-5Sa" customClass="PFImageView">
                                 <rect key="frame" x="57" y="225" width="300" height="300"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Gift note" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7W-rc-PhW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gift note" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7W-rc-PhW">
                                 <rect key="frame" x="57" y="488" width="300" height="37"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="December Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-FN-uDX">
-                                <rect key="frame" x="57" y="145" width="300" height="77"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="December Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-FN-uDX">
+                                <rect key="frame" x="57" y="170" width="300" height="47"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="i7W-rc-PhW" firstAttribute="top" secondItem="qcG-FN-uDX" secondAttribute="bottom" constant="266" id="80a-94-iwJ"/>
-                            <constraint firstItem="i7W-rc-PhW" firstAttribute="leading" secondItem="qcG-FN-uDX" secondAttribute="trailing" constant="-300" id="8df-3m-p14"/>
-                            <constraint firstItem="qcG-FN-uDX" firstAttribute="leading" secondItem="Xl6-uE-pyL" secondAttribute="leading" id="B94-xE-6n3"/>
-                            <constraint firstItem="z6a-7b-5Sa" firstAttribute="top" secondItem="qcG-FN-uDX" secondAttribute="bottom" constant="3" id="at1-sz-rC8"/>
-                            <constraint firstItem="qcG-FN-uDX" firstAttribute="centerX" secondItem="Xl6-uE-pyL" secondAttribute="centerX" id="btU-h2-m8N"/>
-                            <constraint firstItem="z6a-7b-5Sa" firstAttribute="centerX" secondItem="Xl6-uE-pyL" secondAttribute="centerX" id="eyO-mT-8Fr"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gJs-57-ryt"/>
                     <connections>
@@ -505,16 +505,6 @@
                                     <action selector="uploadImage:" destination="vDI-rZ-bfN" eventType="touchUpInside" id="Y3D-UF-c8d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqw-SJ-FqC">
-                                <rect key="frame" x="0.0" y="578" width="414" height="42"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButton:" destination="vDI-rZ-bfN" eventType="touchUpInside" id="ImE-vc-cFg"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="December Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSD-ee-TVq">
                                 <rect key="frame" x="107" y="306" width="200" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
@@ -527,6 +517,16 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqw-SJ-FqC">
+                                <rect key="frame" x="107" y="505" width="205" height="35"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="vDI-rZ-bfN" eventType="touchUpInside" id="ImE-vc-cFg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

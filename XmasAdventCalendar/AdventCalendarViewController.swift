@@ -22,7 +22,6 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("*advent vdl \(calendarId)")
         setScrollImage()
         placeButtons()
         
@@ -37,7 +36,6 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         
         scrollView.frame = view.bounds
         let bounds = scrollView.frame
-        print("*\(bounds)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,8 +64,6 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     func buttonLocationsArray() ->  [(Int, Int)] {
         let width = bounds.width
         let height = bounds.height
-        
-        print("*width =  \(width) height = \(height)")
         
         let xSpacing = Int(width/3)
         let ySpacing = Int(height/8)
@@ -108,8 +104,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         x = x2+50
         y = y2 + 50
         buttons.append((x, y))
-        
-        print(buttons.count)
+
         return buttons
         
     }
@@ -130,7 +125,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
             // set backgroung and borders
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 2
-            button.layer.borderColor = UIColor.lightGrayColor().CGColor
+            button.layer.borderColor = UIColor.whiteColor().CGColor
             button.backgroundColor = UIColor.clearColor()
 
             // set title to number of day
@@ -153,7 +148,6 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     
     //  Button Actions
     func openGift(sender: UIButton!) {
-        print("*button actions \(calendarId)")
         let dayNumber = Int(sender.titleForState(.Normal)!)
         let dayObject = getDayObject(dayNumber!)
                 
@@ -175,7 +169,6 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     }
     
     func canOpen(object: PFObject?) -> Bool {
-        print("*can open\(calendarId)")
         // get day and year that gift should be opened
         let giftDay = object!.objectForKey("day") as? Int
         let giftYear = object!.objectForKey("year") as? Int
@@ -203,7 +196,6 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showGift" {
             if let vc = segue.destinationViewController as? GiftViewController {
-                print("* in showGift segue sending: \(sender!) calendarId: \(calendarId!)")
                 vc.dayObject = sender as? PFObject
             }
         }
