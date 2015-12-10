@@ -29,37 +29,7 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // Present image picker
     @IBAction func uploadImage(sender: AnyObject) {
-        let optionMenu = UIAlertController(title: nil, message: "Upload Image", preferredStyle: .ActionSheet)
-        
-        let photoLibraryOption = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-            //shows the photo library
-            self.imagePicker.allowsEditing = true
-            self.imagePicker.sourceType = .PhotoLibrary
-            self.imagePicker.modalPresentationStyle = .Popover
-            self.presentViewController(self.imagePicker, animated: true, completion: nil)
-        })
-        
-        let cameraOption = UIAlertAction(title: "Camera", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-            //shows the camera
-            self.imagePicker.allowsEditing = true
-            self.imagePicker.sourceType = .Camera
-            self.imagePicker.modalPresentationStyle = .Popover
-            self.presentViewController(self.imagePicker, animated: true, completion: nil)
-            
-        })
-        
-        let cancelOption = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
-        
-        // add options to alert
-        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
-            optionMenu.addAction(cameraOption)
-        }
-        optionMenu.addAction(photoLibraryOption)
-        optionMenu.addAction(cancelOption)
-        
+        let optionMenu = createImageUploadMenu()
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
     
@@ -111,6 +81,43 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dismiss the image picker
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // make popup menu for image upload options
+    func createImageUploadMenu() -> UIAlertController {
+        let optionMenu = UIAlertController(title: "Upload Image", message: nil, preferredStyle: .ActionSheet)
+        
+        let photoLibraryOption = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            //shows the photo library
+            self.imagePicker.allowsEditing = true
+            self.imagePicker.sourceType = .PhotoLibrary
+            self.imagePicker.modalPresentationStyle = .Popover
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        })
+        
+        let cameraOption = UIAlertAction(title: "Camera", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            //shows the camera
+            self.imagePicker.allowsEditing = true
+            self.imagePicker.sourceType = .Camera
+            self.imagePicker.modalPresentationStyle = .Popover
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            
+        })
+        
+        let cancelOption = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+        // add options to alert
+        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            optionMenu.addAction(cameraOption)
+        }
+        optionMenu.addAction(photoLibraryOption)
+        optionMenu.addAction(cancelOption)
+        
+        return optionMenu
+    }
+
     
     
     //  MARK:   UITextView Delegate Functions

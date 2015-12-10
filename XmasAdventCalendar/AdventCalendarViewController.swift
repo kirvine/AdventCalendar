@@ -100,6 +100,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         let dayNumber = sender.titleForState(.Normal)!
         let dayObject = getDayObject(dayNumber)
         
+        print("*in openGift dayNumber: \(dayNumber) dayObject: \(dayObject)")
+        
         if canOpen(dayObject) {
             performSegueWithIdentifier("showGift", sender: dayObject)
         }
@@ -139,6 +141,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showGift" {
             if let vc = segue.destinationViewController as? GiftViewController {
+                print("* in segue object: \(sender!) calendarId: \(calendarId)")
                 vc.dayObject = sender as? PFObject
             }
         }
