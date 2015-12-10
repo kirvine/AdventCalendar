@@ -83,19 +83,36 @@ class CalendarsTableViewController: PFQueryTableViewController {
     //  MARK:   Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "viewDays" {
-
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let calObject = self.objects?[indexPath.row] as? PFObject
-                if let vc = segue.destinationViewController as? DaysTableViewController {
-                    vc.calendarString = calObject?.objectId
-                    vc.calendarObject = calObject
+        let username = PFUser.currentUser()?.objectForKey("username") as! String
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            let calObject = self.objects?[indexPath.row] as? PFObject
+            let createdBy = calObject?.objectForKey("createdBy") as! String
+            
+            if username ==  createdBy {
+                if segue.identifier == "viewDays" {
+                    if let vc = segue.destinationViewController as? DaysTableViewController {
+                        vc.calendarString = calObject?.objectId
+                        vc.calendarObject = calObject
+                    }
+                }
+            } else {
+                if segue.identifier == "calToAdvent" {
+                    if let vc = segue.destinationViewController as? AdventCalendarViewController {
+                        vc.calendarId = calObject?.objectId
+                    }
                 }
             }
         }
     }
     
+    func viewDaysSegueData() {
+        
+    }
+    
 
+    
+    //  MARK:   Delete functions
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }

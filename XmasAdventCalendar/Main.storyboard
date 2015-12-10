@@ -70,7 +70,7 @@
                                     <outlet property="cellImage" destination="HTd-yE-SZg" id="xTZ-4K-nMa"/>
                                     <outlet property="creatorLabel" destination="MHn-qY-DSo" id="cfg-Zs-N2c"/>
                                     <outlet property="titleLabel" destination="yco-Pn-050" id="k6G-ic-XqO"/>
-                                    <segue destination="gMM-0K-GQz" kind="show" identifier="viewDays" id="sx9-H2-Lc8"/>
+                                    <segue destination="zoA-Eo-onF" kind="show" identifier="calToAdvent" id="LMi-nb-0zw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,6 +86,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="gMM-0K-GQz" kind="show" identifier="viewDays" id="keu-tK-N8c"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="813-Lf-4Mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -296,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHg-1e-0GI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340" y="359"/>
+            <point key="canvasLocation" x="2672" y="407"/>
         </scene>
         <!--Days Table View Controller-->
         <scene sceneID="iYO-vt-XpE">
@@ -365,7 +368,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCp-Xs-A8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="1377"/>
+            <point key="canvasLocation" x="1807" y="1353"/>
         </scene>
         <!--Advent Calendar View Controller-->
         <scene sceneID="kjV-Cg-BGg">
@@ -388,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8U-Mr-PQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="2306"/>
+            <point key="canvasLocation" x="2488" y="1353"/>
         </scene>
         <!--Gift View Controller-->
         <scene sceneID="WAJ-ah-HBV">
@@ -438,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smh-kl-jPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340" y="2306"/>
+            <point key="canvasLocation" x="3100" y="1353"/>
         </scene>
         <!--Edit Day View Controller-->
         <scene sceneID="xWe-mc-4YJ">
@@ -505,7 +508,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAe-Bp-Hx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340" y="1377"/>
+            <point key="canvasLocation" x="1792" y="2277"/>
         </scene>
     </scenes>
     <resources>
@@ -518,8 +521,8 @@
         <image name="settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="LMi-nb-0zw"/>
         <segue reference="xtg-0e-fXV"/>
-        <segue reference="c6R-Lu-K0a"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
