@@ -88,18 +88,22 @@ class CalendarsTableViewController: PFQueryTableViewController {
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let calObject = self.objects?[indexPath.row] as? PFObject
             let createdBy = calObject?.objectForKey("createdBy") as! String
+            print("*username: \(username) createdBy: \(createdBy)")
             
-            if username ==  createdBy {
-                if segue.identifier == "viewDays" {
+            if username == createdBy {
+                if segue.identifier == "calToDays" {
+                    print("*is creator")
                     if let vc = segue.destinationViewController as? DaysTableViewController {
                         vc.calendarString = calObject?.objectId
                         vc.calendarObject = calObject
                     }
                 }
             } else {
+                print("*not creator trying \(calObject?.objectId)")
                 if segue.identifier == "calToAdvent" {
                     if let vc = segue.destinationViewController as? AdventCalendarViewController {
                         vc.calendarId = calObject?.objectId
+                        ("*sent \(calObject?.objectId)")
                     }
                 }
             }

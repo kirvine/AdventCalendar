@@ -68,7 +68,7 @@
                                     <outlet property="cellImage" destination="HTd-yE-SZg" id="xTZ-4K-nMa"/>
                                     <outlet property="creatorLabel" destination="MHn-qY-DSo" id="cfg-Zs-N2c"/>
                                     <outlet property="titleLabel" destination="yco-Pn-050" id="k6G-ic-XqO"/>
-                                    <segue destination="zoA-Eo-onF" kind="show" identifier="calToAdvent" id="LMi-nb-0zw"/>
+                                    <segue destination="gMM-0K-GQz" kind="show" identifier="calToDays" id="W1b-ml-6iA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,7 +85,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="gMM-0K-GQz" kind="show" identifier="viewDays" id="keu-tK-N8c"/>
+                        <segue destination="zoA-Eo-onF" kind="show" identifier="calToAdvent" id="iAJ-Ro-voI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="813-Lf-4Mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -356,7 +356,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCp-Xs-A8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="1353"/>
+            <point key="canvasLocation" x="1777" y="1403"/>
         </scene>
         <!--Advent Calendar View Controller-->
         <scene sceneID="kjV-Cg-BGg">
@@ -379,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8U-Mr-PQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2488" y="1353"/>
+            <point key="canvasLocation" x="2412" y="1403"/>
         </scene>
         <!--Gift View Controller-->
         <scene sceneID="WAJ-ah-HBV">
@@ -510,8 +510,8 @@
         <image name="settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LMi-nb-0zw"/>
-        <segue reference="xtg-0e-fXV"/>
+        <segue reference="c6R-Lu-K0a"/>
+        <segue reference="ABS-A3-I9s"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
