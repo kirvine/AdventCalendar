@@ -78,10 +78,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         var query = PFQuery(className: "Days")
         query.whereKey("calendarId", equalTo: calendarId!)
         query.whereKey("day", equalTo: dayNumber)
-        print("*calendar: \(calendarId) day: \(dayNumber)")
-        print(query)
         var obj = query.getFirstObject()!
-        print(obj)
         return obj
     }
     
@@ -105,16 +102,18 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         let convertedDate = dateFormatter.stringFromDate(currentDate)
         return convertedDate
     }
-    
-    
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showGift" {
+            if let vc = segue.destinationViewController as? GiftViewController {
+                vc.dayObject = sender as? PFObject
+            }
+        }
     }
-    */
 
+    
+    
+    
 }

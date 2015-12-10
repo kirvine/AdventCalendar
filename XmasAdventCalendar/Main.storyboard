@@ -404,10 +404,10 @@
             </objects>
             <point key="canvasLocation" x="1787" y="2306"/>
         </scene>
-        <!--Advent Day View Controller-->
+        <!--Gift View Controller-->
         <scene sceneID="WAJ-ah-HBV">
             <objects>
-                <viewController id="9yq-cq-Rmk" customClass="AdventDayViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9yq-cq-Rmk" customClass="GiftViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FKa-wa-m7k"/>
                         <viewControllerLayoutGuide type="bottom" id="zl0-KQ-qrf"/>
@@ -422,7 +422,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-7b-5Sa" customClass="PFImageView">
                                 <rect key="frame" x="57" y="225" width="300" height="300"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gift note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7W-rc-PhW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gift note" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7W-rc-PhW">
                                 <rect key="frame" x="57" y="488" width="300" height="37"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -438,7 +438,6 @@
                                 <rect key="frame" x="369" y="28" width="25" height="25"/>
                                 <state key="normal" image="close"/>
                                 <connections>
-                                    <action selector="returnToAdventCalendar:" destination="9yq-cq-Rmk" eventType="touchUpInside" id="Wiy-cD-npY"/>
                                     <segue destination="zoA-Eo-onF" kind="show" id="pao-NC-TVF"/>
                                 </connections>
                             </button>
@@ -450,9 +449,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dayLabel" destination="qcG-FN-uDX" id="Wan-pu-vAT"/>
-                        <outlet property="giftImage" destination="z6a-7b-5Sa" id="42O-xG-z85"/>
-                        <outlet property="noteLabel" destination="i7W-rc-PhW" id="9SM-h3-lIw"/>
+                        <outlet property="dayLabel" destination="qcG-FN-uDX" id="Pe3-tM-ihG"/>
+                        <outlet property="giftImage" destination="z6a-7b-5Sa" id="rBm-Ys-Urs"/>
+                        <outlet property="noteLabel" destination="i7W-rc-PhW" id="MFc-h1-OT6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smh-kl-jPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
