@@ -22,7 +22,7 @@ class DaysTableViewController: PFQueryTableViewController {
         
         let query = PFQuery(className: "Days")
         query.whereKey("calendarId", equalTo: self.calendarString!)
-        query.orderByAscending("date")
+        query.orderByAscending("day")
         
         return query
     }
@@ -63,8 +63,10 @@ class DaysTableViewController: PFQueryTableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editDay" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
+                print("*daysVC segue")
                 // send selected day object to edit view
                 let dayObject = self.objects?[indexPath.row] as? PFObject
+                print("*daysVC sending: \(dayObject)")
                 (segue.destinationViewController as! EditDayViewController).selectedObject = dayObject
             }
         } else if segue.identifier == "showAdvent" {

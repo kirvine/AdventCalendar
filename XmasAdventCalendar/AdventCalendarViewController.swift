@@ -97,8 +97,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     
     //  Button Actions
     func openGift(sender: UIButton!) {
-        let dayNumber = sender.titleForState(.Normal)!
-        let dayObject = getDayObject(dayNumber)
+        let dayNumber = Int(sender.titleForState(.Normal)!)
+        let dayObject = getDayObject(dayNumber!)
         
         print("*in openGift dayNumber: \(dayNumber) dayObject: \(dayObject)")
         
@@ -107,7 +107,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func getDayObject(dayNumber: String) -> PFObject {
+    func getDayObject(dayNumber: Int) -> PFObject {
         var query = PFQuery(className: "Days")
         query.whereKey("calendarId", equalTo: calendarId!)
         query.whereKey("day", equalTo: dayNumber)
@@ -117,8 +117,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
     
     func canOpen(object: PFObject?) -> Bool {
         // get day and year that gift should be opened
-        let giftDay = object!.objectForKey("day") as? String
-        let giftYear = object!.objectForKey("year") as? String
+        let giftDay = object!.objectForKey("day") as? Int
+        let giftYear = object!.objectForKey("year") as? Int
         
         // get current day and year
         let currentDay = getCurrentDate("d")
@@ -127,12 +127,14 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
         return (currentDay >= giftDay && currentYear >= giftYear)
     }
     
-    func getCurrentDate(format: String) -> String {
+    func getCurrentDate(format: String) -> Int {
         let currentDate = NSDate()
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = format
-        let convertedDate = dateFormatter.stringFromDate(currentDate)
-        return convertedDate
+    
+        var dateAsNum = Int(dateFormatter.stringFromDate(currentDate))
+        return dateAsNum!
     }
 
     

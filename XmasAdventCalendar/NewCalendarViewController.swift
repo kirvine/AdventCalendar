@@ -190,12 +190,12 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
     }
     
     func createDays(calendarId: String) {
-        let year = getCurrentYear()
+        let year = Int(getCurrentYear())
         
         for day in 1...25 {
             let newDay = PFObject(className: "Days")
             
-            newDay["day"] = String(day)
+            newDay["day"] = day
             newDay["year"] = year
             newDay["calendarId"] = calendarId
             newDay.saveInBackground()
