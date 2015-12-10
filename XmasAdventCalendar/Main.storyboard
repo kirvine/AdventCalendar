@@ -355,7 +355,7 @@
                     <navigationItem key="navigationItem" id="Wgc-AX-ZF3">
                         <barButtonItem key="rightBarButtonItem" image="info" style="plain" id="QI1-5G-ihw">
                             <connections>
-                                <segue destination="h2v-N6-bI6" kind="show" id="ABS-A3-I9s"/>
+                                <segue destination="h2v-N6-bI6" kind="show" identifier="daysToEditCal" id="ABS-A3-I9s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

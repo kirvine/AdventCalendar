@@ -72,11 +72,11 @@ class CalendarsTableViewController: PFQueryTableViewController {
         if segue.identifier == "viewDays" {
 
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                // send selected calendar id as string to Days Section
-                let obj = self.objects?[indexPath.row] as? PFObject
-                let calendarId: String = obj!.objectId!
-                (segue.destinationViewController as! DaysTableViewController).calendarString = calendarId
-                
+                let calObject = self.objects?[indexPath.row] as? PFObject
+                if let vc = segue.destinationViewController as? DaysTableViewController {
+                    vc.calendarString = calObject?.objectId
+                    vc.calendarObject = calObject
+                }
             }
         }
     }

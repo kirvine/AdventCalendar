@@ -13,10 +13,12 @@ import ParseUI
 
 class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    // Calendar object to create
-    var newObject: PFObject?
+    // user selected object
+    var selectedObject: PFObject?
+    // object to update
+    var updateObject: PFObject?
     
-    var oldObject: PFObject?
+    var isNewObject: Bool = true
     
     // Image Picker object
     var imagePicker = UIImagePickerController()
@@ -41,15 +43,17 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
     
     // The save button
     @IBAction func saveButton(sender: AnyObject) {
-        if let old = oldObject as PFObject? {
-            updateObject = currentObject! as PFObject
-        
-        // Create new object
-        newObject = PFObject(className:"Calendars")
+        // use selected object
+        if isNewObject {
+            // create new object
+            updateObject = PFObject(className:"Calendars")
+        } else {
+            // use current selected object
+            updateObject = selectedObject! as PFObject
+        }
         
         // Update the object
-        if let newCalendar = newObject {
-            
+        if let calendarObject = updateObject {
             if titleField.text == "" {
                 
                 let alertMsg = UIAlertController(title: "Error", message: "Calendar must have a title", preferredStyle: UIAlertControllerStyle.Alert)
@@ -57,34 +61,31 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
                 self.presentViewController(alertMsg, animated: true, completion: nil)
                 
             } else {
-                
-                newCalendar["title"] = titleField.text
-                newCalendar["createdBy"] = PFUser.currentUser()?.username
+                calendarObject["title"] = titleField.text
+                calendarObject["year"] = getCurrentYear()
+                calendarObject["createdBy"] = PFUser.currentUser()?.username
                 
                 // Upload image
                 if imageDidChange == true {
-                    
                     let imageData = UIImagePNGRepresentation(calendarImage.image!)
-                    let fileName = titleField.text! + ".png"
-                    let imageFile = PFFile(name:fileName, data: imageData!)
-                    newCalendar["image"] = imageFile
+                    let imageFile = PFFile(data: imageData!)
+                    calendarObject["image"] = imageFile
                     
                 }
-                
                 // Save the data back to the server in a background task
-                newCalendar.saveInBackgroundWithBlock {
+                calendarObject.saveInBackgroundWithBlock {
                     (success: Bool, error: NSError?) -> Void in
                     if (success) {
-                        // The object has been saved. Now make 25 days
-                        if let id = newCalendar.objectId {
+                        // Now create days if necessary
+                        if let id = calendarObject.objectId {
                             self.createDays(id)
                         }
                     }
                 }
             }
-
+            
         }
-        
+        print("*saved")
         // Return to table view
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -100,6 +101,7 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
         titleField.delegate = self
         
         // set initial labels and fields
+        testIsNew()
         updateLabels()
         
         }
@@ -179,10 +181,34 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
     
     //  MARK:   Custom Functions
 
+    func testIsNew() {
+        if let selected = selectedObject as PFObject? {
+            isNewObject = false
+        }
+        print("*isNew")
+    }
+    
     func updateLabels() {
-        calendarImage.image = UIImage(named: "calendar_placeholder")
-        yearLabel.text = getCurrentYear()
-        createdByLabel.text = PFUser.currentUser()?.username
+        if isNewObject {
+            // object is new
+            calendarImage.image = UIImage(named: "calendar_placeholder")
+            yearLabel.text = getCurrentYear()
+            createdByLabel.text = PFUser.currentUser()?.username
+        } else {
+            // load attributes of selected object
+            let updateObject = selectedObject! as PFObject
+            
+            if let imageFile = updateObject.objectForKey("image") as? PFFile {
+                calendarImage.file = imageFile
+                calendarImage.loadInBackground()
+            } else {
+                let placeholder = UIImage(named: "calendar_placeholder")
+                calendarImage.image = placeholder
+            }
+            
+            yearLabel.text = updateObject.objectForKey("year") as? String
+            createdByLabel.text = updateObject.objectForKey("createdBy") as? String
+        }
     }
     
     func getCurrentYear() -> String {
@@ -194,17 +220,23 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
     }
     
     func createDays(calendarId: String) {
-        let year = Int(getCurrentYear())
-        
-        for day in 1...25 {
-            let newDay = PFObject(className: "Days")
+        if isNewObject {
+            let year = Int(getCurrentYear())
             
-            newDay["day"] = day
-            newDay["year"] = year
-            newDay["calendarId"] = calendarId
-            newDay.saveInBackground()
+            for day in 1...25 {
+                let newDay = PFObject(className: "Days")
+                
+                newDay["day"] = day
+                newDay["year"] = year
+                newDay["calendarId"] = calendarId
+                newDay.saveInBackground()
+            }
         }
-
     }
 
+    
+    
+    
+    
+    
 }
