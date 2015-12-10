@@ -67,7 +67,10 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate {
             let button = UIButton.init(type: .System)
             
             // set size and location
-            button.frame = CGRectMake(x, y, 80, 80)
+            let w = CGFloat(x)
+            let z = CGFloat(y)
+            
+            button.frame = CGRectMake(w, z, 80, 80)
             
             // set backgroung and borders
             button.layer.cornerRadius = 5
