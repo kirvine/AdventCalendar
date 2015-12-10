@@ -69,7 +69,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         
         print("*width =  \(width) height = \(height)")
         
-        let xSpacing = Int(width/4)
+        let xSpacing = Int(width/3)
         let ySpacing = Int(height/8)
         
         let x1 = xSpacing/2
@@ -101,13 +101,13 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
                 
                 buttons.append((x, y))
             }
-            
-            // place 25th button
-            x = x2+50
-            y = y2 + 50
-            buttons.append((x, y))
-            
+        
         }
+        
+        // place 25th button
+        x = x2+50
+        y = y2 + 50
+        buttons.append((x, y))
         
         print(buttons.count)
         return buttons
@@ -129,7 +129,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
             
             // set backgroung and borders
             button.layer.cornerRadius = 5
-            button.layer.borderWidth = 1
+            button.layer.borderWidth = 2
             button.layer.borderColor = UIColor.whiteColor().CGColor
             button.backgroundColor = UIColor.clearColor()
 

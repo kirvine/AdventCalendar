@@ -61,6 +61,7 @@ class CalendarsTableViewController: PFQueryTableViewController {
         // fetch labels & connect to labels
         cell.titleLabel.text = object?.objectForKey("title") as? String
         cell.creatorLabel.text = object?.objectForKey("createdBy") as? String
+        cell.yearLabel.text = object?.objectForKey("year") as? String
         
         calendars.append(object!)
         

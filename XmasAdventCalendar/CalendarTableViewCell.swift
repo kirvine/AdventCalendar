@@ -15,6 +15,7 @@ class CalendarTableViewCell: PFTableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var creatorLabel: UILabel!
     @IBOutlet weak var cellImage: PFImageView!
+    @IBOutlet weak var yearLabel: UILabel!
 
     /*
     // Only override drawRect: if you perform custom drawing.
