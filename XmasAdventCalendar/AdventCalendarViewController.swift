@@ -130,12 +130,13 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
             // set backgroung and borders
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 2
-            button.layer.borderColor = UIColor.whiteColor().CGColor
+            button.layer.borderColor = UIColor.lightGrayColor().CGColor
             button.backgroundColor = UIColor.clearColor()
 
             // set title to number of day
             button.setTitle("\(num)", forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            button.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+            button.titleLabel!.font = UIFont(name: "Futura", size: 24)
             
             // set action
             button.addTarget(self, action: "openGift:", forControlEvents: UIControlEvents.TouchUpInside)

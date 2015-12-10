@@ -17,10 +17,12 @@ class CalendarsTableViewController: PFQueryTableViewController {
     var calendarId: String?
     
     override func viewDidLoad() {
-        print("*cal table vdl")
         super.viewDidLoad()
-        self.loadObjects()
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.loadObjects()
     }
     
     override func queryForTable() -> PFQuery {

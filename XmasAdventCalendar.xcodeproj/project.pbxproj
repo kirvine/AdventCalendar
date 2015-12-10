@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B020EEE1C1A3486004370D4 /* Futura.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4B020EED1C1A3486004370D4 /* Futura.ttc */; };
 		4B0264401C0FF6E4006B2E8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02643F1C0FF6E4006B2E8A /* AppDelegate.swift */; };
 		4B0264421C0FF6E4006B2E8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0264411C0FF6E4006B2E8A /* ViewController.swift */; };
 		4B0264471C0FF6E4006B2E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0264461C0FF6E4006B2E8A /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B020EED1C1A3486004370D4 /* Futura.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Futura.ttc; sourceTree = "<group>"; };
 		4B02643C1C0FF6E4006B2E8A /* XmasAdventCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XmasAdventCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B02643F1C0FF6E4006B2E8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B0264411C0FF6E4006B2E8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -3866,6 +3868,7 @@
 		4B026A021C1032F4006B2E8A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				4B020EED1C1A3486004370D4 /* Futura.ttc */,
 				4B0A3A701C10DE5A009A10A4 /* Pacifico.ttf */,
 				4B026A031C103523006B2E8A /* Lights.otf */,
 				4B026A051C1037DD006B2E8A /* budmo jiggler.ttf */,
@@ -4071,6 +4074,7 @@
 				4B02644A1C0FF6E4006B2E8A /* LaunchScreen.storyboard in Resources */,
 				4B0A3A711C10DE5A009A10A4 /* Pacifico.ttf in Resources */,
 				4B0915E11C15364700731385 /* Main.storyboard in Resources */,
+				4B020EEE1C1A3486004370D4 /* Futura.ttc in Resources */,
 				4B0264471C0FF6E4006B2E8A /* Assets.xcassets in Resources */,
 				4B026A071C1037DD006B2E8A /* budmo jiggler.ttf in Resources */,
 			);

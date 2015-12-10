@@ -23,7 +23,9 @@ class DaysTableViewController: PFQueryTableViewController {
     override func viewDidLoad() {
         print("*days table vdl")
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         self.loadObjects()
     }
 

@@ -3,10 +3,26 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Pacifico.ttf">
-            <string>Pacifico</string>
+        <mutableArray key="Futura.ttc">
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
+            <string>Futura-Medium</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -51,25 +67,30 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-yE-SZg" customClass="PFImageView">
                                             <rect key="frame" x="0.0" y="-1" width="150" height="150"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yco-Pn-050">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yco-Pn-050">
                                             <rect key="frame" x="158" y="37" width="248" height="21"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                             <color key="textColor" red="0.91206991790000003" green="0.17470263019999999" blue="0.14086693650000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-qY-DSo">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-qY-DSo">
                                             <rect key="frame" x="158" y="62" width="79" height="23"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                             <color key="textColor" red="0.91206991790000003" green="0.17470263019999999" blue="0.14086693650000001" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZE-E1-vuS">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZE-E1-vuS">
                                             <rect key="frame" x="158" y="81" width="41" height="23"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                             <color key="textColor" red="0.91206991790000003" green="0.17470263019999999" blue="0.14086693650000001" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MHn-qY-DSo" firstAttribute="top" secondItem="yco-Pn-050" secondAttribute="bottom" constant="4" id="MSJ-JB-4iW"/>
+                                        <constraint firstItem="2ZE-E1-vuS" firstAttribute="top" secondItem="MHn-qY-DSo" secondAttribute="bottom" constant="-4" id="TM0-AS-u6w"/>
+                                        <constraint firstItem="yco-Pn-050" firstAttribute="top" secondItem="jBd-vH-0iB" secondAttribute="topMargin" constant="29" id="xOw-lt-nsw"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellImage" destination="HTd-yE-SZg" id="xTZ-4K-nMa"/>
@@ -215,7 +236,7 @@
             </objects>
             <point key="canvasLocation" x="1213" y="359"/>
         </scene>
-        <!--Add Calendar-->
+        <!--New Calendar View Controller-->
         <scene sceneID="UDH-wT-9ra">
             <objects>
                 <viewController id="h2v-N6-bI6" customClass="NewCalendarViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
@@ -234,7 +255,7 @@
                                 <rect key="frame" x="105" y="90" width="200" height="200"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAQ-Rp-Pav">
-                                <rect key="frame" x="-2" y="589" width="414" height="53"/>
+                                <rect key="frame" x="-2" y="556" width="414" height="53"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Save">
@@ -246,12 +267,14 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calendar Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVy-bL-Jau">
                                 <rect key="frame" x="107" y="306" width="200" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42930034350000001" blue="0.36591621229999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shared with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUx-Xy-Re1">
-                                <rect key="frame" x="105" y="417" width="106" height="21"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share with friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUx-Xy-Re1">
+                                <rect key="frame" x="105" y="421" width="202" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -262,29 +285,29 @@
                                     <action selector="uploadImage:" destination="h2v-N6-bI6" eventType="touchUpInside" id="Nno-3o-aw5"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-cV-5Wg">
-                                <rect key="frame" x="105" y="446" width="240" height="73"/>
-                                <color key="backgroundColor" red="0.91206991790000003" green="0.17470263019999999" blue="0.14086693650000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J31-iQ-g9b">
+                                <rect key="frame" x="107" y="339" width="200" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J31-iQ-g9b">
-                                <rect key="frame" x="105" y="389" width="234" height="23"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015 Holiday Season" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYG-QT-LjY">
-                                <rect key="frame" x="107" y="344" width="198" height="21"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <rect key="frame" x="107" y="364" width="200" height="21"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-cV-5Wg">
+                                <rect key="frame" x="105" y="446" width="202" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.42930034347632728" blue="0.36591621226797322" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Calendar" id="f4f-tC-hxn"/>
+                    <navigationItem key="navigationItem" id="f4f-tC-hxn"/>
                     <connections>
                         <outlet property="calendarImage" destination="G36-Y1-ZCn" id="z3e-yW-GPW"/>
                         <outlet property="createdByLabel" destination="J31-iQ-g9b" id="YMV-TT-HAD"/>
@@ -297,7 +320,7 @@
             </objects>
             <point key="canvasLocation" x="2672" y="407"/>
         </scene>
-        <!--Days Table View Controller-->
+        <!--Edit Gifts-->
         <scene sceneID="iYO-vt-XpE">
             <objects>
                 <tableViewController id="gMM-0K-GQz" customClass="DaysTableViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
@@ -318,29 +341,33 @@
                             </connections>
                         </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dayCell" rowHeight="102" id="xE3-yc-b4O" customClass="DayTableViewCell" customModule="XmasAdventCalendar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="414" height="102"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dayCell" rowHeight="100" id="xE3-yc-b4O" customClass="DayTableViewCell" customModule="XmasAdventCalendar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xE3-yc-b4O" id="Wpq-kY-7x4">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tr5-pV-Ib4">
-                                            <rect key="frame" x="116" y="47" width="290" height="23"/>
-                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                            <color key="textColor" red="0.91206991790000003" green="0.17470263019999999" blue="0.14086693650000001" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-a8-hJb" customClass="PFImageView">
-                                            <rect key="frame" x="8" y="0.0" width="100" height="100"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URP-Qk-VEE">
-                                            <rect key="frame" x="116" y="20" width="290" height="26"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URP-Qk-VEE">
+                                            <rect key="frame" x="108" y="20" width="298" height="26"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                             <color key="textColor" red="0.91206991790000003" green="0.17470263019999999" blue="0.14086693650000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-a8-hJb" customClass="PFImageView">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tr5-pV-Ib4">
+                                            <rect key="frame" x="108" y="47" width="298" height="23"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                            <color key="textColor" red="0.91206991790000003" green="0.17470263019999999" blue="0.14086693650000001" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="URP-Qk-VEE" firstAttribute="top" secondItem="Wpq-kY-7x4" secondAttribute="topMargin" constant="12" id="HxZ-oQ-vKX"/>
+                                        <constraint firstItem="tr5-pV-Ib4" firstAttribute="top" secondItem="URP-Qk-VEE" secondAttribute="bottom" constant="1" id="QVp-GC-Rsc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dayLabel" destination="URP-Qk-VEE" id="aqx-lM-a7A"/>
@@ -355,7 +382,7 @@
                             <outlet property="delegate" destination="gMM-0K-GQz" id="ur2-LH-NB9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Wgc-AX-ZF3">
+                    <navigationItem key="navigationItem" title="Edit Gifts" id="Wgc-AX-ZF3">
                         <barButtonItem key="rightBarButtonItem" image="info" style="plain" id="QI1-5G-ihw">
                             <connections>
                                 <segue destination="h2v-N6-bI6" kind="show" identifier="daysToEditCal" id="ABS-A3-I9s"/>
@@ -370,10 +397,10 @@
             </objects>
             <point key="canvasLocation" x="1777" y="1403"/>
         </scene>
-        <!--Advent Calendar View Controller-->
+        <!--Advent Calendar-->
         <scene sceneID="kjV-Cg-BGg">
             <objects>
-                <viewController id="zoA-Eo-onF" customClass="AdventCalendarViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Advent Calendar" id="zoA-Eo-onF" customClass="AdventCalendarViewController" customModule="XmasAdventCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OO1-tk-jNz"/>
                         <viewControllerLayoutGuide type="bottom" id="yHP-06-7N1"/>
@@ -405,30 +432,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-uE-pyL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg_bottomsnow" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-uE-pyL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-7b-5Sa" customClass="PFImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-7b-5Sa" customClass="PFImageView">
                                 <rect key="frame" x="57" y="225" width="300" height="300"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gift note" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7W-rc-PhW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Gift note" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7W-rc-PhW">
                                 <rect key="frame" x="57" y="488" width="300" height="37"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="December Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-FN-uDX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="December Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-FN-uDX">
                                 <rect key="frame" x="57" y="145" width="300" height="77"/>
-                                <fontDescription key="fontDescription" name="Pacifico" family="Pacifico" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-DR-oWE">
-                                <rect key="frame" x="306" y="86" width="25" height="25"/>
-                                <state key="normal" image="close"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i7W-rc-PhW" firstAttribute="top" secondItem="qcG-FN-uDX" secondAttribute="bottom" constant="266" id="80a-94-iwJ"/>
+                            <constraint firstItem="i7W-rc-PhW" firstAttribute="leading" secondItem="qcG-FN-uDX" secondAttribute="trailing" constant="-300" id="8df-3m-p14"/>
+                            <constraint firstItem="qcG-FN-uDX" firstAttribute="leading" secondItem="Xl6-uE-pyL" secondAttribute="leading" id="B94-xE-6n3"/>
+                            <constraint firstItem="z6a-7b-5Sa" firstAttribute="top" secondItem="qcG-FN-uDX" secondAttribute="bottom" constant="3" id="at1-sz-rC8"/>
+                            <constraint firstItem="qcG-FN-uDX" firstAttribute="centerX" secondItem="Xl6-uE-pyL" secondAttribute="centerX" id="btU-h2-m8N"/>
+                            <constraint firstItem="z6a-7b-5Sa" firstAttribute="centerX" secondItem="Xl6-uE-pyL" secondAttribute="centerX" id="eyO-mT-8Fr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gJs-57-ryt"/>
                     <connections>
@@ -460,11 +491,11 @@
                                 <rect key="frame" x="107" y="98" width="200" height="200"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wkh-zJ-Rx6">
-                                <rect key="frame" x="87" y="419" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.91206991792929293" green="0.17470263019799426" blue="0.14086693654355856" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="107" y="416" width="205" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.42930034350000001" blue="0.36591621229999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnb-LV-b33">
@@ -484,15 +515,15 @@
                                     <action selector="saveButton:" destination="vDI-rZ-bfN" eventType="touchUpInside" id="ImE-vc-cFg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add message below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHk-5A-N4U">
-                                <rect key="frame" x="87" y="385" width="232" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="December Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSD-ee-TVq">
+                                <rect key="frame" x="107" y="306" width="200" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="December Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSD-ee-TVq">
-                                <rect key="frame" x="107" y="314" width="200" height="23"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHk-5A-N4U">
+                                <rect key="frame" x="107" y="392" width="205" height="21"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -514,7 +545,6 @@
         <image name="bg_bottomsnow" width="792" height="1224"/>
         <image name="calendar" width="32" height="32"/>
         <image name="camera" width="25" height="25"/>
-        <image name="close" width="25" height="25"/>
         <image name="contacts" width="32" height="32"/>
         <image name="info" width="25" height="25"/>
         <image name="settings" width="32" height="32"/>
