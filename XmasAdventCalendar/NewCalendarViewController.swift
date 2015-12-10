@@ -85,7 +85,6 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
             }
             
         }
-        print("*saved")
         // Return to table view
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -185,7 +184,6 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
         if let selected = selectedObject as PFObject? {
             isNewObject = false
         }
-        print("*isNew")
     }
     
     func updateLabels() {
@@ -199,13 +197,14 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
             let updateObject = selectedObject! as PFObject
             
             if let imageFile = updateObject.objectForKey("image") as? PFFile {
+                print("*1")
                 calendarImage.file = imageFile
                 calendarImage.loadInBackground()
             } else {
                 let placeholder = UIImage(named: "calendar_placeholder")
                 calendarImage.image = placeholder
             }
-            
+            titleField.text = updateObject.objectForKey("title") as? String
             yearLabel.text = updateObject.objectForKey("year") as? String
             createdByLabel.text = updateObject.objectForKey("createdBy") as? String
         }
