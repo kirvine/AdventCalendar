@@ -17,8 +17,9 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
     var scrollView: UIScrollView!
     var imageView: UIImageView!
     var containerView = UIView()
+    var bounds = CGRect()
     
-    var buttonLocations = [(150, 150), (450, 250), (750, 350), (450, 450), (150, 550), (450, 650), (750, 750), (450, 850), (150, 950), (450, 1100), (750, 1250), (450, 1400), (150, 1550), (450, 1700), (750, 1850)]
+//    var buttonLocations = [(150, 150), (450, 250), (750, 350), (450, 450), (150, 550), (450, 650), (750, 750), (450, 850), (150, 950), (450, 1100), (750, 1250), (450, 1400), (150, 1550), (450, 1700), (750, 1850)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +57,59 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         scrollView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         scrollView.addSubview(imageView)
+        
+        bounds = view.bounds
+    }
+    
+    func buttonLocationsArray() ->  [(Int, Int)] {
+        let width = bounds.width
+        let height = bounds.height
+        
+        let xSpacing = Int(width/3)
+        let ySpacing = Int(height/3)
+        
+        let x1 = xSpacing/2
+        let x2 = x1 + xSpacing
+        let x3 = x1 + (2*xSpacing)
+        
+        let y1 = ySpacing/2
+//        let y2 = y1 + ySpacing
+//        let y3 = y1 + (2*ySpacing)
+        
+        var buttons: [(Int, Int)] = []
+        
+        var x: Int
+        var y: Int
+        
+        for row in 1...3 {
+            if (row == 1) {
+                x = x1
+            } else if (row == 2) {
+                x = x2
+            } else {
+                x = x3
+            }
+            for col in 1...8 {
+                y = y1 + (col*ySpacing)
+                
+                buttons.append((x, y))
+            }
+            
+            // place 25th button
+            x = x2+50
+            y = y + 50
+            buttons.append((x, y))
+
+        }
+
+        return buttons
+        
     }
     
     func placeButtons() {
-        print("*place buttons \(calendarId)")
+        var buttonLocations = buttonLocationsArray()
         var num = 1
+        
         for (x, y) in buttonLocations {
             // initalize button
             let button = UIButton.init(type: .System)
@@ -90,7 +139,6 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
             num += 1
 
         }
-        print("*placed buttons")
     }
     
     
@@ -99,9 +147,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         print("*button actions \(calendarId)")
         let dayNumber = Int(sender.titleForState(.Normal)!)
         let dayObject = getDayObject(dayNumber!)
-        
-        print("*in openGift action dayNumber: \(dayNumber!) dayObject: \(dayObject)")
-        
+                
         if canOpen(dayObject) {
             performSegueWithIdentifier("showGift", sender: dayObject)
         } else {
@@ -109,17 +155,12 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
             alertView.alertViewStyle = .Default
             alertView.show()
         }
-        print("*opened Gift")
     }
     
     func getDayObject(dayNumber: Int) -> PFObject {
-        print("*get day object \(calendarId)")
         var query = PFQuery(className: "Days")
-//        print("*in getDayObject calendarId: \(calendarId!)")
         query.whereKey("calendarId", equalTo: calendarId!)
-//        print("*in getDayObject dayNumer: \(dayNumber)")
         query.whereKey("day", equalTo: dayNumber)
-//        print("*in getDayObject query: \(query)")
         var obj = query.getFirstObject()!
         return obj
     }
