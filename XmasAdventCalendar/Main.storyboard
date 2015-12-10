@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Pacifico.ttf">
@@ -387,7 +386,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <segue destination="9yq-cq-Rmk" kind="showDetail" identifier="showGift" id="Gtt-Yy-3LB"/>
+                        <segue destination="9yq-cq-Rmk" kind="show" identifier="showGift" id="yco-2I-T5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8U-Mr-PQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -424,20 +423,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-DR-oWE">
-                                <rect key="frame" x="369" y="28" width="25" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-DR-oWE">
+                                <rect key="frame" x="306" y="86" width="25" height="25"/>
                                 <state key="normal" image="close"/>
-                                <connections>
-                                    <segue destination="zoA-Eo-onF" kind="show" id="bKh-FD-93p"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="BE1-DR-oWE" firstAttribute="trailing" secondItem="Ol7-5m-hKQ" secondAttribute="trailingMargin" id="PwF-gq-giu"/>
-                            <constraint firstItem="BE1-DR-oWE" firstAttribute="top" secondItem="FKa-wa-m7k" secondAttribute="bottom" constant="8" symbolic="YES" id="jdA-5o-uI5"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gJs-57-ryt"/>
                     <connections>
                         <outlet property="dayLabel" destination="qcG-FN-uDX" id="SFF-zp-CfV"/>
                         <outlet property="giftImage" destination="z6a-7b-5Sa" id="lsS-dK-uVl"/>
@@ -446,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smh-kl-jPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3098" y="1403"/>
+            <point key="canvasLocation" x="3071" y="1403"/>
         </scene>
         <!--Edit Day View Controller-->
         <scene sceneID="xWe-mc-4YJ">
