@@ -197,7 +197,6 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
             let updateObject = selectedObject! as PFObject
             
             if let imageFile = updateObject.objectForKey("image") as? PFFile {
-                print("*1")
                 calendarImage.file = imageFile
                 calendarImage.loadInBackground()
             } else {

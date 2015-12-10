@@ -76,7 +76,7 @@ class DaysTableViewController: PFQueryTableViewController {
             }
         } else if segue.identifier == "daysToEditCal" {
             if let vc = segue.destinationViewController as? NewCalendarViewController {
-                vc.currentObject = calendarObject
+                vc.selectedObject = calendarObject
             }
         }
     }

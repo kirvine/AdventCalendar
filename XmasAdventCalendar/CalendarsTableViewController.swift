@@ -12,10 +12,15 @@ import ParseUI
 
 class CalendarsTableViewController: PFQueryTableViewController {
     
-    // fetch calendar objects
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        self.loadObjects()
+        
+    }
+    
     override func queryForTable() -> PFQuery {
         if (PFUser.currentUser() == nil) {
-            
             return PFQuery()
             
         } else {
@@ -59,7 +64,6 @@ class CalendarsTableViewController: PFQueryTableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row + 1 > self.objects?.count {
-            
             return 44
         }
         // set row height to size defined in storyboard
@@ -67,6 +71,12 @@ class CalendarsTableViewController: PFQueryTableViewController {
         return height
         
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //  MARK:   Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewDays" {
@@ -80,17 +90,22 @@ class CalendarsTableViewController: PFQueryTableViewController {
             }
         }
     }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.loadObjects()
-    }
 
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            
+            var selectedCell = tableView.cellForRowAtIndexPath(indexPath) as! CalendarTableViewCell
+//            gameScore.removeObjectForKey("playerName")
+//            self.arrayToPopulateCells.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
+    
 
 }
