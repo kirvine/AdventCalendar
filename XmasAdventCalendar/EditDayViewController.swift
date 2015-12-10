@@ -55,7 +55,7 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("*edit day vdl")
+        print("*edit day vdl selectedObject: \(self.selectedObject)")
         
         
         // configure delegates
@@ -136,6 +136,7 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //  MARK:   Custom Functions
     func updateLabels() {
+        print("*update labels")
         if let object = selectedObject {
             // set day label
             let number = object.objectForKey("day") as? Int
@@ -148,10 +149,12 @@ class EditDayViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             // set image
             if let imageFile = object.objectForKey("image") as? PFFile {
+                print("*yes image")
                 // image has been uploaded
                 giftImage.file = imageFile
                 giftImage.loadInBackground()
             } else {
+                print("*no image")
                 // no image present
                 let placeholder = UIImage(named: "day_placeholder")
                 giftImage.image = placeholder

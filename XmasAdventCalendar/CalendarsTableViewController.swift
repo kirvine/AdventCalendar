@@ -84,14 +84,18 @@ class CalendarsTableViewController: PFQueryTableViewController {
         
         if let indexPath = self.tableView.indexPathForSelectedRow {
             self.calObject = self.objects?[indexPath.row] as? PFObject
-            self.calendarId = calObject?.objectId
+            print("*did select \(calObject?.objectId)")
+            if let calObj = calObject {
+                self.calendarId = calObject?.objectId
+            }
+            print("*did select calendar id: \(calendarId)")
             let createdBy = calObject?.objectForKey("createdBy") as! String
             print("*did select username: \(username) createdBy: \(createdBy)")
-            print("*did select calendarId: \(calendarId) calObject: \(calObject)")
+            print("*did select calendarId: \(self.calendarId) calObject: \(self.calObject)")
             
             if username == createdBy {
                 print("*is days")
-                performSegueWithIdentifier("calToDays", sender: nil)
+                performSegueWithIdentifier("calToDays", sender: self.calendarId)
             } else {
                 print("*is advent")
                 performSegueWithIdentifier("calToAdvent", sender: nil)
