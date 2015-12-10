@@ -28,7 +28,7 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var createdByLabel: UILabel!
-    @IBOutlet weak var viewersField: UITextField!
+    @IBOutlet weak var viewersField: UITextView!
 
     
     //  MARK:   Actions
@@ -61,9 +61,11 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
                 self.presentViewController(alertMsg, animated: true, completion: nil)
                 
             } else {
+                
                 calendarObject["title"] = titleField.text
                 calendarObject["year"] = getCurrentYear()
                 calendarObject["createdBy"] = PFUser.currentUser()?.username
+                calendarObject["viewedBy"] = formatViewersField()
                 
                 // Upload image
                 if imageDidChange == true {
@@ -190,8 +192,10 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
         if isNewObject {
             // object is new
             calendarImage.image = UIImage(named: "calendar_placeholder")
-            yearLabel.text = getCurrentYear()
-            createdByLabel.text = PFUser.currentUser()?.username
+            let year = getCurrentYear()
+            yearLabel.text = "\(year) Holiday Season"
+            let creator = PFUser.currentUser()?.username
+            createdByLabel.text = "Created by \(creator!)"
         } else {
             // load attributes of selected object
             let updateObject = selectedObject! as PFObject
@@ -204,8 +208,12 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
                 calendarImage.image = placeholder
             }
             titleField.text = updateObject.objectForKey("title") as? String
-            yearLabel.text = updateObject.objectForKey("year") as? String
-            createdByLabel.text = updateObject.objectForKey("createdBy") as? String
+            let year = updateObject.objectForKey("year") as? String
+            yearLabel.text = "\(year) Holiday Season"
+            let creator = updateObject.objectForKey("createdBy") as? String
+            createdByLabel.text = "Created by \(creator)"
+            let viewers = updateObject.objectForKey("viewedBy") as? [String]
+            viewersField.text = viewers!.joinWithSeparator(" ")
         }
     }
     
@@ -215,6 +223,22 @@ class NewCalendarViewController: UIViewController, UITextFieldDelegate, UIAlertV
         dateFormatter.dateFormat = "Y"
         let convertedDate = dateFormatter.stringFromDate(currentDate)
         return convertedDate
+    }
+    
+    func formatViewersField() -> [String] {
+        var input = viewersField.text!
+        let separators = NSCharacterSet(charactersInString: ":,; \n")
+        var nameArray = input.componentsSeparatedByCharactersInSet(separators)
+        
+        // remove empty whitespace characters
+        nameArray = nameArray.filter { (x) -> Bool in
+            !x.isEmpty
+        }
+        
+        // make sure all usernames lowercase
+        let finalArray = nameArray.map({ $0.lowercaseString })
+        
+        return finalArray
     }
     
     func createDays(calendarId: String) {
