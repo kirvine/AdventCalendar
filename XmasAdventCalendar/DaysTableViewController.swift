@@ -31,8 +31,6 @@ class DaysTableViewController: PFQueryTableViewController {
         let query = PFQuery(className: "Days")
         if let calString = calendarString {
             query.whereKey("calendarId", equalTo: calString)
-        } else {
-            print("*days queryfortable calendar id is nil")
         }
         
         query.orderByAscending("day")

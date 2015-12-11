@@ -24,9 +24,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         super.viewDidLoad()
         setScrollImage()
         placeButtons()
-        
-        print("*in advent vdl calendarid \(calendarId)")
-        
+                
         view.addSubview(scrollView)
         
         scrollView.delegate = self
@@ -196,11 +194,9 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showGift" {
-            print("*in segue show gift calendarid \(calendarId)")
             if let vc = segue.destinationViewController as? GiftViewController {
                 vc.dayObject = sender as? PFObject
                 vc.calendarId = self.calendarId
-                print("*in segue sending calendarid \(calendarId)")
             }
         }
     }

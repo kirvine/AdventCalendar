@@ -22,7 +22,7 @@ class GiftViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("*gift vdl")
+
         updateLabels()
 
     }
@@ -33,7 +33,6 @@ class GiftViewController: UIViewController {
     }
     
     func updateLabels() {
-        print("* in update labels dayObject \(dayObject)")
         if let object = dayObject {
             
             // set day label
@@ -50,9 +49,6 @@ class GiftViewController: UIViewController {
             self.giftImage.file = object.objectForKey("image") as? PFFile
             self.giftImage.loadInBackground()
             
-        } else {
-            print("* in gift vc no dayObject")
-            print("* calendarId: \(calendarId)")
         }
 
     }
