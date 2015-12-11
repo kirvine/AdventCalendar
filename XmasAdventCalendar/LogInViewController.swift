@@ -60,8 +60,6 @@ class LogInViewController : PFLogInViewController {
         logo.text = "Advent Calendar"
         logo.textColor = UIColor.whiteColor()
         logo.font = UIFont(name: "Pacifico", size: 42)
-        logo.shadowColor = UIColor.lightGrayColor()
-        logo.shadowOffset = CGSizeMake(2, 2)
         logInView?.logo = logo
     }
     
