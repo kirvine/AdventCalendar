@@ -25,6 +25,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         setScrollImage()
         placeButtons()
         
+        print("*in advent vdl calendarid \(calendarId)")
         
         view.addSubview(scrollView)
         
@@ -66,7 +67,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         let height = bounds.height
         
         let xSpacing = Int(width/3)
-        let ySpacing = Int(height/8)
+        let ySpacing = Int(height/9)
         
         let x1 = xSpacing/2
         let x2 = x1 + xSpacing
@@ -101,8 +102,8 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
         }
         
         // place 25th button
-        x = x2+50
-        y = y2 + 50
+        x = x2
+        y = y2
         buttons.append((x, y))
 
         return buttons
@@ -131,7 +132,7 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
             // set title to number of day
             button.setTitle("\(num)", forState: UIControlState.Normal)
             button.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-            button.titleLabel!.font = UIFont(name: "Futura", size: 24)
+            button.titleLabel!.font = UIFont(name: "Futura", size: 32)
             
             // set action
             button.addTarget(self, action: "openGift:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -195,8 +196,11 @@ class AdventCalendarViewController: UIViewController, UIScrollViewDelegate, UIAl
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showGift" {
+            print("*in segue show gift calendarid \(calendarId)")
             if let vc = segue.destinationViewController as? GiftViewController {
                 vc.dayObject = sender as? PFObject
+                vc.calendarId = self.calendarId
+                print("*in segue sending calendarid \(calendarId)")
             }
         }
     }

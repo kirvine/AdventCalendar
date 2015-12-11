@@ -18,6 +18,7 @@ class GiftViewController: UIViewController {
     @IBOutlet weak var giftImage: PFImageView!
 
     var dayObject: PFObject?
+    var calendarId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,26 +33,26 @@ class GiftViewController: UIViewController {
     }
     
     func updateLabels() {
+        print("* in update labels dayObject \(dayObject)")
         if let object = dayObject {
+            
             // set day label
             let number = object.objectForKey("day") as? Int
             self.dayLabel.text  = "Dec \(number!)"
             
-            // set contents of note field
-            if let value = object.objectForKey("note") as? String {
-                self.noteLabel.text = value
-            }
+            // note label
+            self.noteLabel.text = object.objectForKey("note") as? String
             
             // set image
-            if let imageFile = object.objectForKey("image") as? PFFile {
-                // image has been uploaded
-                self.giftImage.file = imageFile
-                self.giftImage.loadInBackground()
-            } else {
-                // no image present
-                let placeholder = UIImage(named: "gift_placeholder")
-                self.giftImage.image = placeholder
-            }
+            let placeholder = UIImage(named: "gift_placeholder")
+            self.giftImage.image = placeholder
+            
+            self.giftImage.file = object.objectForKey("image") as? PFFile
+            self.giftImage.loadInBackground()
+            
+        } else {
+            print("* in gift vc no dayObject")
+            print("* calendarId: \(calendarId)")
         }
 
     }
